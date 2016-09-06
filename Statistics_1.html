@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>
     
-  Travel - 非洲小黑脸李某
+  Statistics - 非洲小黑脸李某
   
   </title>
   
@@ -113,24 +113,193 @@
 		<div class="markdown-body home-categories">
 		
 			<div class="article">
-                <a class="clearlink" href="14731762580818.html">
+                <a class="clearlink" href="14731763776257.html">
                 
-                  <h1>江苏吴中的“考察学习”</h1>
+                  <h1>随机事件和概率</h1>
                   <div class="a-content">
                       
                       <div class="a-content-text">
                         
-                        	<p><img src="http://o6ehj1mo0.bkt.clouddn.com/IMG_0090.JPG" alt=""/></p>
-
-<p>上周末的时候随着校团委去了一趟苏州，具体工作是去吴中集团做一个类似考察学习的事情，其实大家都明白是旅游啦😄</p>
-
-<p>苏州市一个我很喜欢的城市，地方不大，非常的“江南”，一下火车就感觉江南特有的湿润的空气扑鼻而来。这个季节，北京的空气中都弥漫着柳絮，非常恶心，所以在苏州感觉非常好。</p>
-
-<blockquote>
-<p>说个题外话，小时候读过一个故事，主人公貌似是谢灵运？总之是一个家长看到下雪了，于是小孩子“<strong>白雪纷纷何所似</strong>”；一个🐻孩子回答说“<strong>撒盐空中差可拟</strong>”，而谢灵运回答说“<strong>未若柳絮因风起</strong>”，因此得到了大人的表扬。<br/><br/>
-作为一个南方人，对于这种下雪的景象还是很憧憬的，于是从小就觉得柳絮纷飞的场面应该是非常美。于是现在置身于这样的环境中将近一个月，我只想说，<strong>呵呵</strong>😂😂。</p>
+                        	<blockquote>
+<p>随机试验和事件、概率的定义及性质、条件概率</p>
 </blockquote>
 
+<h2 id="toc_0">随机试验和事件</h2>
+
+<h3 id="toc_1">基本概念</h3>
+
+<ol>
+<li><strong>随机现象</strong></li>
+<li><strong>随机试验</strong>：随机现象的实现或对它某个特征的现象</li>
+<li><strong>基本事件</strong>：随机试验中每个可能的结果</li>
+<li><strong>事件</strong>：由若干个基本事件组成的随机试验的结果，通常用\(A,B,C\)，或\(\{一种描述\}\)来表示。例如\(A=\{恰好2次正面向上\}\)。</li>
+<li><strong>必然事件和不可能事件</strong>：
+
+<ul>
+<li><strong>必然事件</strong>：试验中必然会发生的事件，通常用\(\Omega\)或\(S\)表示。</li>
+<li><strong>不可能事件</strong>：试验中不可能发生的事件，通常用\(\emptyset \)表示。</li>
+</ul></li>
+<li><strong>样本空间</strong>：所有基本事件组成的集合，用\(\Omega\)或\(S\)表示。样本空间的元素个数可能是<strong>有限多个</strong>、<strong>可数多个</strong>、<strong>不可数多个</strong>。</li>
+</ol>
+
+<h3 id="toc_2">事件的运算</h3>
+
+<ol>
+<li><p>事件与集合一一对应<br/><br/>
+\(S\)：集合（空间）<br/><br/>
+事件：集合中的一部分<br/><br/>
+基本事件：空间中的点<br/><br/>
+由此将事件运算转到集合运算</p></li>
+<li><p><strong>子事件</strong><br/><br/>
+\(A\)发生蕴含\(B\)发生，称事件\(A\)是事件\(B\)的子事件<br/><br/>
+记为\(A\subset B\)<br/><br/>
+若\(A\subset B,B \subset A\)，则\(A=B\)</p></li>
+<li><p><strong>事件的和</strong><br/><br/>
+\(\{A发生或B发生\}\)称为事件\(A\)与\(B\)的和<br/><br/>
+记为\(A \cup B\)或\(A + B\)（慎用）<br/><br/>
+推广：n个事件的和<br/><br/>
+\[\{A_1发生或A_2发生...或A_n发生\}=A_1\cup A_2\cup ...\cup A_n=\bigcup\limits_{i=1}^{n}{A_i}\]</p></li>
+<li><p><strong>事件的积</strong><br/><br/>
+\(\{A发生且B发生\}\)   称为事件\(A\)与\(B\)的积<br/><br/>
+记为\(A \cap B\)或\(A \cdot B\)或\(AB\)<br/><br/>
+\(AB \subset A,AB \subset B\)<br/><br/>
+推广：n个事件的积<br/><br/>
+\[\{A_1发生且A_2发生...且A_n发生\}=A_1\cap A_2\cap ...\cap A_n=\bigcap\limits_{i=1}^{n}{A_i}\]</p></li>
+<li><p><strong>对立事件</strong><br/><br/>
+事件\(\{A不发生\}\)称为事件\(\{A\}\)的对立事件<br/><br/>
+记为\(\bar A\)或\(A^c\)<br/><br/>
+\[A \cap \bar A=\emptyset,A \cup \bar A=S\]<br/><br/>
+\[\overline{A_1 \cup A_2 \cup ... \cup A_n }=\overline{A_1}\cap \overline{A_2}\cap...\cap\overline{A_n}\]<br/><br/>
+\[\overline{A_1 \cap A_2 \cap ... \cap A_n }=\overline{A_1}\cup \overline{A_2}\cup...\cup\overline{A_n}\]<br/><br/>
+\[A \cup B \cup C=A \cup \overline{A}B \cup \overline{AB}C\]</p></li>
+<li><p><strong>不相容（互斥）事件</strong><br/><br/>
+\[P(A \cap B)=\emptyset\]</p></li>
+<li><p><strong>事件的差</strong><br/><br/>
+事件\(\{A发生,B不发生\}\)称为\(A\)与\(B\)的差<br/><br/>
+记为\(A-B\)或\(A\verb|\|B\)或\(A \bar B\)</p></li>
+</ol>
+
+<h2 id="toc_3">概率的定义及性质</h2>
+
+<h3 id="toc_4">定义</h3>
+
+<p>概率是随机事件发生的大小的可能性的数字表征，即概率是事件的函数。</p>
+
+<h3 id="toc_5">古典定义</h3>
+
+<p>设\(S\)为样本空间，假定：<br/><br/>
+1. \(S\)中只有有限个基本事件，记为\(N\)（有限性）。<br/><br/>
+2. 每个基本事件的可能性相等（等可能性）。<br/><br/>
+则\(S\)中事件\(A\)含有\(m\)个基本事件，定义\(A\)的概率为\(P(A)=\frac{m}{N}\)</p>
+
+<h3 id="toc_6">概率的统计定义</h3>
+
+<p>独立重复做\(n\)次试验，若事件\(A\)发生\(m\)，称\(f=\frac{m}{n}\)是\(A\)发生的频率。当\(n \to \infty\)时，\(f\)在某个值附近，称该值为事件\(A\)的概率，记为\[P(A)=p\]，不能写成\(\lim\limits_{n \to \infty}f_n=p\)（因为\(m\)不是一个确定的数）。</p>
+
+<h3 id="toc_7">主观概率</h3>
+
+<p>先验概率，需要修正</p>
+
+<h3 id="toc_8">概率的公理化定义</h3>
+
+<p>设\(A\)为样本空间\(S\)中的事件，若\(P\)满足以下条件：  </p>
+
+<ol>
+<li>\(0 \leqslant P(A) \leqslant 1\)<br/></li>
+<li>若\(S\)为必然事件，\(P(S)=1\)</li>
+<li>若\(A_1\cap A_2=\emptyset\)，则\(P(A_1\cup A_2)=P(A_1)+P(A_2)\)<br/></li>
+</ol>
+
+<p>则\(P:S \to [0,1]\)称为\(S\)上的一个概率<br/><br/>
+\[\bar S=\emptyset, S \cup \emptyset=S, S \cap \emptyset=\emptyset\]  </p>
+
+<p>有一串事件\(A_1,A_2,...,A_n, A_i \cap A_j=\emptyset(i \neq j)\)<br/><br/>
+定义：\[P(\bigcup \limits_{i=1}^{\infty}{A_i})=\sum \limits_{i=1}^{\infty}P(A_i)\]<br/><br/>
+推论：  </p>
+
+<ol>
+<li>若\(P(A)=p\)，则\(P(\bar A)=1-p\)<br/></li>
+<li>若\(A \subset B\)，则\(P(A) \leqslant P(B) \)</li>
+</ol>
+
+<h3 id="toc_9">古典概型的计算</h3>
+
+<ol>
+<li><p>排列组合</p>
+
+<ul>
+<li>加法原理</li>
+<li>乘法原理<br/></li>
+</ul></li>
+<li><p>排列：有序的\(n\)个物体中取\(r\)个，\[P_n^r=n(n-1)...(n-r+1)=(n)_r\]  </p></li>
+<li><p>重复排列：\(n^r\)</p></li>
+<li><p>组合：\(C_n^r={r \choose n}\) </p></li>
+</ol>
+
+<h2 id="toc_10">条件概率</h2>
+
+<h3 id="toc_11">条件概率</h3>
+
+<p><strong>定义</strong>：在一次试验中，在某事件\(B\)发生的条件下，事件\(A\)发生的概率，称为条件概率，记为\(P(A|B)\)。\(B\)可以认为是试验中已知的某些信息。<br/><br/>
+<strong>计算</strong>：\[P(A|B)=\frac {P(AB)}{P(B)}\]<br/><br/>
+<strong>条件概率的性质</strong>：给定\(A\)发生，\(P(A)&gt;0\)。  </p>
+
+<ol>
+<li>\[0 \leqslant P(B|A) \leqslant 1\]</li>
+<li>\[0 \leqslant P(S|A)=1\]</li>
+<li>若\(B_1 \cap B_2 = \emptyset\)，则\[P(B_1 \cup B_2 | A)=P(B_1|A)+P(B_2|A)\]可以推广到\(n\)个两两不相容事件上。</li>
+</ol>
+
+<p>由：\[P(A|B)=\frac{P(AB)}{P(B)} \implies P(AB)=P(B)-P(A|B)\]<br/><br/>
+用归纳法推广到\(n\)个事件同事发生的概率：<br/><br/>
+\[P(A_1A_2...A_n)=P(A_1)P(A_2|A_1)P(A_3|A_1A_2)...P(A_n|A_1A_2...A_{n-1})\]  </p>
+
+<h3 id="toc_12">全概率公式</h3>
+
+<p><strong>定义</strong>：完备事件群（分割）<br/><br/>
+设\(B_1,B_2,...,B_n\)为样本空间\(S\)中的\(n\)事件，满足：</p>
+
+<ol>
+<li>\[B_i \cap B_j=\emptyset (i \neq j)\]</li>
+<li>\[\bigcup\limits_{i=1}^n B_i=\sum\limits_{i=1}^n B_i=S\]</li>
+</ol>
+
+<p>称\(B_1,B_2,...,B_n\)是样本空间\(S\)的一个分割，或完备事件群。</p>
+
+<p>设\(\{B_1,B_2,...,B_n\}\)为\(S\)的一个分割，\(A\)为任一事件，则：<br/><br/>
+\[P(A)=\sum\limits_{i=1}^n P(A|B_i)P(B_i)\]</p>
+
+<p>\[\begin{align}<br/>
+P(A)&amp; = P(A \cap S)=P(A \cap (\sum\limits_{i=1}^n B_i))\\<br/>
+&amp; =P(\sum\limits_{i=1}^n AB_i)=\sum\limits_{i=1}^nP(AB_i)\\<br/>
+&amp; =\sum\limits_{i=1}^n P(A|B_i)P(B_i)<br/>
+\end{align}\]</p>
+
+<h3 id="toc_13">贝叶斯公式</h3>
+
+<p>设\(\{B_1,B_2,...,B_n\}\)为\(S\)的一个分割，\(A\)为任一事件。<br/><br/>
+则\[P(B_i|A)=\frac{P(A|B_i)P(B_i)}{\sum\limits_{j=1}^n{P(A|B_j)P(B_j)}}\]</p>
+
+<ol>
+<li>“因果关系互换”</li>
+<li>若没有告知具体的分割，则\(P(B|A)\)中的\(B\)和\(\bar B\)就是一个自然的分割。</li>
+</ol>
+
+<h2 id="toc_14">独立性</h2>
+
+<h3 id="toc_15">两个事件的相互独立</h3>
+
+<p>若事件\(A\)、\(B\)满足\(P(AB)=P(A)P(B)\)，称事件\(A\)、\(B\)独立。实际上，若事件\(A\)发生与否和事件\(B\)无关，则\(A\)和\(B\)是独立的。<br/><br/>
+\[P(AB)=P(A)P(B|A)=P(B)P(A|B)\]，若\(P(A)&gt;0,P(B)&gt;0\)，则：<br/><br/>
+\[P(B|A)=P(B),P(A|B)=P(A),P(\bar A B)=P(B)-P(AB)\]</p>
+
+<h3 id="toc_16">\(n\)个事件的相互独立</h3>
+
+<p>设\(A_1,A_2,...,A_n\)满足：<br/><br/>
+\[\forall  1 \leqslant n_1 &lt;n_2&lt;...&lt;n_k \leqslant n,\\P(A_{n_1},A_{n_2},...,A_{n_k})=\prod\limits_{i=1}^k {P(A_{n_i})}\]<br/><br/>
+称\(A_1,A_2,...,A_n\)相互独立。</p>
+
+<p>注：独立和不相容是两个概念。</p>
 
                         
                       </div>
@@ -138,11 +307,11 @@
                 </a>
                 <div class="read-more clearfix">
                   <div class="more-left left">
-                   <a href="14731762580818.html">Read more</a>&nbsp;&nbsp; 
+                  
                     <span class="date">2016/9/6</span>
                     <span>posted in&nbsp;</span> 
           				  
-          					    <span class="posted-in"><a href='Travel.html'>Travel</a></span>
+          					    <span class="posted-in"><a href='Statistics.html'>Statistics</a></span>
           				   
                   </div>
                   <div class="more-right right">
@@ -150,7 +319,7 @@
                       
 
                       
-                        &nbsp;<a  class="ds-thread-count" data-thread-key="14731762580818.html" data-count-type="comments" href="14731762580818.html#ds-thread"></a>
+                        &nbsp;<a  class="ds-thread-count" data-thread-key="14731763776257.html" data-count-type="comments" href="14731763776257.html#ds-thread"></a>
                        
                   </span>
                   </div>
@@ -163,7 +332,7 @@
 			<div class="row">
 			  <div class="large-6 columns">
 			  <p class="text-left" style="padding-top:25px;">
-			   
+			   <a href="Statistics.html">&laquo; Prev Page</a>  
 			  </p>
 			  </div>
 			  <div class="large-6 columns">

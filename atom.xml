@@ -1,126 +1,590 @@
-<!doctype html>
-<html class="no-js" lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[非洲小黑脸李某]]></title>
+  <link href="lish.space/atom.xml" rel="self"/>
+  <link href="lish.space/"/>
+  <updated>2016-09-06T23:59:23+08:00</updated>
+  <id>lish.space/</id>
+  <author>
+    <name><![CDATA[]]></name>
     
-  Statistics - 非洲小黑脸李某
+  </author>
+  <generator uri="http://www.mweb.im/">MWeb</generator>
   
-  </title>
+  <entry>
+    <title type="html"><![CDATA[一些基础及Roadmap]]></title>
+    <link href="lish.space/14731765759434.html"/>
+    <updated>2016-09-06T23:42:55+08:00</updated>
+    <id>lish.space/14731765759434.html</id>
+    <content type="html"><![CDATA[
+<blockquote>
+<p>林轩田的及其学习视频的一些笔记，结合李航的<strong>《统计学习方法》</strong>，先把之前做笔记的总结一下，以后再慢慢随着进度更新，会很慢哦~</p>
+</blockquote>
+
+<h2 id="toc_0">Roadmap</h2>
+
+<ol>
+<li>机器什么时候学习？</li>
+<li>机器为什么可以学习？</li>
+<li>机器如何学习？</li>
+<li>机器如何学的更好？</li>
+</ol>
+
+<h3 id="toc_1">人和机器的学习</h3>
+
+<p><strong>人</strong>：观察\(\to\)学习\(\to\)技能(observations\(\to\)learning\(\to\)skill)<br/><br/>
+<strong>机器</strong>：数据\(\to\)学习\(\to\)技能\(\iff\)性能改进<br/><br/>
+(data\(\to\)learning\(\to\)skill\(\iff\) improved performance measure)</p>
+
+<h3 id="toc_2">机器学习的要素</h3>
+
+<ol>
+<li>存在某种有待学习的规则模式(underlying pattern)</li>
+<li>该规则模式不容易定义</li>
+<li>有关于该规则的数据</li>
+</ol>
+
+<p><strong>未知的有待学习的模式</strong>\(\iff\)目标函数(target function)\(\Longrightarrow X \to Y\)  </p>
+
+]]></content>
+  </entry>
   
+  <entry>
+    <title type="html"><![CDATA[LaTeX和MarkDown中的数学公式]]></title>
+    <link href="lish.space/14731765310285.html"/>
+    <updated>2016-09-06T23:42:11+08:00</updated>
+    <id>lish.space/14731765310285.html</id>
+    <content type="html"><![CDATA[
+<blockquote>
+<p>最近写东西的时候发现没有一个很好的资源来查\(\LaTeX{}\)的数学公式里面的一些字符。有的可能比较完整但是查起来很麻烦，于是决定自己写一个，以后再写的时候也可以自己查着用。</p>
+</blockquote>
+
+<p>在MarkDown里面的\(\LaTeX{}\)公式根据不同的编辑器有的是不一样的，基本就是\(\$\)这个符号的个数的问题。比如说，在<strong>Mou</strong>里面，行内的的是\(\$\$\$equation\$\$\$\)这样的形式，而分段的是\(\$\$equation\$\$\)这样的。而在<strong>MacDown</strong>里面，行内是\(\$equation\$\)，段落是\(\$\$equation\$\$\)。总的来说，基本是几个\(\$\)的区别。</p>
+
+<p>对于要显示编号的的公式，我还没有<del>搞懂</del>🤔🤔🤔🤔</p>
+
+<h1 id="toc_0">基本的用法</h1>
+
+<ul>
+<li>指数、下标：<code>$$X_{a}^{b}$$</code> \[X_a^b\]</li>
+<li>根号：<code>$$\sqrt{X}$$</code> \[\sqrt{X}\]</li>
+<li>公式上方/下方的水平线：<code>$$\overline{a+b}+\underline{a+b}$$</code>  \[\overline{a+b}+\underline{a+b}\] </li>
+<li>公式上方/下方的大括号：<code>$$\overbrace{a+b+\cdots+z}^{26}+\underbrace{A+B+\cdots+Z}_{26}$$</code> \[\overbrace{a+b+\cdots+z}^{26}+\underbrace{A+B+\cdots+Z}_{26}\]</li>
+<li>向量箭头：<code>$$\vec{a}+\vec{ABC}+\overrightarrow{ABC}$$</code>\[\vec{a}+\vec{ABC}+\overrightarrow{ABC}\]</li>
+<li>分数：<code>$$\frac{A}{B}$$</code> \[\frac{A}{B}\]</li>
+<li><p>积分、求和、求积：<code>$$\sum_{i=1}^{n}{X_i}+\int_{0}^{1}{x}+\prod_{i=1}^{n}{X_i}$$</code>这里不同的IDE似乎显示的结果会有不同，比如<strong>MacDown</strong>上面可以显示正常的公式，传到<strong>Hexo</strong>之后没法显示，这里还不知道什么原因。这里积分里面的<code>\,</code>不加的话，\(dx\)和\(x\)的距离会近一点<br/>
+所以下面这个公式是这样的：</p>
+
+<pre><code>$$\int_{0}^{1}{x}\,dx$$
+$$\sum_{i=1}^{n}{X_i}$$
+$$\prod_{i=1}^{n}{X_i}$$
+</code></pre>
+
+<p>\[\int_{0}^{1}{x}\,dx\]</p>
+
+<p>\[\sum_{i=1}^{n}{X_i}\]</p>
+
+<p>\[\prod_{i=1}^{n}{X_i}\]</p></li>
+<li><p>先写这么多吧~~~</p></li>
+</ul>
+
+]]></content>
+  </entry>
   
-  <link href="atom.xml" rel="alternate" title="非洲小黑脸李某" type="application/atom+xml">
-    <link rel="stylesheet" href="asset/css/foundation.min.css" />
-    <link rel="stylesheet" href="asset/css/docs.css" />
-    <script src="asset/js/vendor/modernizr.js"></script>
-    <script src="asset/js/vendor/jquery.js"></script>
-  <script src="asset/highlightjs/highlight.pack.js"></script>
-  <link href="asset/highlightjs/styles/github.css" media="screen, projection" rel="stylesheet" type="text/css">
-  <script>hljs.initHighlightingOnLoad();</script>
-<script type="text/javascript">
-  function before_search(){
-    var searchVal = 'site:lish.space ' + document.getElementById('search_input').value;
-    document.getElementById('search_q').value = searchVal;
-    return true;
-  }
-</script>
-  </head>
-  <body class="antialiased hide-extras">
+  <entry>
+    <title type="html"><![CDATA[记一次毫无意义的爬虫经历]]></title>
+    <link href="lish.space/14731765015123.html"/>
+    <updated>2016-09-06T23:41:41+08:00</updated>
+    <id>lish.space/14731765015123.html</id>
+    <content type="html"><![CDATA[
+<blockquote>
+<p>前段时间觉得MAC的桌面背景看的有点腻了，于是想要去搞几张BG，搜了一下DOTA的主题，发现了这个比较不错的系列。</p>
+</blockquote>
+
+<p><img src="http://pre15.deviantart.net/06b3/th/pre/f/2014/237/0/3/dota_2___rubick_by_sheron1030-d7wlwxt.jpg" alt="RUBICK GRAND MAGUS"/></p>
+
+<p>作者是<a href="http://sheron1030.deviantart.com/gallery/">SHERON1030</a>，网站上还有很多别的可以拿来做背景的图，很不错。<br/>
+但是他的图库一张纸下载起来很麻烦，而我也没有找到什么打包的途径，于是考虑写个爬虫来爬。<br/>
+本来之前从来没有写过爬虫，况且<strong>Python</strong>也是刚刚学了几天，那就边写边学吧！</p>
+
+<pre><code class="language-python">import urllib2
+import re
+
+def downImage(address):
+    path =&#39;/Users/LiSheng/PycharmProjects/untitled&#39;
+    url = address
+    p=re.compile(&#39;dota_2[\S]*&#39;)
+    n=address.split(&#39;/&#39;)[2].split(&#39;.&#39;)[0]
+    nameString=p.findall(url)
+    name =&#39;/Users/LiSheng/PycharmProjects/untitled/&#39;+n+&#39;_&#39;+nameString[0]
+    print name
+    user_agent = &#39;Mozilla/4.0 (compatible; MSIE 5.5; Windows NT)&#39;
+    headers = {&#39;User-Agent&#39;: user_agent}
+    req = urllib2.Request(url, headers)
+    conn=urllib2.urlopen(url)
+    f = open(name,&#39;wb+&#39;)
+    f.write(conn.read())
+    f.close()
+    print(nameString[0]+&#39; download finish!&#39;)
     
-    <div class="marketing off-canvas-wrap" data-offcanvas>
-      <div class="inner-wrap">
+imageList=[]
 
+def addImage(address):
+    file=open(&#39;/Users/LiSheng/PycharmProjects/untitled/imageAddress.txt&#39;,&#39;a&#39;)
+    file.write(address+&#39;\n&#39;)
+    imageList.append(address)
 
-<nav class="top-bar docs-bar hide-for-small" data-topbar>
+def openAddress(address):
+    response=urllib2.urlopen(address)
+    frontPage=response.read()
+    unicodePage=frontPage.decode(&#39;utf-8&#39;)
+    pattern =re.compile(r&#39;\&quot;http://[\S]*.deviantart.com/art/Dota-2-[\S]*\&quot;&#39;)
+    urls=pattern.findall(unicodePage)
 
+    for url in urls:
+        url=url[1:url.__len__()-1]
+        newResponse=urllib2.urlopen(url)
+        newPage=newResponse.read()
+        newUnicodePage=newPage.decode(&#39;utf-8&#39;)
+        pattern =re.compile(r&#39;&lt;img collect_rid=&quot;[\S]*&quot; src=&quot;[\S]*.jpg&quot;&#39;)
+        imageURL=pattern.findall(newUnicodePage)
+        for i in imageURL:
+            x=i.split()
+            xsrc=x[2][5:x[2].__len__()-1]
+            #downImage(xsrc)
+            print(xsrc)
+            addImage(xsrc)
 
-  <section class="top-bar-section">
-  <div class="row">
-      <div style="position: relative;width:100%;"><div style="position: absolute; width:100%;">
-        <ul id="main-menu" class="left">
-        
-        <li id=""><a target="self" href="index.html">Home</a></li>
-        
-        <li id=""><a target="_self" href="archives.html">Archives</a></li>
-        
-        </ul>
+url2=&#39;http://sheron1030.deviantart.com/gallery/?offset=24&#39;
+url3=&#39;http://sheron1030.deviantart.com/gallery/?offset=48&#39;
 
-        <ul class="right" id="search-wrap">
-          <li>
-<form target="_blank" onsubmit="return before_search();" action="http://google.com/search" method="get">
-    <input type="hidden" id="search_q" name="q" value="" />
-    <input tabindex="1" type="search" id="search_input"  placeholder="Search"/>
-</form>
-</li>
-          </ul>
-      </div></div>
-  </div>
-  </section>
+openAddress(&#39;http://sheron1030.deviantart.com/gallery/&#39;)
+openAddress(url2)
+openAddress(url3)
+</code></pre>
 
-</nav>
+<p>仅以此纪念我第一次好好写的<strong>Python</strong>代码与爬虫。最后不得不说，由于学校网络爆炸，跑起来之后BOOM SHAKALAKA，运行了几次，没有以此可以顺利爬完的，pity。</p>
 
-        <nav class="tab-bar show-for-small">
-  <a href="javascript:void(0)" class="left-off-canvas-toggle menu-icon">
-    <span> &nbsp; 非洲小黑脸李某</span>
-  </a>
-</nav>
+<p>尽管任务没有完成，但是非常高兴地复习了一下正则表达式。</p>
 
-<aside class="left-off-canvas-menu">
-      <ul class="off-canvas-list">
-       
-       <li><a href="index.html">HOME</a></li>
-    <li><a href="archives.html">Archives</a></li>
-    <li><a href="about.html">ABOUT</a></li>
+<p><del>你问我为什么把这么丑的代码贴上来？</del><br/>
+<del>那是为了让博客显得不呢么空啊兄弟啊！</del></p>
 
-    <li><label>Categories</label></li>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[多因子选股策略经验分享记录]]></title>
+    <link href="lish.space/14731764792227.html"/>
+    <updated>2016-09-06T23:41:19+08:00</updated>
+    <id>lish.space/14731764792227.html</id>
+    <content type="html"><![CDATA[
+<blockquote>
+<p>内容来源于计量经济学课程的一个PDF，原文题为《多因子选股策略经验分享》</p>
+</blockquote>
 
-        
-            <li><a href="DM/ML/RS.html">DM/ML/RS</a></li>
-        
-            <li><a href="Latex.html">Latex</a></li>
-        
-            <li><a href="Python.html">Python</a></li>
-        
-            <li><a href="Quant.html">Quant</a></li>
-        
-            <li><a href="Database.html">Database</a></li>
-        
-            <li><a href="Statistics.html">Statistics</a></li>
-        
-            <li><a href="Travel.html">Travel</a></li>
-        
-            <li><a href="BLABLABLA.html">BLABLABLA</a></li>
-         
+<h3 id="toc_0">框架</h3>
 
-      </ul>
-    </aside>
+<p><img src="http://o6ehj1mo0.bkt.clouddn.com/%E5%A4%9A%E5%9B%A0%E5%AD%90%E9%80%89%E8%82%A1%E7%AD%96%E7%95%A5%E7%BB%8F%E9%AA%8C%E5%88%86%E4%BA%AB.jpg" alt=""/></p>
 
-<a class="exit-off-canvas" href="#"></a>
+<h3 id="toc_1">筛选有效因子</h3>
 
+<h4 id="toc_2">因子有效性标准</h4>
 
-        <section id="main-content" role="main" class="scroll-container">
-        
-       
+<ol>
+<li>确定因子库
 
- <script type="text/javascript">
-	$(function(){
-		$('#menu_item_index').addClass('is_active');
-	});
-</script>
-<div class="row">
-	<div class="large-8 medium-8 columns">
-		<div class="markdown-body home-categories">
-		
-			<div class="article">
-                <a class="clearlink" href="14731763776619.html">
-                
-                  <h1>假设检验</h1>
-                  <div class="a-content">
-                      
-                      <div class="a-content-text">
-                        
-                        	<blockquote>
+<ul>
+<li>必须有金融学含义（meaningful）</li>
+</ul></li>
+<li>筛选有效因子
+
+<ul>
+<li>有显著收益性（significant）</li>
+<li>收益持续稳定（stable）<br/></li>
+</ul></li>
+</ol>
+
+<h4 id="toc_3">因子库的建立</h4>
+
+<ul>
+<li><strong>成长类</strong>:高成长性的公司更应受到投资者的青睐,从而带来股价的提升<br/>
+典型因子:<code>EPS同比</code>、<code>主营利润同比</code>、<code>主营收入同比</code> </li>
+<li><strong>估值类</strong>:人人都喜欢买价廉又物美的东西。那些估值较低的公司应该更有上涨空间<br/>
+典型因子:<code>市盈率</code>、<code>市净率</code>、<code>相对市盈率</code> </li>
+<li><strong>流动性补偿</strong>:交易不活跃的股票,市值较小的股票往往流动性比较不足,对于这类股票往往需要拥有较高收益,对流动性不足进行补偿<br/>
+典型因子:<code>总市值</code>、<code>流通市值</code>、<code>区间换手率</code>、<code>换手率环比</code> </li>
+<li><strong>风险补偿</strong>:对于波动性大,风险性价高的股票(公司),往往需要有较高的收益性,对风险进行补偿
+典型因子:<code>区间波动率</code>、<code>区间振幅</code>、<code>财务杠杆</code> 、<code>Beta</code> </li>
+<li><strong>动量反转类</strong>:市场存在过度反应或反应不足,会在不同时间域上体 弱反转的效应
+典型因子:<code>区间收益率</code>、<code>区间资金流强度</code></li>
+<li><strong>其他类</strong>:能从多个角度或其他角度解释的因子
+典型因子:<code>PEG</code>、<code>一致预期差</code></li>
+</ul>
+
+<h3 id="toc_4">因子收益的度量方法</h3>
+
+<ol>
+<li>横截面回归<br/>
+因子取值与下期股票收益进行线性回归，用最小二乘法拟合出的回归系数定义为因子回报<br/></li>
+<li>FF排序打分法<br/>
+对因子exposure进行排序,排名靠前的股票组合减去靠后的股票组合下一期的平均收益定义为因子回报</li>
+</ol>
+
+<h3 id="toc_5">因子有效性的评价</h3>
+
+<h4 id="toc_6">信息比率IR</h4>
+
+<p>综合指标，综合衡量收益性和稳定性<br/>
+\[IR= {\overline{R} \over \sigma_R} \] <br/>
+其中\(\overline{R}\)为收益均值，\(\sigma_R\)为收益标准差</p>
+
+<h4 id="toc_7">月胜率Winrate</h4>
+
+<p>稳定性，收益为正的月数越多越好<br/>
+\[Winrate={\sum\limits_{i=1}^{N}{(R_i&gt;0)} \over N}\]<br/>
+其中\(R_i\)为组合的超额收益  </p>
+
+<blockquote>
+<p>这里不太明白的是，究竟是盈利月数与总月数的比例，还是盈利的几个月的总盈利除以总月数？</p>
+</blockquote>
+
+<h4 id="toc_8">平均信息系数Avg_rankic</h4>
+
+<p>收益性指标，表示因子与收益率横截面的相关性<br/>
+\[ Avg\_rankic={\sum\limits_{i=1}^{N}{corr(rank(f_i),rank(r_i))} \over N} \]</p>
+
+<h4 id="toc_9">信息系数标准差Std_rankic</h4>
+
+<p>稳定性指标，越小表示出现因子反转的可能性越小 <br/>
+\[ Std\_rankic= {1 \over N} \sqrt{\sum\limits_{i=1}^{N}{(corr(rank(f_i),rank(r_i))-Avg\_rankic)^2}}\]<br/>
+其中，<code>rank</code>函数表示将自变量排序，返回排序后的序位数；<code>corr</code>函数表示求相关系数</p>
+
+<h3 id="toc_10">因子组合方法：均值方差最优</h3>
+
+<blockquote>
+<p>先贴出来，没有看懂</p>
+</blockquote>
+
+<p>设有\(n\)个因子，\(r\)为收益率矩阵，\(w\)为因子的权重矩阵，\(R=r&#39; \times r \)，\(B\)为收益率的协方差矩阵，\(C\)为相关系数的相关矩阵。则有组合因子的收益、方差与因子权重\(w\)的关系为：<br/>
+\[r^2={w^TRw \over w^TBw}\]<br/>
+\[\sigma ^2={w^TCw \over w^TBw}\]<br/>
+均值方差最优的一类优化条件，即在给定收益\(r_0\)的条件下，实现方差最小化：<br/>
+\[\min\limits_w \sigma^2={w^TCw \over w^TBw}\]<br/>
+使满足：<br/>
+\[{w^TRw \over w^TBw}  =  r_0^2 \]<br/>
+\[w^TI  =  1 \]<br/>
+拉格朗日条件：<br/>
+\[L={w^{T}(C-\lambda R)w \over w^TBw}+\lambda r_0^2+\mu(1-w^{T}I)\]</p>
+
+<p>\[ {\partial L \over \partial w^T } =  0 \]<br/>
+\[{\partial L \over \partial \lambda } = 0 \]<br/>
+\[{\partial L \over \partial \mu }  =  0 \]</p>
+
+<blockquote>
+<p>这里的问题在与，\(r\)、\(w\)等到底是矩阵还是向量？向量比较容易理解其形式，矩阵的话，行和列代表什么？</p>
+</blockquote>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[SQL的复习]]></title>
+    <link href="lish.space/14731764544256.html"/>
+    <updated>2016-09-06T23:40:54+08:00</updated>
+    <id>lish.space/14731764544256.html</id>
+    <content type="html"><![CDATA[
+<blockquote>
+<p>这几天复习了一下SQL，简单总结一下吧！</p>
+</blockquote>
+
+<h3 id="toc_0">SQL的分类</h3>
+
+<h4 id="toc_1">DDL（数据定义语言）</h4>
+
+<ul>
+<li><code>SELECT</code></li>
+<li><code>UPDATE</code></li>
+<li><code>DELETE</code></li>
+<li><code>INSERT INTO</code></li>
+</ul>
+
+<h4 id="toc_2">DML（数据操作语言）</h4>
+
+<ul>
+<li><code>CREATE/ALTER DATABASE</code></li>
+<li><code>CREATE/ALTER/DROP TABLE</code></li>
+<li><code>CREATE/DROP INDEX</code></li>
+</ul>
+
+<h3 id="toc_3">基本语法</h3>
+
+<h4 id="toc_4">SELECT</h4>
+
+<pre><code class="language-sql">SELECT (DISTINCT) 列名称 
+FROM 表名称 
+WHERE {列 运算符 值} AND/OR {列 运算符 值}
+ORDER BY 列名称 ASC/DESC, 列名称 ASC/DESC
+</code></pre>
+
+<p><code>DISTINCT</code>：返回不重复的值<br/>
+<code>AND/OR</code>：条件<br/>
+<code>ORDER BY</code>：排序<br/>
+<code>ASC/DESC</code>：升序/降序，默认升序，多个列时，先按靠前的列排序</p>
+
+<h4 id="toc_5">INSERT</h4>
+
+<pre><code class="language-sql">INSERT INTO 表名称 (列1, 列2,...)
+VALUES (值1, 值2,....)
+</code></pre>
+
+<p>不写(列1, 列2,...)时讲填写所有值<br/>
+写(列1, 列2,...)时为赋值的给空值</p>
+
+<h4 id="toc_6">UPDATE</h4>
+
+<pre><code class="language-SQL">UPDATE 表名称 
+SET 列名称 = 新值 
+WHERE 列名称 = 某值
+</code></pre>
+
+<h4 id="toc_7">DELETE</h4>
+
+<pre><code class="language-SQL">DELETE FROM 表名称 
+WHERE 列名称 = 值
+</code></pre>
+
+<h3 id="toc_8">修饰词</h3>
+
+<h4 id="toc_9">TOP</h4>
+
+<p>规定返回的记录条数，不同数据库语法不同，下面是SQL Server的：</p>
+
+<pre><code class="language-SQL">SELECT TOP number|percent 列名称
+FROM 表名称
+</code></pre>
+
+<p>例子：</p>
+
+<pre><code class="language-sql">SELECT TOP 2 * FROM Persons
+SELECT TOP 50 PERCENT * FROM Persons
+</code></pre>
+
+<h4 id="toc_10">LIKE</h4>
+
+<p>用在<code>WHERE</code>中，寻找匹配的模式</p>
+
+<pre><code class="language-SQL">SELECT 列名称
+FROM 表名称
+WHERE 列 LIKE 模式
+</code></pre>
+
+<p>模式用通配符来表示：<br/>
+<code>%</code>：一个或多个字符<br/>
+<code>_</code>：一个字符<br/>
+<code>[字符列表]</code>：字符列表中的一个字符<br/>
+<code>[^字符列表]</code>：不在字符列表中的一个字符，也可以用<code>[!字符列表]</code></p>
+
+<p>例子：<br/>
+<code>Ne%</code>：以Ne开头的串<br/>
+<code>%lond%</code>：包含lond的串<br/>
+<code>_eorge</code>：第一个字符后面是eorge的串<br/>
+<code>[ALN]%</code>：以A或L或N开头的串</p>
+
+<h4 id="toc_11">IN</h4>
+
+<p>用于<code>WHERE</code>中，规定多个值的范围</p>
+
+<pre><code class="language-sql">SELECT 列名称
+FROM 表名称
+WHERE 列 IN (value1,value2,...)
+</code></pre>
+
+<h4 id="toc_12">BETWEEN...AND</h4>
+
+<p>用于<code>WHERE</code>中，规定一段范围</p>
+
+<pre><code class="language-sql">SELECT 列名称
+FROM 表名称
+WHERE 列
+(NOT) BETWEEN value1 AND value2
+</code></pre>
+
+<h4 id="toc_13">AS</h4>
+
+<p>别名</p>
+
+<pre><code class="language-sql">SELECT 列名称
+FROM 表名称
+AS 列的别名
+</code></pre>
+
+<pre><code class="language-sql">SELECT 列名称 AS 列的别名
+FROM 表名称
+</code></pre>
+
+<h4 id="toc_14">JOIN</h4>
+
+<ul>
+<li><code>JOIN</code>/<code>INNER JOIN</code>: 如果表中有至少一个匹配，则返回行（交集）</li>
+<li><code>LEFT JOIN</code>: 即使右表中没有匹配，也从左表返回所有的行</li>
+<li><code>RIGHT JOIN</code>: 即使左表中没有匹配，也从右表返回所有的行</li>
+<li><code>FULL JOIN</code>: 只要其中一个表中存在匹配，就返回行（并集）</li>
+</ul>
+
+<pre><code class="language-sql">SELECT 列名称
+FROM 表名称
+INNER JOIN 表名称
+ON 列名称1=列名称2
+</code></pre>
+
+<h4 id="toc_15">UNION</h4>
+
+<p>合并两个或多个 <code>SELECT</code> 语句的结果集，结果集列必须相同<br/>
+<code>UNION ALL</code>允许重复值</p>
+
+<pre><code class="language-sql">SELECT 列名称1 FROM 表名称1
+UNION (ALL)
+SELECT 列名称2 FROM 表名称2
+</code></pre>
+
+<h4 id="toc_16">SELECT INTO</h4>
+
+<p>把<code>SELECT</code>的结果集插入另一个表</p>
+
+<pre><code class="language-sql">SELECT 列名称
+INTO 新表名称 (IN 外部数据库名称)
+FROM 旧表名称
+</code></pre>
+
+<h3 id="toc_17">数据库操作</h3>
+
+<h4 id="toc_18">CREATE DATABASE</h4>
+
+<pre><code class="language-sql">CREATE DATABASE 数据库名
+</code></pre>
+
+<h4 id="toc_19">CREATE TABLE</h4>
+
+<pre><code class="language-sql">CREATE TABLE 表名称
+(
+列名称1 数据类型 约束,
+列名称2 数据类型 约束,
+列名称3 数据类型 约束,
+....
+)
+</code></pre>
+
+<p><strong>约束</strong>：</p>
+
+<ul>
+<li><code>NOT NULL</code>：不接受空值</li>
+<li><code>UNIQUE</code>：唯一值</li>
+<li><code>PRIMARY KEY</code>：主键，唯一值，每个表只能有一个主键</li>
+<li><code>FOREIGN KEY</code>：外键，指向另一个表中的主键</li>
+<li><code>CHECK</code>：限制值的范围</li>
+<li><code>DEFAULT</code>：默认值</li>
+<li><code>AUTO INCREMENT</code>：自增或自减</li>
+</ul>
+
+<p>例子：</p>
+
+<pre><code class="language-sql">CREATE TABLE Persons
+(
+Id_P int NOT NULL UNIQUE AUTO_INCREMENT,
+LastName varchar(255) NOT NULL,
+FirstName varchar(255),
+Address varchar(255),
+City varchar(255) DEFAULT &#39;Sandnes&#39;
+PRIMARY KEY (Id_P)
+FOREIGN KEY (Id_P) REFERENCES Persons(Id_P)
+CHECK (Id_P&gt;0)
+)
+</code></pre>
+
+<p>有自增的属性在<code>INSERT</code>时可以不用赋值。</p>
+
+<h4 id="toc_20">CREATE INDEX</h4>
+
+<p>创建索引，索引是看不到的，但是可以加快查询的速度。</p>
+
+<pre><code class="language-sql">CREATE (UNIQUE) INDEX 索引名称
+ON 表名称 (列名称)
+</code></pre>
+
+<p><code>UNIQUE</code>用来创建唯一的索引，即两个行不能有相同的索引值</p>
+
+<h4 id="toc_21">ALTER TABLE</h4>
+
+<p>在已经存在的表中修改表结构<br/>
+<strong>添加列</strong>：<br/>
+<code>sql<br/>
+ALTER TABLE 表名称<br/>
+ADD 列名称 数据类型<br/>
+</code></p>
+
+<p><strong>删除列</strong>：<br/>
+<code>sql<br/>
+ALTER TABLE 表名称 <br/>
+DROP COLUMN 列名称<br/>
+</code></p>
+
+<p><strong>修改列</strong>：<br/>
+<code>sql<br/>
+ALTER TABLE 表名称<br/>
+ALTER COLUMN 列名称 数据类型<br/>
+</code></p>
+
+<h4 id="toc_22">VIEW</h4>
+
+<p>VIEW是一个虚拟的表，是基于SQL语句的结果集。</p>
+
+<pre><code class="language-sql">CREATE VIEW VIEW名称 AS
+SELECT 列名称
+FROM 表名称
+WHERE 条件
+</code></pre>
+
+<p>修改VIEW<br/>
+<code>sql<br/>
+CREATE (REPLACE) VIEW VIEW名称 AS<br/>
+SELECT 列名称<br/>
+FROM 表名称<br/>
+WHERE 条件<br/>
+</code></p>
+
+<h3 id="toc_23">重要的函数</h3>
+
+<h4 id="toc_24">GROUP BY</h4>
+
+<pre><code class="language-sql">SELECT 列名称
+FROM 表名称
+GROUP BY 列名称
+</code></pre>
+
+<p>返回的结果会根据<code>GROUP BY</code>的列来分组，其他的列进行合并</p>
+
+<h4 id="toc_25">HAVING</h4>
+
+<p><code>GROUP BY</code>子句不能和<code>WHERE</code>一起使用，因此要用<code>HAVING</code>关键字</p>
+
+<pre><code class="language-sql">SELECT 列名称
+FROM 表名称
+GROUP BY 列名称
+HAVING 条件
+</code></pre>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[假设检验]]></title>
+    <link href="lish.space/14731763776619.html"/>
+    <updated>2016-09-06T23:39:37+08:00</updated>
+    <id>lish.space/14731763776619.html</id>
+    <content type="html"><![CDATA[
+<blockquote>
 <p>概念、一个正态总体均值的检验、两个正态总体均值差的检验、成对比较、二样本方差比的检验、拟合优度检验</p>
 </blockquote>
 
@@ -246,40 +710,16 @@
 \[P(\chi_{k-1}^2 &gt; \chi^2)=p\]<br/>
 \(p\)值即\(p-value\)，即拟合优度，\(p\)值越小越，拟合优度越差，越要拒绝原假设</p>
 
-                        
-                      </div>
-                  </div>
-                </a>
-                <div class="read-more clearfix">
-                  <div class="more-left left">
-                  
-                    <span class="date">2016/9/6</span>
-                    <span>posted in&nbsp;</span> 
-          				  
-          					    <span class="posted-in"><a href='Statistics.html'>Statistics</a></span>
-          				   
-                  </div>
-                  <div class="more-right right">
-                  <span class="comments">
-                      
-
-                      
-                        &nbsp;<a  class="ds-thread-count" data-thread-key="14731763776619.html" data-count-type="comments" href="14731763776619.html#ds-thread"></a>
-                       
-                  </span>
-                  </div>
-                </div>
-              </div><!-- article -->
-        
-			<div class="article">
-                <a class="clearlink" href="14731763776520.html">
-                
-                  <h1>数理统计的基本概念</h1>
-                  <div class="a-content">
-                      
-                      <div class="a-content-text">
-                        
-                        	<blockquote>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[数理统计的基本概念]]></title>
+    <link href="lish.space/14731763776520.html"/>
+    <updated>2016-09-06T23:39:37+08:00</updated>
+    <id>lish.space/14731763776520.html</id>
+    <content type="html"><![CDATA[
+<blockquote>
 <p>基本概念、点估计（矩估计、极大似然估计）、区间估计</p>
 </blockquote>
 
@@ -570,40 +1010,16 @@ Em_2=\frac{1}{n}(n\sigma^2-\sigma^2)=\frac{n-1}{n}\sigma^2<br/>
 \implies \frac{1}{F_{m,n}(\alpha)}=F_{n,m}(1-\alpha)\]<br/>
 所以\(b=F_{n_2-1,n_1-1}(\frac{\alpha}{2})\)</p>
 
-                        
-                      </div>
-                  </div>
-                </a>
-                <div class="read-more clearfix">
-                  <div class="more-left left">
-                  
-                    <span class="date">2016/9/6</span>
-                    <span>posted in&nbsp;</span> 
-          				  
-          					    <span class="posted-in"><a href='Statistics.html'>Statistics</a></span>
-          				   
-                  </div>
-                  <div class="more-right right">
-                  <span class="comments">
-                      
-
-                      
-                        &nbsp;<a  class="ds-thread-count" data-thread-key="14731763776520.html" data-count-type="comments" href="14731763776520.html#ds-thread"></a>
-                       
-                  </span>
-                  </div>
-                </div>
-              </div><!-- article -->
-        
-			<div class="article">
-                <a class="clearlink" href="14731763776458.html">
-                
-                  <h1>随机变量的数字特征</h1>
-                  <div class="a-content">
-                      
-                      <div class="a-content-text">
-                        
-                        	<blockquote>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[随机变量的数字特征]]></title>
+    <link href="lish.space/14731763776458.html"/>
+    <updated>2016-09-06T23:39:37+08:00</updated>
+    <id>lish.space/14731763776458.html</id>
+    <content type="html"><![CDATA[
+<blockquote>
 <p>数学期望、条件数学期望、方差、标准差、协方差、相关系数、大数定律、中心极限定理</p>
 </blockquote>
 
@@ -853,40 +1269,16 @@ b <br/>
 \[P(k_1\leqslant X\leqslant k_2)=P(k-\frac{1}{2} &lt; X\leqslant k_2+\frac{1}{2})\]<br/>
 在分布靠中心处精度较高，两端尾部的精度低</p>
 
-                        
-                      </div>
-                  </div>
-                </a>
-                <div class="read-more clearfix">
-                  <div class="more-left left">
-                  
-                    <span class="date">2016/9/6</span>
-                    <span>posted in&nbsp;</span> 
-          				  
-          					    <span class="posted-in"><a href='Statistics.html'>Statistics</a></span>
-          				   
-                  </div>
-                  <div class="more-right right">
-                  <span class="comments">
-                      
-
-                      
-                        &nbsp;<a  class="ds-thread-count" data-thread-key="14731763776458.html" data-count-type="comments" href="14731763776458.html#ds-thread"></a>
-                       
-                  </span>
-                  </div>
-                </div>
-              </div><!-- article -->
-        
-			<div class="article">
-                <a class="clearlink" href="14731763776396.html">
-                
-                  <h1>多维随机变量及其分布</h1>
-                  <div class="a-content">
-                      
-                      <div class="a-content-text">
-                        
-                        	<blockquote>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[多维随机变量及其分布]]></title>
+    <link href="lish.space/14731763776396.html"/>
+    <updated>2016-09-06T23:39:37+08:00</updated>
+    <id>lish.space/14731763776396.html</id>
+    <content type="html"><![CDATA[
+<blockquote>
 <p>随机向量及其分布、多元分布、条件分布、随机向量的函数的分布、统计中的重要分布</p>
 </blockquote>
 
@@ -1092,40 +1484,16 @@ b <br/>
 
 <p>\[\begin{aligned}P(W\leqslant w)&amp;=P(min(X,Y)\leqslant w)\\&amp;=1-P(min(Z,Y)&gt; w)\\&amp;=1-P(X&gt;w,Y&gt;w)\\&amp;=1-P(X&gt;w)P(Y&gt;w)\\&amp;=1-(1-F_x(w))(1-F_y(w))\end{aligned}\]</p>
 
-                        
-                      </div>
-                  </div>
-                </a>
-                <div class="read-more clearfix">
-                  <div class="more-left left">
-                  
-                    <span class="date">2016/9/6</span>
-                    <span>posted in&nbsp;</span> 
-          				  
-          					    <span class="posted-in"><a href='Statistics.html'>Statistics</a></span>
-          				   
-                  </div>
-                  <div class="more-right right">
-                  <span class="comments">
-                      
-
-                      
-                        &nbsp;<a  class="ds-thread-count" data-thread-key="14731763776396.html" data-count-type="comments" href="14731763776396.html#ds-thread"></a>
-                       
-                  </span>
-                  </div>
-                </div>
-              </div><!-- article -->
-        
-			<div class="article">
-                <a class="clearlink" href="14731763776335.html">
-                
-                  <h1>随机变量及其分布</h1>
-                  <div class="a-content">
-                      
-                      <div class="a-content-text">
-                        
-                        	<blockquote>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[随机变量及其分布]]></title>
+    <link href="lish.space/14731763776335.html"/>
+    <updated>2016-09-06T23:39:37+08:00</updated>
+    <id>lish.space/14731763776335.html</id>
+    <content type="html"><![CDATA[
+<blockquote>
 <p>随机变量、离散型随机变量、连续型随机变量</p>
 </blockquote>
 
@@ -1248,215 +1616,398 @@ F(+\infty)=\lim\limits_{x \to +\infty}F(x)=1\)  </p></li>
 
 <p><strong>定理1</strong>：设\(X \backsim f(x)\)，\(g(\cdot)\)是严格的单调增（减）函数。则\(y=g(x)\backsim f_y(h(y))\left| h&#39;(y)\right |\)，其中\(h\)是\(g\)的反函数，\([\alpha,\beta)\)是\(y\)的值域。</p>
 
-                        
-                      </div>
-                  </div>
-                </a>
-                <div class="read-more clearfix">
-                  <div class="more-left left">
-                  
-                    <span class="date">2016/9/6</span>
-                    <span>posted in&nbsp;</span> 
-          				  
-          					    <span class="posted-in"><a href='Statistics.html'>Statistics</a></span>
-          				   
-                  </div>
-                  <div class="more-right right">
-                  <span class="comments">
-                      
-
-                      
-                        &nbsp;<a  class="ds-thread-count" data-thread-key="14731763776335.html" data-count-type="comments" href="14731763776335.html#ds-thread"></a>
-                       
-                  </span>
-                  </div>
-                </div>
-              </div><!-- article -->
-        
-              
-
-
-			<div class="row">
-			  <div class="large-6 columns">
-			  <p class="text-left" style="padding-top:25px;">
-			   
-			  </p>
-			  </div>
-			  <div class="large-6 columns">
-			<p class="text-right" style="padding-top:25px;">
-			 <a href="Statistics_1.html">&raquo; Next Page</a> 
-			</p>
-			  </div>
-			</div>
-		</div>
-	</div><!-- large 8 -->
-
- <div class="large-4 medium-4 columns">
-  <div class="hide-for-small">
-    <div id="sidebar" class="sidebar">
-          <div id="site-info" class="site-info">
-            
-                <h1>非洲小黑脸李某</h1>
-                <div class="site-des">"Now the king is dead! Long live the king!"</div>
-                <div class="social">
-
-
-
-
-
-
-
-<a target="_blank" class="weibo" href="http://www.weibo.com/u/1778049394" title="weibo">Weibo</a>
-
-<a target="_blank" class="github" target="_blank" href="https://neillee1991.github.com" title="GitHub">GitHub</a>
-<a target="_blank" class="email" href="mailto:neillee1991@qq.com" title="Email">Email</a>
-  <a target="_blank" class="rss" href="atom.xml" title="RSS">RSS</a>
-                
-              	 </div>
-          	</div>
-
-             
-
-              <div id="site-categories" class="side-item ">
-                <div class="side-header">
-                  <h2>Categories</h2>
-                </div>
-                <div class="side-content">
-
-      	<p class="cat-list">
-        
-            <a href="DM/ML/RS.html"><strong>DM/ML/RS</strong></a>
-        
-            <a href="Latex.html"><strong>Latex</strong></a>
-        
-            <a href="Python.html"><strong>Python</strong></a>
-        
-            <a href="Quant.html"><strong>Quant</strong></a>
-        
-            <a href="Database.html"><strong>Database</strong></a>
-        
-            <a href="Statistics.html"><strong>Statistics</strong></a>
-        
-            <a href="Travel.html"><strong>Travel</strong></a>
-        
-            <a href="BLABLABLA.html"><strong>BLABLABLA</strong></a>
-         
-        </p>
-
-
-                </div>
-              </div>
-
-              <div id="site-categories" class="side-item">
-                <div class="side-header">
-                  <h2>Recent Posts</h2>
-                </div>
-                <div class="side-content">
-                <ul class="posts-list">
-	      
-		      
-			      <li class="post">
-			        <a href="14731765759434.html">一些基础及Roadmap</a>
-			      </li>
-		     
-		  
-		      
-			      <li class="post">
-			        <a href="14731765310285.html">LaTeX和MarkDown中的数学公式</a>
-			      </li>
-		     
-		  
-		      
-			      <li class="post">
-			        <a href="14731765015123.html">记一次毫无意义的爬虫经历</a>
-			      </li>
-		     
-		  
-		      
-			      <li class="post">
-			        <a href="14731764792227.html">多因子选股策略经验分享记录</a>
-			      </li>
-		     
-		  
-		      
-			      <li class="post">
-			        <a href="14731764544256.html">SQL的复习</a>
-			      </li>
-		     
-		  
-		      
-		  
-		      
-		  
-		      
-		  
-		      
-		  
-		      
-		  
-		      
-		  
-		      
-		  
-		      
-		   
-		  		</ul>
-                </div>
-              </div>
-        </div><!-- sidebar -->
-      </div><!-- hide for small -->
-</div><!-- large 4 -->
-
-</div><!-- row -->
-
- <div class="page-bottom clearfix">
-  <div class="row">
-   <p class="copyright">Copyright &copy; 2015
-Powered by <a target="_blank" href="http://www.mweb.im">MWeb</a>,&nbsp; 
-Theme used <a target="_blank" href="http://github.com">GitHub CSS</a>.</p>
-  </div>
-</div>
-
-        </section>
-      </div>
-    </div>
-
+]]></content>
+  </entry>
   
+  <entry>
+    <title type="html"><![CDATA[随机事件和概率]]></title>
+    <link href="lish.space/14731763776257.html"/>
+    <updated>2016-09-06T23:39:37+08:00</updated>
+    <id>lish.space/14731763776257.html</id>
+    <content type="html"><![CDATA[
+<blockquote>
+<p>随机试验和事件、概率的定义及性质、条件概率</p>
+</blockquote>
 
+<h2 id="toc_0">随机试验和事件</h2>
 
-<script type="text/javascript">
-var duoshuoQuery = {short_name:'LiSH'};
-  (function() {
-    var ds = document.createElement('script');
-    ds.type = 'text/javascript';ds.async = true;
-    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
-    ds.charset = 'UTF-8';
-    (document.getElementsByTagName('head')[0] 
-     || document.getElementsByTagName('body')[0]).appendChild(ds);
-  })();
-  </script>
-    
+<h3 id="toc_1">基本概念</h3>
 
-    <script src="asset/js/foundation.min.js"></script>
-    <script>
-      $(document).foundation();
-      function fixSidebarHeight(){
-        var w1 = $('.markdown-body').height();
-          var w2 = $('#sidebar').height();
-          if (w1 > w2) { $('#sidebar').height(w1); };
-      }
-      $(function(){
-        fixSidebarHeight();
-      })
-      $(window).load(function(){
-          fixSidebarHeight();
-      });
-     
-    </script>
+<ol>
+<li><strong>随机现象</strong></li>
+<li><strong>随机试验</strong>：随机现象的实现或对它某个特征的现象</li>
+<li><strong>基本事件</strong>：随机试验中每个可能的结果</li>
+<li><strong>事件</strong>：由若干个基本事件组成的随机试验的结果，通常用\(A,B,C\)，或\(\{一种描述\}\)来表示。例如\(A=\{恰好2次正面向上\}\)。</li>
+<li><strong>必然事件和不可能事件</strong>：
 
-    <script src="asset/chart/all-min.js"></script><script type="text/javascript">$(function(){    var mwebii=0;    var mwebChartEleId = 'mweb-chart-ele-';    $('pre>code').each(function(){        mwebii++;        var eleiid = mwebChartEleId+mwebii;        if($(this).hasClass('language-sequence')){            var ele = $(this).addClass('nohighlight').parent();            $('<div id="'+eleiid+'"></div>').insertAfter(ele);            ele.hide();            var diagram = Diagram.parse($(this).text());            diagram.drawSVG(eleiid,{theme: 'simple'});        }else if($(this).hasClass('language-flow')){            var ele = $(this).addClass('nohighlight').parent();            $('<div id="'+eleiid+'"></div>').insertAfter(ele);            ele.hide();            var diagram = flowchart.parse($(this).text());            diagram.drawSVG(eleiid);        }    });});</script>
-<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><script type="text/x-mathjax-config">MathJax.Hub.Config({TeX: { equationNumbers: { autoNumber: "AMS" } }});</script>
+<ul>
+<li><strong>必然事件</strong>：试验中必然会发生的事件，通常用\(\Omega\)或\(S\)表示。</li>
+<li><strong>不可能事件</strong>：试验中不可能发生的事件，通常用\(\emptyset \)表示。</li>
+</ul></li>
+<li><strong>样本空间</strong>：所有基本事件组成的集合，用\(\Omega\)或\(S\)表示。样本空间的元素个数可能是<strong>有限多个</strong>、<strong>可数多个</strong>、<strong>不可数多个</strong>。</li>
+</ol>
 
+<h3 id="toc_2">事件的运算</h3>
 
-  </body>
-</html>
+<ol>
+<li><p>事件与集合一一对应<br/><br/>
+\(S\)：集合（空间）<br/><br/>
+事件：集合中的一部分<br/><br/>
+基本事件：空间中的点<br/><br/>
+由此将事件运算转到集合运算</p></li>
+<li><p><strong>子事件</strong><br/><br/>
+\(A\)发生蕴含\(B\)发生，称事件\(A\)是事件\(B\)的子事件<br/><br/>
+记为\(A\subset B\)<br/><br/>
+若\(A\subset B,B \subset A\)，则\(A=B\)</p></li>
+<li><p><strong>事件的和</strong><br/><br/>
+\(\{A发生或B发生\}\)称为事件\(A\)与\(B\)的和<br/><br/>
+记为\(A \cup B\)或\(A + B\)（慎用）<br/><br/>
+推广：n个事件的和<br/><br/>
+\[\{A_1发生或A_2发生...或A_n发生\}=A_1\cup A_2\cup ...\cup A_n=\bigcup\limits_{i=1}^{n}{A_i}\]</p></li>
+<li><p><strong>事件的积</strong><br/><br/>
+\(\{A发生且B发生\}\)   称为事件\(A\)与\(B\)的积<br/><br/>
+记为\(A \cap B\)或\(A \cdot B\)或\(AB\)<br/><br/>
+\(AB \subset A,AB \subset B\)<br/><br/>
+推广：n个事件的积<br/><br/>
+\[\{A_1发生且A_2发生...且A_n发生\}=A_1\cap A_2\cap ...\cap A_n=\bigcap\limits_{i=1}^{n}{A_i}\]</p></li>
+<li><p><strong>对立事件</strong><br/><br/>
+事件\(\{A不发生\}\)称为事件\(\{A\}\)的对立事件<br/><br/>
+记为\(\bar A\)或\(A^c\)<br/><br/>
+\[A \cap \bar A=\emptyset,A \cup \bar A=S\]<br/><br/>
+\[\overline{A_1 \cup A_2 \cup ... \cup A_n }=\overline{A_1}\cap \overline{A_2}\cap...\cap\overline{A_n}\]<br/><br/>
+\[\overline{A_1 \cap A_2 \cap ... \cap A_n }=\overline{A_1}\cup \overline{A_2}\cup...\cup\overline{A_n}\]<br/><br/>
+\[A \cup B \cup C=A \cup \overline{A}B \cup \overline{AB}C\]</p></li>
+<li><p><strong>不相容（互斥）事件</strong><br/><br/>
+\[P(A \cap B)=\emptyset\]</p></li>
+<li><p><strong>事件的差</strong><br/><br/>
+事件\(\{A发生,B不发生\}\)称为\(A\)与\(B\)的差<br/><br/>
+记为\(A-B\)或\(A\verb|\|B\)或\(A \bar B\)</p></li>
+</ol>
+
+<h2 id="toc_3">概率的定义及性质</h2>
+
+<h3 id="toc_4">定义</h3>
+
+<p>概率是随机事件发生的大小的可能性的数字表征，即概率是事件的函数。</p>
+
+<h3 id="toc_5">古典定义</h3>
+
+<p>设\(S\)为样本空间，假定：<br/><br/>
+1. \(S\)中只有有限个基本事件，记为\(N\)（有限性）。<br/><br/>
+2. 每个基本事件的可能性相等（等可能性）。<br/><br/>
+则\(S\)中事件\(A\)含有\(m\)个基本事件，定义\(A\)的概率为\(P(A)=\frac{m}{N}\)</p>
+
+<h3 id="toc_6">概率的统计定义</h3>
+
+<p>独立重复做\(n\)次试验，若事件\(A\)发生\(m\)，称\(f=\frac{m}{n}\)是\(A\)发生的频率。当\(n \to \infty\)时，\(f\)在某个值附近，称该值为事件\(A\)的概率，记为\[P(A)=p\]，不能写成\(\lim\limits_{n \to \infty}f_n=p\)（因为\(m\)不是一个确定的数）。</p>
+
+<h3 id="toc_7">主观概率</h3>
+
+<p>先验概率，需要修正</p>
+
+<h3 id="toc_8">概率的公理化定义</h3>
+
+<p>设\(A\)为样本空间\(S\)中的事件，若\(P\)满足以下条件：  </p>
+
+<ol>
+<li>\(0 \leqslant P(A) \leqslant 1\)<br/></li>
+<li>若\(S\)为必然事件，\(P(S)=1\)</li>
+<li>若\(A_1\cap A_2=\emptyset\)，则\(P(A_1\cup A_2)=P(A_1)+P(A_2)\)<br/></li>
+</ol>
+
+<p>则\(P:S \to [0,1]\)称为\(S\)上的一个概率<br/><br/>
+\[\bar S=\emptyset, S \cup \emptyset=S, S \cap \emptyset=\emptyset\]  </p>
+
+<p>有一串事件\(A_1,A_2,...,A_n, A_i \cap A_j=\emptyset(i \neq j)\)<br/><br/>
+定义：\[P(\bigcup \limits_{i=1}^{\infty}{A_i})=\sum \limits_{i=1}^{\infty}P(A_i)\]<br/><br/>
+推论：  </p>
+
+<ol>
+<li>若\(P(A)=p\)，则\(P(\bar A)=1-p\)<br/></li>
+<li>若\(A \subset B\)，则\(P(A) \leqslant P(B) \)</li>
+</ol>
+
+<h3 id="toc_9">古典概型的计算</h3>
+
+<ol>
+<li><p>排列组合</p>
+
+<ul>
+<li>加法原理</li>
+<li>乘法原理<br/></li>
+</ul></li>
+<li><p>排列：有序的\(n\)个物体中取\(r\)个，\[P_n^r=n(n-1)...(n-r+1)=(n)_r\]  </p></li>
+<li><p>重复排列：\(n^r\)</p></li>
+<li><p>组合：\(C_n^r={r \choose n}\) </p></li>
+</ol>
+
+<h2 id="toc_10">条件概率</h2>
+
+<h3 id="toc_11">条件概率</h3>
+
+<p><strong>定义</strong>：在一次试验中，在某事件\(B\)发生的条件下，事件\(A\)发生的概率，称为条件概率，记为\(P(A|B)\)。\(B\)可以认为是试验中已知的某些信息。<br/><br/>
+<strong>计算</strong>：\[P(A|B)=\frac {P(AB)}{P(B)}\]<br/><br/>
+<strong>条件概率的性质</strong>：给定\(A\)发生，\(P(A)&gt;0\)。  </p>
+
+<ol>
+<li>\[0 \leqslant P(B|A) \leqslant 1\]</li>
+<li>\[0 \leqslant P(S|A)=1\]</li>
+<li>若\(B_1 \cap B_2 = \emptyset\)，则\[P(B_1 \cup B_2 | A)=P(B_1|A)+P(B_2|A)\]可以推广到\(n\)个两两不相容事件上。</li>
+</ol>
+
+<p>由：\[P(A|B)=\frac{P(AB)}{P(B)} \implies P(AB)=P(B)-P(A|B)\]<br/><br/>
+用归纳法推广到\(n\)个事件同事发生的概率：<br/><br/>
+\[P(A_1A_2...A_n)=P(A_1)P(A_2|A_1)P(A_3|A_1A_2)...P(A_n|A_1A_2...A_{n-1})\]  </p>
+
+<h3 id="toc_12">全概率公式</h3>
+
+<p><strong>定义</strong>：完备事件群（分割）<br/><br/>
+设\(B_1,B_2,...,B_n\)为样本空间\(S\)中的\(n\)事件，满足：</p>
+
+<ol>
+<li>\[B_i \cap B_j=\emptyset (i \neq j)\]</li>
+<li>\[\bigcup\limits_{i=1}^n B_i=\sum\limits_{i=1}^n B_i=S\]</li>
+</ol>
+
+<p>称\(B_1,B_2,...,B_n\)是样本空间\(S\)的一个分割，或完备事件群。</p>
+
+<p>设\(\{B_1,B_2,...,B_n\}\)为\(S\)的一个分割，\(A\)为任一事件，则：<br/><br/>
+\[P(A)=\sum\limits_{i=1}^n P(A|B_i)P(B_i)\]</p>
+
+<p>\[\begin{align}<br/>
+P(A)&amp; = P(A \cap S)=P(A \cap (\sum\limits_{i=1}^n B_i))\\<br/>
+&amp; =P(\sum\limits_{i=1}^n AB_i)=\sum\limits_{i=1}^nP(AB_i)\\<br/>
+&amp; =\sum\limits_{i=1}^n P(A|B_i)P(B_i)<br/>
+\end{align}\]</p>
+
+<h3 id="toc_13">贝叶斯公式</h3>
+
+<p>设\(\{B_1,B_2,...,B_n\}\)为\(S\)的一个分割，\(A\)为任一事件。<br/><br/>
+则\[P(B_i|A)=\frac{P(A|B_i)P(B_i)}{\sum\limits_{j=1}^n{P(A|B_j)P(B_j)}}\]</p>
+
+<ol>
+<li>“因果关系互换”</li>
+<li>若没有告知具体的分割，则\(P(B|A)\)中的\(B\)和\(\bar B\)就是一个自然的分割。</li>
+</ol>
+
+<h2 id="toc_14">独立性</h2>
+
+<h3 id="toc_15">两个事件的相互独立</h3>
+
+<p>若事件\(A\)、\(B\)满足\(P(AB)=P(A)P(B)\)，称事件\(A\)、\(B\)独立。实际上，若事件\(A\)发生与否和事件\(B\)无关，则\(A\)和\(B\)是独立的。<br/><br/>
+\[P(AB)=P(A)P(B|A)=P(B)P(A|B)\]，若\(P(A)&gt;0,P(B)&gt;0\)，则：<br/><br/>
+\[P(B|A)=P(B),P(A|B)=P(A),P(\bar A B)=P(B)-P(AB)\]</p>
+
+<h3 id="toc_16">\(n\)个事件的相互独立</h3>
+
+<p>设\(A_1,A_2,...,A_n\)满足：<br/><br/>
+\[\forall  1 \leqslant n_1 &lt;n_2&lt;...&lt;n_k \leqslant n,\\P(A_{n_1},A_{n_2},...,A_{n_k})=\prod\limits_{i=1}^k {P(A_{n_i})}\]<br/><br/>
+称\(A_1,A_2,...,A_n\)相互独立。</p>
+
+<p>注：独立和不相容是两个概念。</p>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[江苏吴中的“考察学习”]]></title>
+    <link href="lish.space/14731762580818.html"/>
+    <updated>2016-09-06T23:37:38+08:00</updated>
+    <id>lish.space/14731762580818.html</id>
+    <content type="html"><![CDATA[
+<p><img src="http://o6ehj1mo0.bkt.clouddn.com/IMG_0090.JPG" alt=""/></p>
+
+<p>上周末的时候随着校团委去了一趟苏州，具体工作是去吴中集团做一个类似考察学习的事情，其实大家都明白是旅游啦😄</p>
+
+<p>苏州市一个我很喜欢的城市，地方不大，非常的“江南”，一下火车就感觉江南特有的湿润的空气扑鼻而来。这个季节，北京的空气中都弥漫着柳絮，非常恶心，所以在苏州感觉非常好。</p>
+
+<blockquote>
+<p>说个题外话，小时候读过一个故事，主人公貌似是谢灵运？总之是一个家长看到下雪了，于是小孩子“<strong>白雪纷纷何所似</strong>”；一个🐻孩子回答说“<strong>撒盐空中差可拟</strong>”，而谢灵运回答说“<strong>未若柳絮因风起</strong>”，因此得到了大人的表扬。<br/><br/>
+作为一个南方人，对于这种下雪的景象还是很憧憬的，于是从小就觉得柳絮纷飞的场面应该是非常美。于是现在置身于这样的环境中将近一个月，我只想说，<strong>呵呵</strong>😂😂。</p>
+</blockquote>
+
+<span id="more"></span><!-- more -->
+
+<p>江苏吴中是一个比较大的企业，在江苏也算比较有名气。因为创始人是教育系统内部的人，所以企业早期是依靠教育发家的。现在做得业务就非常多了。根据他们的介绍，主要有房地产、旅游、金融和汽车这几块，其中旅游这一块做的是旅游酒店，金融有一个叫<strong>苏州钱袋</strong>的，汽车的话做的是路虎、捷豹、奥迪等的4S店。</p>
+
+<p>这几天苏州的天气不是很好，下着雨，感觉还是有些小冷。在苏州的前一天半大致就是参观了一下吴中的几个产业：自来水厂、地产、酒店、4S店。</p>
+
+<p>总体感觉，吴中的业务还是比较传统的，做的消费的业务也是偏中高端。但是根据他们的人意思，现在应该想要转型，把互联网加上去。但是我个人认为互联网的优势是数据和长尾，总感觉和他们的业务不是很搭。<strong>苏州钱袋</strong>没有实地去，不大了解情况。但是感觉上，是可以做的一个点吧。</p>
+
+<blockquote>
+<p>这里吐槽一下，现在不管什么产业都想要把互联网加上去，动不动就说“<strong>互联网+</strong>”，有时候感觉是炒作大于实干。</p>
+</blockquote>
+
+<p>最后一天去了一下<strong>同里</strong>，可能同行的北方小伙伴感受比较深刻，反正我是没啥感觉。。。</p>
+
+<p>最后Po几张同里随便拍的图吧，讲道理都没啥时间P一下，回头有时间P吧~~~俗话说的好，XJBP😄😄😄😄<br/>
+<img src="http://o6ehj1mo0.bkt.clouddn.com/IMG_0064.JPG" alt=""/><br/>
+<img src="http://o6ehj1mo0.bkt.clouddn.com/IMG_0065.JPG" alt=""/><br/>
+<img src="http://o6ehj1mo0.bkt.clouddn.com/IMG_0071.JPG" alt=""/><br/>
+<img src="http://o6ehj1mo0.bkt.clouddn.com/IMG_0075.JPG" alt=""/><br/>
+<img src="http://o6ehj1mo0.bkt.clouddn.com/IMG_0079.JPG" alt=""/><br/>
+<img src="http://o6ehj1mo0.bkt.clouddn.com/IMG_0082.JPG" alt=""/><br/>
+<img src="http://o6ehj1mo0.bkt.clouddn.com/IMG_0085.JPG" alt=""/><br/>
+<img src="http://o6ehj1mo0.bkt.clouddn.com/IMG_0086.JPG" alt=""/></p>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[开博日记]]></title>
+    <link href="lish.space/14731762166310.html"/>
+    <updated>2016-09-06T23:36:56+08:00</updated>
+    <id>lish.space/14731762166310.html</id>
+    <content type="html"><![CDATA[
+<blockquote>
+<p>开博不易，且开且珍惜--孔子</p>
+</blockquote>
+
+<h2 id="toc_0">2016-06-14</h2>
+
+<blockquote>
+<p>结束了这学期的课程，研究生阶段的课基本算是结束了。如果说收获的话，本科是平时不读书，考前预习一下，期末去考试；研究生是平时不读书，考前也不预习，直接就去考试了。。。</p>
+</blockquote>
+
+<p>之前有多次提到，<strong>MathJax</strong>在渲染数学公式的时候，会出现和本地的<strong>MarkDown</strong>编辑器不一致的情况。今天基本解决了这个问题。于是如下的公式也可以显示了：</p>
+
+<p>\[\sum_{i=1}^{n}{X_i}+\int_{0}^{1}{x}+\prod_{i=1}^{n}{X_i}\]<br/>
+但是后面出现了一个竖线我不知道是怎么回事。<br/><br/>
+不过这个竖线在这之前就已经出现了，所以下面的方法应该是可行的。</p>
+
+<blockquote>
+<p>对于部分公式，由于<strong>MarkDown</strong>语法和\(\LaTeX{}\)语法有冲突，因此造成部分公式内容被<strong>marked</strong>先转义，导致公式渲染失败，经过权衡，决定放弃部分<strong>MarkDown</strong>功能，确保\(\LaTeX{}\)的正确。该冲突主要是由于对<code>\</code>和<code>_</code>的转义造成的。</p>
+</blockquote>
+
+<p>找到<strong>marked</strong>脚本文件<br/>
+<code>\hexo\node_modules\marked\lib\marked.js</code>，先备份一下，然后修改450行附近:  </p>
+
+<pre><code class="language-javascript">escape: /^\\([\\`*{}\[\]()# +\-.!_&gt;])/,
+</code></pre>
+
+<p>修改为：</p>
+
+<pre><code class="language-javascript">escape: /^\\([`*\[\]()# +\-.!_&gt;])/,
+</code></pre>
+
+<p>830行附近：</p>
+
+<pre><code class="language-js">return &#39;&lt;em&gt;&#39; + text + &#39;&lt;/em&gt;&#39;;
+</code></pre>
+
+<p>修改为：  </p>
+
+<pre><code class="language-js">return &#39;_&#39; + text + &#39;_&#39;;
+</code></pre>
+
+<p>这里还有另外一个思路：<br/><br/>
+<a href="http://liam0205.me/2015/09/09/fix-conflict-between-mathjax-and-markdown/">解决 MathJax 与 Markdown 的冲突</a></p>
+
+<span id="more"></span><!-- more -->
+
+<h2 id="toc_1">2016-04-29</h2>
+
+<p><strong>又是！</strong>非常久的时间没有更新！说一下这段时间做的事情吧。</p>
+
+<ul>
+<li>终于把域名给搞定了，之前不能在<strong>DNSPod</strong>上解析成功的原因是把GitHub的地址弄错了。现在是如下的配置：
+
+<ul>
+<li>CNAME：<code>lish.space</code></li>
+<li>GoDaddy：用的是<strong>DNSPod</strong>提供的两个地址</li>
+<li>DNSPod：</li>
+</ul></li>
+</ul>
+
+<table>
+<thead>
+<tr>
+<th style="text-align: left">主机记录</th>
+<th style="text-align: left">记录类型</th>
+<th style="text-align: left">值</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td style="text-align: left">@</td>
+<td style="text-align: left">A</td>
+<td style="text-align: left">103.245.222.123</td>
+</tr>
+<tr>
+<td style="text-align: left">@</td>
+<td style="text-align: left">A</td>
+<td style="text-align: left">192.30.252.153</td>
+</tr>
+<tr>
+<td style="text-align: left">www</td>
+<td style="text-align: left">A</td>
+<td style="text-align: left">103.245.222.133</td>
+</tr>
+</tbody>
+</table>
+
+<ul>
+<li>本地的MarkDown编辑器换了又换，始终没有非常令人满意的，现在用的是<strong>MacDown</strong></li>
+<li>晚上会申请一个图床</li>
+<li>MarkDown其实有一点非常不好，就是很难处理想要缩进的内容，比如上面的表格，我是打了两个<code>Tab</code>的，个人感觉这个语法有点让人费解。比如有时候想要<em>首行缩进</em>，顺便一提，<em>首行缩进</em>一般是在输入法上切换成全角，然后打两个空格😄😄😄</li>
+</ul>
+
+<h2 id="toc_2">2016-03-31</h2>
+
+<p>很久没有更新了，这一周忙着准备中金基金量化开发的实习，本以为实习是一些量化策略方面的工作，面试了才发现原来是相对比较偏系统的开发，做一些<strong>Python</strong>的<strong>Message Queue</strong>之类的东西。这是题外话了。<br/>
+之前修改本地文件的时候一直用的<code>sudo</code>来做，也没有怎么管文件的权限，因为没有用<code>hexo new</code>这个命令。<br/>
+今天试了一下这个命令，发现<code>sudo hexo new</code>出来的文件因为一些权限的问题用我的MarkDown编辑器（暂时在用<strong>MWeb</strong>）没法处理，于是把权限改成了<code>777</code>哈哈哈。EZ~<br/>
+<strong>MWeb</strong>虽然文库的功能很不错，但是拿来编辑一个文本还是不大方便，特别是权限出错之后会莫名其妙地卡死，还是换回<strong>Mou</strong>吧？</p>
+
+<h2 id="toc_3">2016-03-24</h2>
+
+<p><strong>jekyll</strong>很麻烦，我又没学过Web开发，你在逗我？<br/>
+今天改用了<strong>Hexo</strong>，用了一个叫<strong>NeXT</strong>的主题。<br/>
+<strong>NeXT</strong>是什么，听着那么耳熟，没错，是乔老爷子创业的那个公司的名字。EZ~</p>
+
+<p>晚饭的时候遇到了一些问题：<br/>
+在本地<code>hexo server</code>之后用浏览器浏览博客时，分类（categories）下面的某一个子分类（就比如我的Blog.self吧）是可以浏览的，但是同步到<strong>GitHub</strong>之后就跳<strong>404</strong>了。<br/>
+百度了好久，原来是因为<strong>GitHub</strong>对于文件夹得大小写是不敏感的。<br/>
+给出的解决办法是要修改<code>/.deploy_git/.git/config</code>这个文件，把里面的<code>ignorecase = true</code>改为<code>false</code>。<br/>
+之后把<code>.deploy_git</code>删掉，重新<code>push</code>,然后</p>
+
+<pre><code class="language-zsh">hexo clean
+hexo generate -deploy 
+</code></pre>
+
+<p>试了一下真的好了。。。<br/>
+但是有一个问题啊，修改了之后我不是把整个文件夹删掉了么？事实上，在解决了之后我再去查看<code>config</code>这个文件，里面依然是<code>ignorecase = true</code>的。<br/>
+所以是不是删掉<code>.deploy_git</code>重新部署就可以了。<br/>
+不是很懂。<br/>
+另外以后标签和分类名字尽量用中文吧😢</p>
+
+<p>刚刚有贴上了一段代码，发现居然没有高亮，原来在代码块边要加上代码语言的名字。<br/>
+如下：</p>
+
+<pre><code>``` zsh
+hexo clean
+hexo generate -deploy 
+
+</code></pre>
+
+<p>尽管如此，似乎<strong>shell</strong>仍然认不出来，<strong>Python</strong>倒是可以了。</p>
+
+<h2 id="toc_4">2016-03-23</h2>
+
+<p>人往往从想法到实现是很难的一步，所以我常常想着要好好学习却从来没有，所以现在都说产学研啊产学研。<br/>
+一开始我以为用<strong>MWeb</strong>直接生成的页面可以直接拿来用了，<strong>MWeb</strong>的页面很好看，但是中看不中用，<code>pull</code>上来卵用没有。<br/>
+于是研究了一下<strong>jekyll</strong>,一切就绪！看起来是一个好的开始！<br/>
+哦，凌晨的时候上GoDaddy注册了一个域名：<a href="http://Lish.space">LiSH.space</a>，花了十几块钱的样子。注册之后发现域名提供商被伟大的<strong>GFW</strong>墙掉了，很关键<del>雪崩</del>。用<strong>DNSPod</strong>做一下三方的解析却不知为什么一直搞不定。随缘吧。</p>
+
+<h2 id="toc_5">2016-03-22</h2>
+
+<p>很早就有了开博的想法，来记录一下自己的学习及所想。但是一直以来都没有找到好的博客系统。<br/>
+比如<strong>WordPress</strong>体量太大，<strong>新浪博客</strong>啊，<strong>CSDN</strong>之流自由度太低，还时不时来个广告，是可忍孰不可忍。<br/>
+知道我得知了可以用<strong>GitHub</strong>做这个事情以后才发现了新大陆。<br/>
+<strong>GitHub</strong>我用的并不多，本科学<strong>Java</strong>和<strong>算法</strong>的时候用它存储了一下代码，前几天临时忘记了<code>快排</code>中间那一段是咋写的，还上去看了一下。</p>
+
+]]></content>
+  </entry>
+  
+</feed>
