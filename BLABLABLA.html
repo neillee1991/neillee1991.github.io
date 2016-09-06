@@ -4,8 +4,8 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>
-  
-  
+    
+  BLABLABLA - 
   
   </title>
  <meta name="description" content="">
@@ -202,75 +202,158 @@
 
 	
 		<div class="markdown-body">
-		<h1>一些基础及Roadmap</h1>
+		<h1>开博日记</h1>
 
 		<blockquote>
-<p>林轩田的及其学习视频的一些笔记，结合李航的<strong>《统计学习方法》</strong>，先把之前做笔记的总结一下，以后再慢慢随着进度更新，会很慢哦~</p>
+<p>开博不易，且开且珍惜&ndash;孔子</p>
 </blockquote>
 
-<h2 id="toc_0">Roadmap</h2>
+<h2 id="toc_0">2016-06-14</h2>
 
-<ol>
-<li>机器什么时候学习？</li>
-<li>机器为什么可以学习？</li>
-<li>机器如何学习？</li>
-<li>机器如何学的更好？</li>
-</ol>
+<blockquote>
+<p>结束了这学期的课程，研究生阶段的课基本算是结束了。如果说收获的话，本科是平时不读书，考前预习一下，期末去考试；研究生是平时不读书，考前也不预习，直接就去考试了。。。</p>
+</blockquote>
 
-<h3 id="toc_1">人和机器的学习</h3>
+<p>之前有多次提到，<strong>MathJax</strong>在渲染数学公式的时候，会出现和本地的<strong>MarkDown</strong>编辑器不一致的情况。今天基本解决了这个问题。于是如下的公式也可以显示了：</p>
 
-<p><strong>人</strong>：观察\(\to\)学习\(\to\)技能(observations\(\to\)learning\(\to\)skill)<br/><br/>
-<strong>机器</strong>：数据\(\to\)学习\(\to\)技能\(\iff\)性能改进<br/><br/>
-(data\(\to\)learning\(\to\)skill\(\iff\) improved performance measure)</p>
+<p>\[\sum_{i=1}^{n}{X_i}+\int_{0}^{1}{x}+\prod_{i=1}^{n}{X_i}\]<br/>
+但是后面出现了一个竖线我不知道是怎么回事。<br/><br/>
+不过这个竖线在这之前就已经出现了，所以下面的方法应该是可行的。</p>
 
-<h3 id="toc_2">机器学习的要素</h3>
+<blockquote>
+<p>对于部分公式，由于<strong>MarkDown</strong>语法和\(\LaTeX{}\)语法有冲突，因此造成部分公式内容被<strong>marked</strong>先转义，导致公式渲染失败，经过权衡，决定放弃部分<strong>MarkDown</strong>功能，确保\(\LaTeX{}\)的正确。该冲突主要是由于对<code>\</code>和<code>_</code>的转义造成的。</p>
+</blockquote>
 
-<ol>
-<li>存在某种有待学习的规则模式(underlying pattern)</li>
-<li>该规则模式不容易定义</li>
-<li>有关于该规则的数据</li>
-</ol>
+<p>找到<strong>marked</strong>脚本文件<br/>
+<code>\hexo\node_modules\marked\lib\marked.js</code>，先备份一下，然后修改450行附近:  </p>
 
-<p><strong>未知的有待学习的模式</strong>\(\iff\)目标函数(target function)\(\Longrightarrow X \to Y\)  </p>
+<pre><code class="language-javascript">escape: /^\\([\\`*{}\[\]()# +\-.!_&gt;])/,
+</code></pre>
+
+<p>修改为：</p>
+
+<pre><code class="language-javascript">escape: /^\\([`*\[\]()# +\-.!_&gt;])/,
+</code></pre>
+
+<p>830行附近：</p>
+
+<pre><code class="language-js">return &#39;&lt;em&gt;&#39; + text + &#39;&lt;/em&gt;&#39;;
+</code></pre>
+
+<p>修改为：  </p>
+
+<pre><code class="language-js">return &#39;_&#39; + text + &#39;_&#39;;
+</code></pre>
+
+<p>这里还有另外一个思路：<br/><br/>
+<a href="http://liam0205.me/2015/09/09/fix-conflict-between-mathjax-and-markdown/">解决 MathJax 与 Markdown 的冲突</a></p>
+
+<span id="more"></span><!-- more -->
+
+<h2 id="toc_1">2016-04-29</h2>
+
+<p><strong>又是！</strong>非常久的时间没有更新！说一下这段时间做的事情吧。</p>
+
+<ul>
+<li>终于把域名给搞定了，之前不能在<strong>DNSPod</strong>上解析成功的原因是把GitHub的地址弄错了。现在是如下的配置：
+
+<ul>
+<li>CNAME：<code>lish.space</code></li>
+<li>GoDaddy：用的是<strong>DNSPod</strong>提供的两个地址</li>
+<li>DNSPod：</li>
+</ul></li>
+</ul>
+
+<table>
+<thead>
+<tr>
+<th style="text-align: left">主机记录</th>
+<th style="text-align: left">记录类型</th>
+<th style="text-align: left">值</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td style="text-align: left">@</td>
+<td style="text-align: left">A</td>
+<td style="text-align: left">103.245.222.123</td>
+</tr>
+<tr>
+<td style="text-align: left">@</td>
+<td style="text-align: left">A</td>
+<td style="text-align: left">192.30.252.153</td>
+</tr>
+<tr>
+<td style="text-align: left">www</td>
+<td style="text-align: left">A</td>
+<td style="text-align: left">103.245.222.133</td>
+</tr>
+</tbody>
+</table>
+
+<ul>
+<li>本地的MarkDown编辑器换了又换，始终没有非常令人满意的，现在用的是<strong>MacDown</strong></li>
+<li>晚上会申请一个图床</li>
+<li>MarkDown其实有一点非常不好，就是很难处理想要缩进的内容，比如上面的表格，我是打了两个<code>Tab</code>的，个人感觉这个语法有点让人费解。比如有时候想要<em>首行缩进</em>，顺便一提，<em>首行缩进</em>一般是在输入法上切换成全角，然后打两个空格😄😄😄</li>
+</ul>
+
+<h2 id="toc_2">2016-03-31</h2>
+
+<p>很久没有更新了，这一周忙着准备中金基金量化开发的实习，本以为实习是一些量化策略方面的工作，面试了才发现原来是相对比较偏系统的开发，做一些<strong>Python</strong>的<strong>Message Queue</strong>之类的东西。这是题外话了。<br/>
+之前修改本地文件的时候一直用的<code>sudo</code>来做，也没有怎么管文件的权限，因为没有用<code>hexo new</code>这个命令。<br/>
+今天试了一下这个命令，发现<code>sudo hexo new</code>出来的文件因为一些权限的问题用我的MarkDown编辑器（暂时在用<strong>MWeb</strong>）没法处理，于是把权限改成了<code>777</code>哈哈哈。EZ~<br/>
+<strong>MWeb</strong>虽然文库的功能很不错，但是拿来编辑一个文本还是不大方便，特别是权限出错之后会莫名其妙地卡死，还是换回<strong>Mou</strong>吧？</p>
+
+<h2 id="toc_3">2016-03-24</h2>
+
+<p><strong>jekyll</strong>很麻烦，我又没学过Web开发，你在逗我？<br/>
+今天改用了<strong>Hexo</strong>，用了一个叫<strong>NeXT</strong>的主题。<br/>
+<strong>NeXT</strong>是什么，听着那么耳熟，没错，是乔老爷子创业的那个公司的名字。EZ~</p>
+
+<p>晚饭的时候遇到了一些问题：<br/>
+在本地<code>hexo server</code>之后用浏览器浏览博客时，分类（categories）下面的某一个子分类（就比如我的Blog.self吧）是可以浏览的，但是同步到<strong>GitHub</strong>之后就跳<strong>404</strong>了。<br/>
+百度了好久，原来是因为<strong>GitHub</strong>对于文件夹得大小写是不敏感的。<br/>
+给出的解决办法是要修改<code>/.deploy_git/.git/config</code>这个文件，把里面的<code>ignorecase = true</code>改为<code>false</code>。<br/>
+之后把<code>.deploy_git</code>删掉，重新<code>push</code>,然后</p>
+
+<pre><code class="language-zsh">hexo clean
+hexo generate -deploy 
+</code></pre>
+
+<p>试了一下真的好了。。。<br/>
+但是有一个问题啊，修改了之后我不是把整个文件夹删掉了么？事实上，在解决了之后我再去查看<code>config</code>这个文件，里面依然是<code>ignorecase = true</code>的。<br/>
+所以是不是删掉<code>.deploy_git</code>重新部署就可以了。<br/>
+不是很懂。<br/>
+另外以后标签和分类名字尽量用中文吧😢</p>
+
+<p>刚刚有贴上了一段代码，发现居然没有高亮，原来在代码块边要加上代码语言的名字。<br/>
+如下：</p>
+
+<pre><code>``` zsh
+hexo clean
+hexo generate -deploy 
+
+</code></pre>
+
+<p>尽管如此，似乎<strong>shell</strong>仍然认不出来，<strong>Python</strong>倒是可以了。</p>
+
+<h2 id="toc_4">2016-03-23</h2>
+
+<p>人往往从想法到实现是很难的一步，所以我常常想着要好好学习却从来没有，所以现在都说产学研啊产学研。<br/>
+一开始我以为用<strong>MWeb</strong>直接生成的页面可以直接拿来用了，<strong>MWeb</strong>的页面很好看，但是中看不中用，<code>pull</code>上来卵用没有。<br/>
+于是研究了一下<strong>jekyll</strong>,一切就绪！看起来是一个好的开始！<br/>
+哦，凌晨的时候上GoDaddy注册了一个域名：<a href="http://Lish.space">LiSH.space</a>，花了十几块钱的样子。注册之后发现域名提供商被伟大的<strong>GFW</strong>墙掉了，很关键<del>雪崩</del>。用<strong>DNSPod</strong>做一下三方的解析却不知为什么一直搞不定。随缘吧。</p>
+
+<h2 id="toc_5">2016-03-22</h2>
+
+<p>很早就有了开博的想法，来记录一下自己的学习及所想。但是一直以来都没有找到好的博客系统。<br/>
+比如<strong>WordPress</strong>体量太大，<strong>新浪博客</strong>啊，<strong>CSDN</strong>之流自由度太低，还时不时来个广告，是可忍孰不可忍。<br/>
+知道我得知了可以用<strong>GitHub</strong>做这个事情以后才发现了新大陆。<br/>
+<strong>GitHub</strong>我用的并不多，本科学<strong>Java</strong>和<strong>算法</strong>的时候用它存储了一下代码，前几天临时忘记了<code>快排</code>中间那一段是咋写的，还上去看了一下。</p>
 
 
 		</div>
-	
-
- 
-	
-
- 
-	
-
- 
-	
-
- 
-	
-
- 
-	
-
- 
-	
-
- 
-	
-
- 
-	
-
- 
-	
-
- 
-	
-
- 
-	
-
- 
 	
 
   

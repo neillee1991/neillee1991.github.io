@@ -4,8 +4,8 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>
-  
-  
+    
+  SQL的复习 - 
   
   </title>
  <meta name="description" content="">
@@ -197,84 +197,328 @@
             </div>
             <div class="large-9 medium-9 columns">
 
- 
+ <div class="markdown-body">
+<h1>SQL的复习</h1>
 
-
-	
-		<div class="markdown-body">
-		<h1>一些基础及Roadmap</h1>
-
-		<blockquote>
-<p>林轩田的及其学习视频的一些笔记，结合李航的<strong>《统计学习方法》</strong>，先把之前做笔记的总结一下，以后再慢慢随着进度更新，会很慢哦~</p>
+<blockquote>
+<p>这几天复习了一下SQL，简单总结一下吧！</p>
 </blockquote>
 
-<h2 id="toc_0">Roadmap</h2>
+<h3 id="toc_0">SQL的分类</h3>
 
-<ol>
-<li>机器什么时候学习？</li>
-<li>机器为什么可以学习？</li>
-<li>机器如何学习？</li>
-<li>机器如何学的更好？</li>
-</ol>
+<h4 id="toc_1">DDL（数据定义语言）</h4>
 
-<h3 id="toc_1">人和机器的学习</h3>
+<ul>
+<li><code>SELECT</code></li>
+<li><code>UPDATE</code></li>
+<li><code>DELETE</code></li>
+<li><code>INSERT INTO</code></li>
+</ul>
 
-<p><strong>人</strong>：观察\(\to\)学习\(\to\)技能(observations\(\to\)learning\(\to\)skill)<br/><br/>
-<strong>机器</strong>：数据\(\to\)学习\(\to\)技能\(\iff\)性能改进<br/><br/>
-(data\(\to\)learning\(\to\)skill\(\iff\) improved performance measure)</p>
+<h4 id="toc_2">DML（数据操作语言）</h4>
 
-<h3 id="toc_2">机器学习的要素</h3>
+<ul>
+<li><code>CREATE/ALTER DATABASE</code></li>
+<li><code>CREATE/ALTER/DROP TABLE</code></li>
+<li><code>CREATE/DROP INDEX</code></li>
+</ul>
 
-<ol>
-<li>存在某种有待学习的规则模式(underlying pattern)</li>
-<li>该规则模式不容易定义</li>
-<li>有关于该规则的数据</li>
-</ol>
+<h3 id="toc_3">基本语法</h3>
 
-<p><strong>未知的有待学习的模式</strong>\(\iff\)目标函数(target function)\(\Longrightarrow X \to Y\)  </p>
+<h4 id="toc_4">SELECT</h4>
+
+<pre><code class="language-sql">SELECT (DISTINCT) 列名称 
+FROM 表名称 
+WHERE {列 运算符 值} AND/OR {列 运算符 值}
+ORDER BY 列名称 ASC/DESC, 列名称 ASC/DESC
+</code></pre>
+
+<p><code>DISTINCT</code>：返回不重复的值<br/>
+<code>AND/OR</code>：条件<br/>
+<code>ORDER BY</code>：排序<br/>
+<code>ASC/DESC</code>：升序/降序，默认升序，多个列时，先按靠前的列排序</p>
+
+<h4 id="toc_5">INSERT</h4>
+
+<pre><code class="language-sql">INSERT INTO 表名称 (列1, 列2,...)
+VALUES (值1, 值2,....)
+</code></pre>
+
+<p>不写(列1, 列2,&hellip;)时讲填写所有值<br/>
+写(列1, 列2,&hellip;)时为赋值的给空值</p>
+
+<h4 id="toc_6">UPDATE</h4>
+
+<pre><code class="language-SQL">UPDATE 表名称 
+SET 列名称 = 新值 
+WHERE 列名称 = 某值
+</code></pre>
+
+<h4 id="toc_7">DELETE</h4>
+
+<pre><code class="language-SQL">DELETE FROM 表名称 
+WHERE 列名称 = 值
+</code></pre>
+
+<h3 id="toc_8">修饰词</h3>
+
+<h4 id="toc_9">TOP</h4>
+
+<p>规定返回的记录条数，不同数据库语法不同，下面是SQL Server的：</p>
+
+<pre><code class="language-SQL">SELECT TOP number|percent 列名称
+FROM 表名称
+</code></pre>
+
+<p>例子：</p>
+
+<pre><code class="language-sql">SELECT TOP 2 * FROM Persons
+SELECT TOP 50 PERCENT * FROM Persons
+</code></pre>
+
+<h4 id="toc_10">LIKE</h4>
+
+<p>用在<code>WHERE</code>中，寻找匹配的模式</p>
+
+<pre><code class="language-SQL">SELECT 列名称
+FROM 表名称
+WHERE 列 LIKE 模式
+</code></pre>
+
+<p>模式用通配符来表示：<br/>
+<code>%</code>：一个或多个字符<br/>
+<code>_</code>：一个字符<br/>
+<code>[字符列表]</code>：字符列表中的一个字符<br/>
+<code>[^字符列表]</code>：不在字符列表中的一个字符，也可以用<code>[!字符列表]</code></p>
+
+<p>例子：<br/>
+<code>Ne%</code>：以Ne开头的串<br/>
+<code>%lond%</code>：包含lond的串<br/>
+<code>_eorge</code>：第一个字符后面是eorge的串<br/>
+<code>[ALN]%</code>：以A或L或N开头的串</p>
+
+<h4 id="toc_11">IN</h4>
+
+<p>用于<code>WHERE</code>中，规定多个值的范围</p>
+
+<pre><code class="language-sql">SELECT 列名称
+FROM 表名称
+WHERE 列 IN (value1,value2,...)
+</code></pre>
+
+<h4 id="toc_12">BETWEEN&hellip;AND</h4>
+
+<p>用于<code>WHERE</code>中，规定一段范围</p>
+
+<pre><code class="language-sql">SELECT 列名称
+FROM 表名称
+WHERE 列
+(NOT) BETWEEN value1 AND value2
+</code></pre>
+
+<h4 id="toc_13">AS</h4>
+
+<p>别名</p>
+
+<pre><code class="language-sql">SELECT 列名称
+FROM 表名称
+AS 列的别名
+</code></pre>
+
+<pre><code class="language-sql">SELECT 列名称 AS 列的别名
+FROM 表名称
+</code></pre>
+
+<h4 id="toc_14">JOIN</h4>
+
+<ul>
+<li><code>JOIN</code>/<code>INNER JOIN</code>: 如果表中有至少一个匹配，则返回行（交集）</li>
+<li><code>LEFT JOIN</code>: 即使右表中没有匹配，也从左表返回所有的行</li>
+<li><code>RIGHT JOIN</code>: 即使左表中没有匹配，也从右表返回所有的行</li>
+<li><code>FULL JOIN</code>: 只要其中一个表中存在匹配，就返回行（并集）</li>
+</ul>
+
+<pre><code class="language-sql">SELECT 列名称
+FROM 表名称
+INNER JOIN 表名称
+ON 列名称1=列名称2
+</code></pre>
+
+<h4 id="toc_15">UNION</h4>
+
+<p>合并两个或多个 <code>SELECT</code> 语句的结果集，结果集列必须相同<br/>
+<code>UNION ALL</code>允许重复值</p>
+
+<pre><code class="language-sql">SELECT 列名称1 FROM 表名称1
+UNION (ALL)
+SELECT 列名称2 FROM 表名称2
+</code></pre>
+
+<h4 id="toc_16">SELECT INTO</h4>
+
+<p>把<code>SELECT</code>的结果集插入另一个表</p>
+
+<pre><code class="language-sql">SELECT 列名称
+INTO 新表名称 (IN 外部数据库名称)
+FROM 旧表名称
+</code></pre>
+
+<h3 id="toc_17">数据库操作</h3>
+
+<h4 id="toc_18">CREATE DATABASE</h4>
+
+<pre><code class="language-sql">CREATE DATABASE 数据库名
+</code></pre>
+
+<h4 id="toc_19">CREATE TABLE</h4>
+
+<pre><code class="language-sql">CREATE TABLE 表名称
+(
+列名称1 数据类型 约束,
+列名称2 数据类型 约束,
+列名称3 数据类型 约束,
+....
+)
+</code></pre>
+
+<p><strong>约束</strong>：</p>
+
+<ul>
+<li><code>NOT NULL</code>：不接受空值</li>
+<li><code>UNIQUE</code>：唯一值</li>
+<li><code>PRIMARY KEY</code>：主键，唯一值，每个表只能有一个主键</li>
+<li><code>FOREIGN KEY</code>：外键，指向另一个表中的主键</li>
+<li><code>CHECK</code>：限制值的范围</li>
+<li><code>DEFAULT</code>：默认值</li>
+<li><code>AUTO INCREMENT</code>：自增或自减</li>
+</ul>
+
+<p>例子：</p>
+
+<pre><code class="language-sql">CREATE TABLE Persons
+(
+Id_P int NOT NULL UNIQUE AUTO_INCREMENT,
+LastName varchar(255) NOT NULL,
+FirstName varchar(255),
+Address varchar(255),
+City varchar(255) DEFAULT &#39;Sandnes&#39;
+PRIMARY KEY (Id_P)
+FOREIGN KEY (Id_P) REFERENCES Persons(Id_P)
+CHECK (Id_P&gt;0)
+)
+</code></pre>
+
+<p>有自增的属性在<code>INSERT</code>时可以不用赋值。</p>
+
+<h4 id="toc_20">CREATE INDEX</h4>
+
+<p>创建索引，索引是看不到的，但是可以加快查询的速度。</p>
+
+<pre><code class="language-sql">CREATE (UNIQUE) INDEX 索引名称
+ON 表名称 (列名称)
+</code></pre>
+
+<p><code>UNIQUE</code>用来创建唯一的索引，即两个行不能有相同的索引值</p>
+
+<h4 id="toc_21">ALTER TABLE</h4>
+
+<p>在已经存在的表中修改表结构<br/>
+<strong>添加列</strong>：<br/>
+<code>sql<br/>
+ALTER TABLE 表名称<br/>
+ADD 列名称 数据类型<br/>
+</code></p>
+
+<p><strong>删除列</strong>：<br/>
+<code>sql<br/>
+ALTER TABLE 表名称 <br/>
+DROP COLUMN 列名称<br/>
+</code></p>
+
+<p><strong>修改列</strong>：<br/>
+<code>sql<br/>
+ALTER TABLE 表名称<br/>
+ALTER COLUMN 列名称 数据类型<br/>
+</code></p>
+
+<h4 id="toc_22">VIEW</h4>
+
+<p>VIEW是一个虚拟的表，是基于SQL语句的结果集。</p>
+
+<pre><code class="language-sql">CREATE VIEW VIEW名称 AS
+SELECT 列名称
+FROM 表名称
+WHERE 条件
+</code></pre>
+
+<p>修改VIEW<br/>
+<code>sql<br/>
+CREATE (REPLACE) VIEW VIEW名称 AS<br/>
+SELECT 列名称<br/>
+FROM 表名称<br/>
+WHERE 条件<br/>
+</code></p>
+
+<h3 id="toc_23">重要的函数</h3>
+
+<h4 id="toc_24">GROUP BY</h4>
+
+<pre><code class="language-sql">SELECT 列名称
+FROM 表名称
+GROUP BY 列名称
+</code></pre>
+
+<p>返回的结果会根据<code>GROUP BY</code>的列来分组，其他的列进行合并</p>
+
+<h4 id="toc_25">HAVING</h4>
+
+<p><code>GROUP BY</code>子句不能和<code>WHERE</code>一起使用，因此要用<code>HAVING</code>关键字</p>
+
+<pre><code class="language-sql">SELECT 列名称
+FROM 表名称
+GROUP BY 列名称
+HAVING 条件
+</code></pre>
 
 
-		</div>
-	
+</div>
 
- 
-	
+<br /><br />
+<hr />
 
- 
-	
+<div class="row clearfix">
+  <div class="large-6 columns">
+	<div class="text-left" style="padding:15px 0px;">
+		
+	        <a href="14731764792227.html"  title="Previous Post: 多因子选股策略经验分享记录">&laquo; 多因子选股策略经验分享记录</a>
+	    
+	</div>
+  </div>
+  <div class="large-6 columns">
+	<div class="text-right" style="padding:15px 0px;">
+		
+	        <a href="14731763776619.html" 
+	        title="Next Post: 假设检验">假设检验 &raquo;</a>
+	    
+	</div>
+  </div>
+</div>
 
- 
-	
+<div class="row">
+<div style="padding:0px 0.93em;" class="share-comments">
 
- 
-	
-
- 
-	
-
- 
-	
-
- 
-	
-
- 
-	
-
- 
-	
-
- 
-	
-
- 
-	
-
- 
-	
-
-  
-  
+</div>
+</div>
+<script type="text/javascript">
+	$(function(){
+		var currentURL = '14731764544256.html';
+		$('#side-nav a').each(function(){
+			if($(this).attr('href') == currentURL){
+				$(this).parent().addClass('active');
+			}
+		});
+	});
+</script>  
 </div></div>
 
 

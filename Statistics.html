@@ -4,8 +4,8 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>
-  
-  
+    
+  Statistics - 
   
   </title>
  <meta name="description" content="">
@@ -202,60 +202,136 @@
 
 	
 		<div class="markdown-body">
-		<h1>一些基础及Roadmap</h1>
+		<h1>假设检验</h1>
 
 		<blockquote>
-<p>林轩田的及其学习视频的一些笔记，结合李航的<strong>《统计学习方法》</strong>，先把之前做笔记的总结一下，以后再慢慢随着进度更新，会很慢哦~</p>
+<p>概念、一个正态总体均值的检验、两个正态总体均值差的检验、成对比较、二样本方差比的检验、拟合优度检验</p>
 </blockquote>
 
-<h2 id="toc_0">Roadmap</h2>
+<h2 id="toc_0">问题的提出及几个概念</h2>
+
+<p>100件产品，6件次品  </p>
 
 <ol>
-<li>机器什么时候学习？</li>
-<li>机器为什么可以学习？</li>
-<li>机器如何学习？</li>
-<li>机器如何学的更好？</li>
+<li>次品率是多少？（点估计）</li>
+<li>次品率的范围？（区间估计）</li>
+<li>次品率不会超过多少？（置信上限）<br/>
+次品率不会低于多少？（置信下限）<br/></li>
+<li>次品率是不是5%？<br/>
+次品率是不是不超过6%？<br/>
+次品率是不是不低于5%？<br/></li>
 </ol>
 
-<h3 id="toc_1">人和机器的学习</h3>
-
-<p><strong>人</strong>：观察\(\to\)学习\(\to\)技能(observations\(\to\)learning\(\to\)skill)<br/><br/>
-<strong>机器</strong>：数据\(\to\)学习\(\to\)技能\(\iff\)性能改进<br/><br/>
-(data\(\to\)learning\(\to\)skill\(\iff\) improved performance measure)</p>
-
-<h3 id="toc_2">机器学习的要素</h3>
+<p>假设\(H_0\)（零假设、原假设）：  </p>
 
 <ol>
-<li>存在某种有待学习的规则模式(underlying pattern)</li>
-<li>该规则模式不容易定义</li>
-<li>有关于该规则的数据</li>
+<li>原先就有的假设</li>
+<li>经过长期实践，被认为是正确的假设。</li>
 </ol>
 
-<p><strong>未知的有待学习的模式</strong>\(\iff\)目标函数(target function)\(\Longrightarrow X \to Y\)  </p>
+<p>假设检验就是通过样本来回答\(H_0\)是否正确。<br/><br/>
+对正态总体\(N(\mu,\sigma^2)\)而言，一个\(H_0: \mu=\mu_0\)，其中\(\mu\)是一个未知常数，\(\mu_0\)是已知的常数。<br/><br/>
+检验分为参数检验（总体已知，参数未知）和非参数检验（总体未知，参数未知）。  </p>
+
+<ul>
+<li>参数检验：
+
+<ul>
+<li>用\(N(0,1)\)检验均值：\(u\)-检验、\(t\)-检验</li>
+<li>方差：\(\chi^2\)检验、\(F\)检验</li>
+</ul></li>
+<li>非参数检验：拟合优度检验：取有限值的离散分布 </li>
+</ul>
+
+<p>若否定原假设，则接受的假设要事先规定好，这一假设称为对立假设（备择假设），记为\(H_1\)。  </p>
+
+<ul>
+<li>若\(H_1:P \neq 0.05\)，称为双侧检验<br/></li>
+<li>若\(H_1:P &gt;0.05\)，称为单侧检验</li>
+</ul>
+
+<p>一个完整的假设检验形如：<br/><br/>
+\[H_0:&hellip; \leftrightarrow H_1:&hellip;\]<br/>
+\(H_0\)和\(H_1\)的地位不平等，检验时，以站在保护原假设的立场上。因此在没有充分的证据下，总是认为\(H_0\)是正确的。<br/><br/>
+接受\(H_0\)，不能说明\(H_0\)一定正确，只能说明到目前为止，没有足够的证据说明\(H_0\)不对，所以接受原假设。<br/><br/>
+否定（拒绝）\(H_0\)，意味着有充分的证据说明\(H_0\)不对。</p>
+
+<h2 id="toc_1">一个正态总体均值的检验</h2>
+
+<p>（待补充）</p>
+
+<h2 id="toc_2">两个正态总体均值差的检验</h2>
+
+<p>\(X\backsim N(\_mu_1,\sigma_1^2),Y\backsim N(\mu_2,\sigma_2^2)\)  </p>
+
+<ol>
+<li>\(H_0:\mu_1-\mu_2=\sigma \leftrightarrow H_1:\mu_1-\mu_2 \neq \sigma\)<br/></li>
+<li>\(H_0:\mu_1-\mu_2=\sigma \leftrightarrow H_1:\mu_1-\mu_2 &gt; \sigma\)<br/></li>
+<li>\(H_0:\mu_1-\mu_2=\sigma \leftrightarrow H_1:\mu_1-\mu_2 &lt; \sigma\)<br/></li>
+</ol>
+
+<p>\(\mu_1,\mu_2\)都是未知常数。<br/><br/>
+检验规则：<br/>
+\(\widehat {\mu_1-\mu_2}=\bar X-\bar Y\)  </p>
+
+<ol>
+<li>双侧检验：<br/>
+\(\left| \bar Y-\bar Y-\sigma \right| \leqslant d\)，接受\(H_0\)<br/>
+\(\left| \bar Y-\bar Y-\sigma \right| &gt; d\)，拒绝\(H_0\)</li>
+<li>从\(H_1\)验证：<br/>
+\(\bar X -\bar Y-\sigma&gt;d\)，拒绝\(H_0\)<br/>
+\(\bar X -\bar Y-\sigma\leqslant d\)，接受\(H_0\)<br/></li>
+<li>从\(H_1\)验证：<br/>
+\(\bar Y -\bar X-\sigma&gt;d\)，拒绝\(H_0\)<br/>
+\(\bar Y -\bar X -\sigma\leqslant d\)，接受\(H_0\)<br/></li>
+</ol>
+
+<p>\(\bar X \backsim N(\mu_1,\frac{\sigma_1^2}{n_1}),\bar Y \backsim N(\mu_2,\frac{\sigma_2^2}{n_2}),\bar X-\bar Y\backsim N(\mu_1-\mu_2,\frac{\sigma_1^2}{n_1}+\frac{\sigma_2^2}{n_2})\)<br/><br/>
+标准化：<br/>
+\[\frac{\bar X-\bar Y-(\mu_1-\mu_2)}{\sqrt{\frac{\sigma_1^2}{n_1}+\frac{\sigma_2^2}{n_2}}}\backsim N(0,1)\]</p>
+
+<ol>
+<li>方差已知：
+\(d=\sqrt{\frac{\sigma_1^2}{n_1}+\frac{\sigma_2^2}{n_2}}U_{\frac{\alpha}{2}}\)<br/>
+单侧时：\(U_{\frac{\alpha}{2}}\)<br/>
+双侧时：\(U_\alpha\)<br/></li>
+<li>\(\sigma_1^2=\sigma_2^2=\sigma^2\)未知：<br/>
+\(d=\sqrt{\frac{\sigma_1^2}{n_1}+\frac{\sigma_2^2}{n_2}}S_Tt_{\frac{\alpha}{2}}(n_1+n_2-2)\)<br/></li>
+<li>\(n_1&gt;30,n_2&gt;30\)：<br/>
+\(d=\sqrt{\frac{S_1^2}{n_1}+\frac{S_2^2}{n_2}}U_{\frac{\alpha}{2}}\)</li>
+</ol>
+
+<h2 id="toc_3">成对比较</h2>
+
+<p>\(Z_1,&hellip;,Z_n\)来自一份新的总体，\(Z=X-Y\)，\(X_1,X_2\)，\(Y_1,Y_2\)可能不同分布，但关心的是\(X-Y\)。<br/><br/>
+检验：<br/><br/>
+\(H_0:\mu_z=\sigma \leftrightarrow H_1:\mu_z \neq \sigma\)<br/><br/>
+\(H_0:\mu_z=\sigma \leftrightarrow H_1:\mu_z &gt; \sigma\)<br/><br/>
+\(H_0:\mu_z=\sigma \leftrightarrow H_1:\mu_z &lt; \sigma\)  </p>
+
+<ul>
+<li>成组比较：\(X_1,&hellip;,X_n\)比较\(Y_1,&hellip;,Y_n\)<br/></li>
+<li>成对比较：\(X_1,Y_2\)比较\(X_2,Y_2\)</li>
+</ul>
+
+<h2 id="toc_4">二样本方差比的检验</h2>
+
+<p>\(H_0:\frac{\sigma_1^2}{\sigma_2^2}=\sigma \leftrightarrow H_1: \frac{\sigma_1^2}{\sigma_2^2} \neq \sigma\)<br/><br/>
+\(\hat{(\frac{\sigma_1^2}{\sigma_2^2})}=\frac{S_1}{S_2}\)<br/><br/>
+\(\frac{S_1^2/\sigma_1^2}{S_2^2/\sigma_2^2}\backsim F_{n_1-1,n_2-1}\)<br/><br/>
+\(\frac{1}{B}&lt;\frac{S_1^2}{S_2^2}&lt;\frac{1}{A},0&lt;A&lt;1&lt;B\)</p>
+
+<h2 id="toc_5">拟合优度的检验</h2>
+
+<p>\(\chi^2\)统计量：\[\sum_{i=1}^k \frac{(O_i-E_i)^2}{E_i}\]<br/>
+\(O_i\)：观察值，\(E_i\)：理论值、期望值。<br/><br/>
+当\(n \to \infty\)时，\(\chi^2\)的分布趋向于自由度为\(n-1(P_1+P_2+&hellip;+P_n=1)\)的\(\chi^2\)分布。<br/><br/>
+当\(\chi^2&gt; \chi_{k-1}^2(\alpha)\)时，拒绝\(H_0\)。<br/><br/>
+\[P(\chi_{k-1}^2 &gt; \chi^2)=p\]<br/>
+\(p\)值即\(p-value\)，即拟合优度，\(p\)值越小越，拟合优度越差，越要拒绝原假设</p>
 
 
 		</div>
-	
-
- 
-	
-
- 
-	
-
- 
-	
-
- 
-	
-
- 
-	
-
- 
-	
-
- 
 	
 
  

@@ -4,8 +4,8 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>
-  
-  
+    
+  Latex - 
   
   </title>
  <meta name="description" content="">
@@ -202,75 +202,43 @@
 
 	
 		<div class="markdown-body">
-		<h1>一些基础及Roadmap</h1>
+		<h1>LaTeX和MarkDown中的数学公式</h1>
 
 		<blockquote>
-<p>林轩田的及其学习视频的一些笔记，结合李航的<strong>《统计学习方法》</strong>，先把之前做笔记的总结一下，以后再慢慢随着进度更新，会很慢哦~</p>
+<p>最近写东西的时候发现没有一个很好的资源来查\(\LaTeX{}\)的数学公式里面的一些字符。有的可能比较完整但是查起来很麻烦，于是决定自己写一个，以后再写的时候也可以自己查着用。</p>
 </blockquote>
 
-<h2 id="toc_0">Roadmap</h2>
+<p>在MarkDown里面的\(\LaTeX{}\)公式根据不同的编辑器有的是不一样的，基本就是\(\$\)这个符号的个数的问题。比如说，在<strong>Mou</strong>里面，行内的的是\(\$\$\$equation\$\$\$\)这样的形式，而分段的是\(\$\$equation\$\$\)这样的。而在<strong>MacDown</strong>里面，行内是\(\$equation\$\)，段落是\(\$\$equation\$\$\)。总的来说，基本是几个\(\$\)的区别。</p>
 
-<ol>
-<li>机器什么时候学习？</li>
-<li>机器为什么可以学习？</li>
-<li>机器如何学习？</li>
-<li>机器如何学的更好？</li>
-</ol>
+<p>对于要显示编号的的公式，我还没有<del>搞懂</del>🤔🤔🤔🤔</p>
 
-<h3 id="toc_1">人和机器的学习</h3>
+<h1 id="toc_0">基本的用法</h1>
 
-<p><strong>人</strong>：观察\(\to\)学习\(\to\)技能(observations\(\to\)learning\(\to\)skill)<br/><br/>
-<strong>机器</strong>：数据\(\to\)学习\(\to\)技能\(\iff\)性能改进<br/><br/>
-(data\(\to\)learning\(\to\)skill\(\iff\) improved performance measure)</p>
+<ul>
+<li>指数、下标：<code>$$X_{a}^{b}$$</code> \[X_a^b\]</li>
+<li>根号：<code>$$\sqrt{X}$$</code> \[\sqrt{X}\]</li>
+<li>公式上方/下方的水平线：<code>$$\overline{a+b}+\underline{a+b}$$</code>  \[\overline{a+b}+\underline{a+b}\] </li>
+<li>公式上方/下方的大括号：<code>$$\overbrace{a+b+\cdots+z}^{26}+\underbrace{A+B+\cdots+Z}_{26}$$</code> \[\overbrace{a+b+\cdots+z}^{26}+\underbrace{A+B+\cdots+Z}_{26}\]</li>
+<li>向量箭头：<code>$$\vec{a}+\vec{ABC}+\overrightarrow{ABC}$$</code>\[\vec{a}+\vec{ABC}+\overrightarrow{ABC}\]</li>
+<li>分数：<code>$$\frac{A}{B}$$</code> \[\frac{A}{B}\]</li>
+<li><p>积分、求和、求积：<code>$$\sum_{i=1}^{n}{X_i}+\int_{0}^{1}{x}+\prod_{i=1}^{n}{X_i}$$</code>这里不同的IDE似乎显示的结果会有不同，比如<strong>MacDown</strong>上面可以显示正常的公式，传到<strong>Hexo</strong>之后没法显示，这里还不知道什么原因。这里积分里面的<code>\,</code>不加的话，\(dx\)和\(x\)的距离会近一点<br/>
+所以下面这个公式是这样的：</p>
 
-<h3 id="toc_2">机器学习的要素</h3>
+<pre><code>$$\int_{0}^{1}{x}\,dx$$
+$$\sum_{i=1}^{n}{X_i}$$
+$$\prod_{i=1}^{n}{X_i}$$
+</code></pre>
 
-<ol>
-<li>存在某种有待学习的规则模式(underlying pattern)</li>
-<li>该规则模式不容易定义</li>
-<li>有关于该规则的数据</li>
-</ol>
+<p>\[\int_{0}^{1}{x}\,dx\]</p>
 
-<p><strong>未知的有待学习的模式</strong>\(\iff\)目标函数(target function)\(\Longrightarrow X \to Y\)  </p>
+<p>\[\sum_{i=1}^{n}{X_i}\]</p>
+
+<p>\[\prod_{i=1}^{n}{X_i}\]</p></li>
+<li><p>先写这么多吧~~~</p></li>
+</ul>
 
 
 		</div>
-	
-
- 
-	
-
- 
-	
-
- 
-	
-
- 
-	
-
- 
-	
-
- 
-	
-
- 
-	
-
- 
-	
-
- 
-	
-
- 
-	
-
- 
-	
-
- 
 	
 
   

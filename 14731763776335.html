@@ -4,8 +4,8 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>
-  
-  
+    
+  随机变量及其分布 - 
   
   </title>
  <meta name="description" content="">
@@ -197,84 +197,171 @@
             </div>
             <div class="large-9 medium-9 columns">
 
- 
+ <div class="markdown-body">
+<h1>随机变量及其分布</h1>
 
-
-	
-		<div class="markdown-body">
-		<h1>一些基础及Roadmap</h1>
-
-		<blockquote>
-<p>林轩田的及其学习视频的一些笔记，结合李航的<strong>《统计学习方法》</strong>，先把之前做笔记的总结一下，以后再慢慢随着进度更新，会很慢哦~</p>
+<blockquote>
+<p>随机变量、离散型随机变量、连续型随机变量</p>
 </blockquote>
 
-<h2 id="toc_0">Roadmap</h2>
+<h2 id="toc_0">随机变量</h2>
+
+<p><strong>研究</strong>：随机事件中的一串事件所发生的概率，事件之间可能有联系。<br/><br/>
+引入<strong>随机变量</strong>：用一个数或一个区间来表示所关心的事件，这种对应关系叫随机变量。</p>
+
+<p>随机变量研究：</p>
 
 <ol>
-<li>机器什么时候学习？</li>
-<li>机器为什么可以学习？</li>
-<li>机器如何学习？</li>
-<li>机器如何学的更好？</li>
+<li>随机变量取哪些值</li>
+<li>随机变量取这些值的概率</li>
 </ol>
 
-<h3 id="toc_1">人和机器的学习</h3>
+<h2 id="toc_1">离散型随机变量</h2>
 
-<p><strong>人</strong>：观察\(\to\)学习\(\to\)技能(observations\(\to\)learning\(\to\)skill)<br/><br/>
-<strong>机器</strong>：数据\(\to\)学习\(\to\)技能\(\iff\)性能改进<br/><br/>
-(data\(\to\)learning\(\to\)skill\(\iff\) improved performance measure)</p>
+<p>随机变量\(X\)取有限或可数多个值，<br/><br/>
+\(P(X=x_k)=P_k, \quad k=1,2,&hellip;,n\)称为随机变量的分布，<br/><br/>
+\(X\)是随机变量，\(x_k\)是一个实数，没有随机性。</p>
 
-<h3 id="toc_2">机器学习的要素</h3>
+<h3 id="toc_2">离散的均匀分布</h3>
+
+<p>\(P(x=k)=\frac{1}{n},\quad k=1,2,&hellip;,n\)</p>
+
+<h3 id="toc_3">二项分布</h3>
+
+<p>在一次试验中事件\(A\)发生的概率为\(p\)，把这一试验独立重复做\(n\)次，将\(x\)记为\(n\)次试验中事件\(A\)发生的次数。<br/><br/>
+\(P（X=k）=P_{n,k}={n \choose k}p^k(1-p)^{n-k}, \quad k=0,1,&hellip;,n\)，称随机变量服从二项分布，记为\(X \backsim B(n,p)\)</p>
+
+<p><strong>超几何分布</strong>与<strong>二项分布</strong>：二项分布是有放回的试验；超几何分布是不放回的试验</p>
+
+<h3 id="toc_4">泊松分布</h3>
+
+<p>观测量很大时，无法统计。  </p>
+
+<ul>
+<li>二项分布：\(p\)已知，发生次数\(\lambda\)不确定<br/></li>
+<li>泊松分布：\(\lambda\)已知，\(p\)不确定</li>
+</ul>
+
+<p>\(P(X=k)=e^{-\lambda}\frac{\lambda^k}{k!},\quad k=0,1,2,&hellip;,\quad \lambda &gt;0\)<br/><br/>
+\(\lambda\)称为泊松分布的强度  </p>
 
 <ol>
-<li>存在某种有待学习的规则模式(underlying pattern)</li>
-<li>该规则模式不容易定义</li>
-<li>有关于该规则的数据</li>
+<li>描述稀有事件发生的概率</li>
+<li>作为二项分布的一种近似（泊松逼近定理）：<br/>
+设\(X\backsim B(n,p)\)<br/>
+当\(n\)很大（\(n\geqslant 30\)），\(np\)较小（\(np\leqslant\) 5）时：<br/>
+\(b_{nk}={n \choose k}p^k(1-p)^{n-k} \backsim e^{-\lambda}\frac{x^k}{k!} \)<br/>
+其中\(\lambda=np\)，当\(p\)很小时，<br/>
+\((1-x) \backsim e^{-x} \implies (1-p)^{n-k} \backsim e^{-p(n-k)} \backsim e^{-pn}=e^{-\lambda}\)
+\(\begin{align}
+{n \choose k}p^k(1-p)^{n-k}&amp; =\frac{n(n-1)&hellip;(n-k+1)}{k!}p^k(1-p)^{n-k}\ &amp; \approx \frac{(np)^k}{k!}e^{-\lambda}=e^{-\lambda}\frac{\lambda ^k}{k!}
+\end{align}\)</li>
 </ol>
 
-<p><strong>未知的有待学习的模式</strong>\(\iff\)目标函数(target function)\(\Longrightarrow X \to Y\)  </p>
+<h2 id="toc_5">连续型随机变量</h2>
+
+<p><strong>定义1</strong>：设\(X\)为随机变量，称\(P(X\leqslant x)=F(x)\)为\(X\)的分布函数<br/><br/>
+<strong>定义2</strong>：<br/><br/>
+若分布函数\(F(x)\)满足：存在非负函数\(f(x)\)，且\(\int{f(x)}\,dx=1\)。<br/><br/>
+且\(F(x)=\int_{-\infty}^{x}{f(t)}\,dt\)，则称\(F(x)\)为连续型分布函数，对应的随机变量\(X\)称为连续型随机变量。   </p>
+
+<p><strong>分布函数的性质</strong>：  </p>
+
+<ol>
+<li>\(F(x)\)单调非降 \(\uparrow\) </li>
+<li><p>\(0 \leqslant F(x)\leqslant 1\    <br/>
+F(-\infty)=\lim\limits_{x \to -\infty}F(x)=0\<br/>
+F(+\infty)=\lim\limits_{x \to +\infty}F(x)=1\)  </p></li>
+<li><p>\(F(x)\)右连续 </p></li>
+</ol>
+
+<h3 id="toc_6">连续型随机变量的概率密度函数</h3>
+
+<p><strong>定义</strong>：若对于随机变量\(X\)的分布函数\(F(x)\)，存在一个非负函数\(f(x)\)，使得对\(\forall x \in R,F(x)=\int_{-\infty}^{x}f(t)\,dt\)，则称\(X\)为连续型随机变量，\(F(x)\)称为连续型分布函数，\(f(x)\)称为概率密度函数。</p>
+
+<p>由定义：\(f(x) \geqslant 0\)，\(\int f(x)\,dx=1\)。</p>
+
+<ol>
+<li>\(P(a &lt;x\leqslant b)=F(b)-F(a)=\int_a^b f(x)\,dx\)</li>
+<li>\(F(X=a)=\lim\limits_{h \to 0}P(a-h&lt;X\leqslant a)=\lim\limits_{h \to 0}f(x)\,dx=0\)</li>
+<li>当\(\Delta x\)很小时，\(f(x)\Delta x \approx \Delta F(x)=P(x&lt;x\leqslant x+\Delta x)\)</li>
+</ol>
+
+<h3 id="toc_7">几个重要的连续型随机变量的分布</h3>
+
+<h4 id="toc_8">均匀分布：\(U(a,b)\)</h4>
+
+<p>\(f(x)=\left\{<br/>
+\begin{aligned}<br/>
+\frac{1}{b-a}&amp;, \quad a&lt;x&lt;b \<br/>
+0&amp;, \quad 其他<br/>
+\end{aligned}<br/>
+\right.\)</p>
+
+<p>则随机变量\(X\)称为均匀分布的随机变量。<br/>
+性质：\(\forall 区间(c,d)\subset (a,b),P(c&lt;x&lt;d)=\frac{d-c}{b-a}\)</p>
+
+<h4 id="toc_9">指数分布</h4>
+
+<p><strong>密度函数为</strong>：\(f(x)=\lambda e^{-\lambda x},x&gt;0,\lambda&gt;0\)</p>
+
+<p><strong>性质</strong>：无后效性<br/><br/>
+\(P(x&gt;t+s | x&gt;t)=P(x&gt;s)\)，经常用来描述元件的寿命。<br/><br/>
+另外，若\(\lim\limits_{h \to 0}\frac{F(x&lt;X&lt;x+h)}{h}\to \lambda\)，则\(F\)为指数分布</p>
+
+<h4 id="toc_10">正态分布</h4>
+
+<p>\(X \backsim f(x)=\frac{1}{\sqrt{2\pi}\sigma}e^{-\frac{(x-\mu)^2}{2\sigma^2}}\)<br/>
+,称随机变量\(X\)为服从参数为\(\mu\)，\(\sigma^2\)的正态分布，记为\(X \backsim N(\mu,\sigma^2)\)。<br/><br/>
+当\(\mu =0\)，\(\sigma =1\)时，称为标准正太分布，分布函数\(F(x)\)记为\(\Phi(x)\)，密度函数\(f(x)\)记为\(\varphi(x)\)。 </p>
+
+<p>\(X \backsim N(\mu,\sigma^2)\)，则密度函数\(f(x)=\varphi(\frac{x-\mu}{\sigma})\)，\(P(a&lt;x\leqslant b)=F(b)-F(a)=\Phi(\frac{b-\mu}{\sigma})-\Phi(\frac{a-\mu}{\sigma})\)</p>
+
+<h3 id="toc_11">随机变量的函数分布</h3>
+
+<p>若\(X\)是随机变量，一般来说，\(g(X)\)仍为随机变量。</p>
+
+<p><strong>定理1</strong>：设\(X \backsim f(x)\)，\(g(\cdot)\)是严格的单调增（减）函数。则\(y=g(x)\backsim f_y(h(y))\left| h&#39;(y)\right |\)，其中\(h\)是\(g\)的反函数，\([\alpha,\beta)\)是\(y\)的值域。</p>
 
 
-		</div>
-	
+</div>
 
- 
-	
+<br /><br />
+<hr />
 
- 
-	
+<div class="row clearfix">
+  <div class="large-6 columns">
+	<div class="text-left" style="padding:15px 0px;">
+		
+	        <a href="14731763776396.html"  title="Previous Post: 多维随机变量及其分布">&laquo; 多维随机变量及其分布</a>
+	    
+	</div>
+  </div>
+  <div class="large-6 columns">
+	<div class="text-right" style="padding:15px 0px;">
+		
+	        <a href="14731763776257.html" 
+	        title="Next Post: 随机事件和概率">随机事件和概率 &raquo;</a>
+	    
+	</div>
+  </div>
+</div>
 
- 
-	
+<div class="row">
+<div style="padding:0px 0.93em;" class="share-comments">
 
- 
-	
-
- 
-	
-
- 
-	
-
- 
-	
-
- 
-	
-
- 
-	
-
- 
-	
-
- 
-	
-
- 
-	
-
-  
-  
+</div>
+</div>
+<script type="text/javascript">
+	$(function(){
+		var currentURL = '14731763776335.html';
+		$('#side-nav a').each(function(){
+			if($(this).attr('href') == currentURL){
+				$(this).parent().addClass('active');
+			}
+		});
+	});
+</script>  
 </div></div>
 
 

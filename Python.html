@@ -4,8 +4,8 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>
-  
-  
+    
+  Python - 
   
   </title>
  <meta name="description" content="">
@@ -202,75 +202,83 @@
 
 	
 		<div class="markdown-body">
-		<h1>一些基础及Roadmap</h1>
+		<h1>记一次毫无意义的爬虫经历</h1>
 
 		<blockquote>
-<p>林轩田的及其学习视频的一些笔记，结合李航的<strong>《统计学习方法》</strong>，先把之前做笔记的总结一下，以后再慢慢随着进度更新，会很慢哦~</p>
+<p>前段时间觉得MAC的桌面背景看的有点腻了，于是想要去搞几张BG，搜了一下DOTA的主题，发现了这个比较不错的系列。</p>
 </blockquote>
 
-<h2 id="toc_0">Roadmap</h2>
+<p><img src="http://pre15.deviantart.net/06b3/th/pre/f/2014/237/0/3/dota_2___rubick_by_sheron1030-d7wlwxt.jpg" alt="RUBICK GRAND MAGUS"/></p>
 
-<ol>
-<li>机器什么时候学习？</li>
-<li>机器为什么可以学习？</li>
-<li>机器如何学习？</li>
-<li>机器如何学的更好？</li>
-</ol>
+<p>作者是<a href="http://sheron1030.deviantart.com/gallery/">SHERON1030</a>，网站上还有很多别的可以拿来做背景的图，很不错。<br/>
+但是他的图库一张纸下载起来很麻烦，而我也没有找到什么打包的途径，于是考虑写个爬虫来爬。<br/>
+本来之前从来没有写过爬虫，况且<strong>Python</strong>也是刚刚学了几天，那就边写边学吧！</p>
 
-<h3 id="toc_1">人和机器的学习</h3>
+<pre><code class="language-python">import urllib2
+import re
 
-<p><strong>人</strong>：观察\(\to\)学习\(\to\)技能(observations\(\to\)learning\(\to\)skill)<br/><br/>
-<strong>机器</strong>：数据\(\to\)学习\(\to\)技能\(\iff\)性能改进<br/><br/>
-(data\(\to\)learning\(\to\)skill\(\iff\) improved performance measure)</p>
+def downImage(address):
+    path =&#39;/Users/LiSheng/PycharmProjects/untitled&#39;
+    url = address
+    p=re.compile(&#39;dota_2[\S]*&#39;)
+    n=address.split(&#39;/&#39;)[2].split(&#39;.&#39;)[0]
+    nameString=p.findall(url)
+    name =&#39;/Users/LiSheng/PycharmProjects/untitled/&#39;+n+&#39;_&#39;+nameString[0]
+    print name
+    user_agent = &#39;Mozilla/4.0 (compatible; MSIE 5.5; Windows NT)&#39;
+    headers = {&#39;User-Agent&#39;: user_agent}
+    req = urllib2.Request(url, headers)
+    conn=urllib2.urlopen(url)
+    f = open(name,&#39;wb+&#39;)
+    f.write(conn.read())
+    f.close()
+    print(nameString[0]+&#39; download finish!&#39;)
+    
+imageList=[]
 
-<h3 id="toc_2">机器学习的要素</h3>
+def addImage(address):
+    file=open(&#39;/Users/LiSheng/PycharmProjects/untitled/imageAddress.txt&#39;,&#39;a&#39;)
+    file.write(address+&#39;\n&#39;)
+    imageList.append(address)
 
-<ol>
-<li>存在某种有待学习的规则模式(underlying pattern)</li>
-<li>该规则模式不容易定义</li>
-<li>有关于该规则的数据</li>
-</ol>
+def openAddress(address):
+    response=urllib2.urlopen(address)
+    frontPage=response.read()
+    unicodePage=frontPage.decode(&#39;utf-8&#39;)
+    pattern =re.compile(r&#39;\&quot;http://[\S]*.deviantart.com/art/Dota-2-[\S]*\&quot;&#39;)
+    urls=pattern.findall(unicodePage)
 
-<p><strong>未知的有待学习的模式</strong>\(\iff\)目标函数(target function)\(\Longrightarrow X \to Y\)  </p>
+    for url in urls:
+        url=url[1:url.__len__()-1]
+        newResponse=urllib2.urlopen(url)
+        newPage=newResponse.read()
+        newUnicodePage=newPage.decode(&#39;utf-8&#39;)
+        pattern =re.compile(r&#39;&lt;img collect_rid=&quot;[\S]*&quot; src=&quot;[\S]*.jpg&quot;&#39;)
+        imageURL=pattern.findall(newUnicodePage)
+        for i in imageURL:
+            x=i.split()
+            xsrc=x[2][5:x[2].__len__()-1]
+            #downImage(xsrc)
+            print(xsrc)
+            addImage(xsrc)
+
+url2=&#39;http://sheron1030.deviantart.com/gallery/?offset=24&#39;
+url3=&#39;http://sheron1030.deviantart.com/gallery/?offset=48&#39;
+
+openAddress(&#39;http://sheron1030.deviantart.com/gallery/&#39;)
+openAddress(url2)
+openAddress(url3)
+</code></pre>
+
+<p>仅以此纪念我第一次好好写的<strong>Python</strong>代码与爬虫。最后不得不说，由于学校网络爆炸，跑起来之后BOOM SHAKALAKA，运行了几次，没有以此可以顺利爬完的，pity。</p>
+
+<p>尽管任务没有完成，但是非常高兴地复习了一下正则表达式。</p>
+
+<p><del>你问我为什么把这么丑的代码贴上来？</del><br/>
+<del>那是为了让博客显得不呢么空啊兄弟啊！</del></p>
 
 
 		</div>
-	
-
- 
-	
-
- 
-	
-
- 
-	
-
- 
-	
-
- 
-	
-
- 
-	
-
- 
-	
-
- 
-	
-
- 
-	
-
- 
-	
-
- 
-	
-
- 
 	
 
   

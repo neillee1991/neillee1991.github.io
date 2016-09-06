@@ -4,8 +4,8 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>
-  
-  
+    
+  Quant - 
   
   </title>
  <meta name="description" content="">
@@ -202,75 +202,116 @@
 
 	
 		<div class="markdown-body">
-		<h1>一些基础及Roadmap</h1>
+		<h1>多因子选股策略经验分享记录</h1>
 
 		<blockquote>
-<p>林轩田的及其学习视频的一些笔记，结合李航的<strong>《统计学习方法》</strong>，先把之前做笔记的总结一下，以后再慢慢随着进度更新，会很慢哦~</p>
+<p>内容来源于计量经济学课程的一个PDF，原文题为《多因子选股策略经验分享》</p>
 </blockquote>
 
-<h2 id="toc_0">Roadmap</h2>
+<h3 id="toc_0">框架</h3>
+
+<p><img src="http://o6ehj1mo0.bkt.clouddn.com/%E5%A4%9A%E5%9B%A0%E5%AD%90%E9%80%89%E8%82%A1%E7%AD%96%E7%95%A5%E7%BB%8F%E9%AA%8C%E5%88%86%E4%BA%AB.jpg" alt=""/></p>
+
+<h3 id="toc_1">筛选有效因子</h3>
+
+<h4 id="toc_2">因子有效性标准</h4>
 
 <ol>
-<li>机器什么时候学习？</li>
-<li>机器为什么可以学习？</li>
-<li>机器如何学习？</li>
-<li>机器如何学的更好？</li>
+<li>确定因子库
+
+<ul>
+<li>必须有金融学含义（meaningful）</li>
+</ul></li>
+<li>筛选有效因子
+
+<ul>
+<li>有显著收益性（significant）</li>
+<li>收益持续稳定（stable）<br/></li>
+</ul></li>
 </ol>
 
-<h3 id="toc_1">人和机器的学习</h3>
+<h4 id="toc_3">因子库的建立</h4>
 
-<p><strong>人</strong>：观察\(\to\)学习\(\to\)技能(observations\(\to\)learning\(\to\)skill)<br/><br/>
-<strong>机器</strong>：数据\(\to\)学习\(\to\)技能\(\iff\)性能改进<br/><br/>
-(data\(\to\)learning\(\to\)skill\(\iff\) improved performance measure)</p>
+<ul>
+<li><strong>成长类</strong>:高成长性的公司更应受到投资者的青睐,从而带来股价的提升<br/>
+典型因子:<code>EPS同比</code>、<code>主营利润同比</code>、<code>主营收入同比</code> </li>
+<li><strong>估值类</strong>:人人都喜欢买价廉又物美的东西。那些估值较低的公司应该更有上涨空间<br/>
+典型因子:<code>市盈率</code>、<code>市净率</code>、<code>相对市盈率</code> </li>
+<li><strong>流动性补偿</strong>:交易不活跃的股票,市值较小的股票往往流动性比较不足,对于这类股票往往需要拥有较高收益,对流动性不足进行补偿<br/>
+典型因子:<code>总市值</code>、<code>流通市值</code>、<code>区间换手率</code>、<code>换手率环比</code> </li>
+<li><strong>风险补偿</strong>:对于波动性大,风险性价高的股票(公司),往往需要有较高的收益性,对风险进行补偿
+典型因子:<code>区间波动率</code>、<code>区间振幅</code>、<code>财务杠杆</code> 、<code>Beta</code> </li>
+<li><strong>动量反转类</strong>:市场存在过度反应或反应不足,会在不同时间域上体 弱反转的效应
+典型因子:<code>区间收益率</code>、<code>区间资金流强度</code></li>
+<li><strong>其他类</strong>:能从多个角度或其他角度解释的因子
+典型因子:<code>PEG</code>、<code>一致预期差</code></li>
+</ul>
 
-<h3 id="toc_2">机器学习的要素</h3>
+<h3 id="toc_4">因子收益的度量方法</h3>
 
 <ol>
-<li>存在某种有待学习的规则模式(underlying pattern)</li>
-<li>该规则模式不容易定义</li>
-<li>有关于该规则的数据</li>
+<li>横截面回归<br/>
+因子取值与下期股票收益进行线性回归，用最小二乘法拟合出的回归系数定义为因子回报<br/></li>
+<li>FF排序打分法<br/>
+对因子exposure进行排序,排名靠前的股票组合减去靠后的股票组合下一期的平均收益定义为因子回报</li>
 </ol>
 
-<p><strong>未知的有待学习的模式</strong>\(\iff\)目标函数(target function)\(\Longrightarrow X \to Y\)  </p>
+<h3 id="toc_5">因子有效性的评价</h3>
+
+<h4 id="toc_6">信息比率IR</h4>
+
+<p>综合指标，综合衡量收益性和稳定性<br/>
+\[IR= {\overline{R} \over \sigma_R} \] <br/>
+其中\(\overline{R}\)为收益均值，\(\sigma_R\)为收益标准差</p>
+
+<h4 id="toc_7">月胜率Winrate</h4>
+
+<p>稳定性，收益为正的月数越多越好<br/>
+\[Winrate={\sum\limits_{i=1}^{N}{(R_i&gt;0)} \over N}\]<br/>
+其中\(R_i\)为组合的超额收益  </p>
+
+<blockquote>
+<p>这里不太明白的是，究竟是盈利月数与总月数的比例，还是盈利的几个月的总盈利除以总月数？</p>
+</blockquote>
+
+<h4 id="toc_8">平均信息系数Avg_rankic</h4>
+
+<p>收益性指标，表示因子与收益率横截面的相关性<br/>
+\[ Avg\_rankic={\sum\limits_{i=1}^{N}{corr(rank(f_i),rank(r_i))} \over N} \]</p>
+
+<h4 id="toc_9">信息系数标准差Std_rankic</h4>
+
+<p>稳定性指标，越小表示出现因子反转的可能性越小 <br/>
+\[ Std\_rankic= {1 \over N} \sqrt{\sum\limits_{i=1}^{N}{(corr(rank(f_i),rank(r_i))-Avg\_rankic)^2}}\]<br/>
+其中，<code>rank</code>函数表示将自变量排序，返回排序后的序位数；<code>corr</code>函数表示求相关系数</p>
+
+<h3 id="toc_10">因子组合方法：均值方差最优</h3>
+
+<blockquote>
+<p>先贴出来，没有看懂</p>
+</blockquote>
+
+<p>设有\(n\)个因子，\(r\)为收益率矩阵，\(w\)为因子的权重矩阵，\(R=r&#39; \times r \)，\(B\)为收益率的协方差矩阵，\(C\)为相关系数的相关矩阵。则有组合因子的收益、方差与因子权重\(w\)的关系为：<br/>
+\[r^2={w^TRw \over w^TBw}\]<br/>
+\[\sigma ^2={w^TCw \over w^TBw}\]<br/>
+均值方差最优的一类优化条件，即在给定收益\(r_0\)的条件下，实现方差最小化：<br/>
+\[\min\limits_w \sigma^2={w^TCw \over w^TBw}\]<br/>
+使满足：<br/>
+\[{w^TRw \over w^TBw}  =  r_0^2 \]<br/>
+\[w^TI  =  1 \]<br/>
+拉格朗日条件：<br/>
+\[L={w^{T}(C-\lambda R)w \over w^TBw}+\lambda r_0^2+\mu(1-w^{T}I)\]</p>
+
+<p>\[ {\partial L \over \partial w^T } =  0 \]<br/>
+\[{\partial L \over \partial \lambda } = 0 \]<br/>
+\[{\partial L \over \partial \mu }  =  0 \]</p>
+
+<blockquote>
+<p>这里的问题在与，\(r\)、\(w\)等到底是矩阵还是向量？向量比较容易理解其形式，矩阵的话，行和列代表什么？</p>
+</blockquote>
 
 
 		</div>
-	
-
- 
-	
-
- 
-	
-
- 
-	
-
- 
-	
-
- 
-	
-
- 
-	
-
- 
-	
-
- 
-	
-
- 
-	
-
- 
-	
-
- 
-	
-
- 
 	
 
   
