@@ -113,9 +113,461 @@
 		<div class="markdown-body home-categories">
 		
 			<div class="article">
+                <a class="clearlink" href="14731764792227.html">
+                
+                  <h1>多因子选股策略经验分享记录</h1>
+                  <div class="a-content">
+                      
+                      <div class="a-content-text">
+                        
+                        	<blockquote>
+<p>内容来源于计量经济学课程的一个PDF，原文题为《多因子选股策略经验分享》</p>
+</blockquote>
+
+<h3 id="toc_0">框架</h3>
+
+<p><img src="http://o6ehj1mo0.bkt.clouddn.com/%E5%A4%9A%E5%9B%A0%E5%AD%90%E9%80%89%E8%82%A1%E7%AD%96%E7%95%A5%E7%BB%8F%E9%AA%8C%E5%88%86%E4%BA%AB.jpg" alt=""/></p>
+
+<h3 id="toc_1">筛选有效因子</h3>
+
+<h4 id="toc_2">因子有效性标准</h4>
+
+<ol>
+<li>确定因子库
+
+<ul>
+<li>必须有金融学含义（meaningful）</li>
+</ul></li>
+<li>筛选有效因子
+
+<ul>
+<li>有显著收益性（significant）</li>
+<li>收益持续稳定（stable）<br/></li>
+</ul></li>
+</ol>
+
+<h4 id="toc_3">因子库的建立</h4>
+
+<ul>
+<li><strong>成长类</strong>:高成长性的公司更应受到投资者的青睐,从而带来股价的提升<br/>
+典型因子:<code>EPS同比</code>、<code>主营利润同比</code>、<code>主营收入同比</code> </li>
+<li><strong>估值类</strong>:人人都喜欢买价廉又物美的东西。那些估值较低的公司应该更有上涨空间<br/>
+典型因子:<code>市盈率</code>、<code>市净率</code>、<code>相对市盈率</code> </li>
+<li><strong>流动性补偿</strong>:交易不活跃的股票,市值较小的股票往往流动性比较不足,对于这类股票往往需要拥有较高收益,对流动性不足进行补偿<br/>
+典型因子:<code>总市值</code>、<code>流通市值</code>、<code>区间换手率</code>、<code>换手率环比</code> </li>
+<li><strong>风险补偿</strong>:对于波动性大,风险性价高的股票(公司),往往需要有较高的收益性,对风险进行补偿
+典型因子:<code>区间波动率</code>、<code>区间振幅</code>、<code>财务杠杆</code> 、<code>Beta</code> </li>
+<li><strong>动量反转类</strong>:市场存在过度反应或反应不足,会在不同时间域上体 弱反转的效应
+典型因子:<code>区间收益率</code>、<code>区间资金流强度</code></li>
+<li><strong>其他类</strong>:能从多个角度或其他角度解释的因子
+典型因子:<code>PEG</code>、<code>一致预期差</code></li>
+</ul>
+
+<h3 id="toc_4">因子收益的度量方法</h3>
+
+<ol>
+<li>横截面回归<br/>
+因子取值与下期股票收益进行线性回归，用最小二乘法拟合出的回归系数定义为因子回报<br/></li>
+<li>FF排序打分法<br/>
+对因子exposure进行排序,排名靠前的股票组合减去靠后的股票组合下一期的平均收益定义为因子回报</li>
+</ol>
+
+<h3 id="toc_5">因子有效性的评价</h3>
+
+<h4 id="toc_6">信息比率IR</h4>
+
+<p>综合指标，综合衡量收益性和稳定性<br/>
+\[IR= {\overline{R} \over \sigma_R} \] <br/>
+其中\(\overline{R}\)为收益均值，\(\sigma_R\)为收益标准差</p>
+
+<h4 id="toc_7">月胜率Winrate</h4>
+
+<p>稳定性，收益为正的月数越多越好<br/>
+\[Winrate={\sum\limits_{i=1}^{N}{(R_i&gt;0)} \over N}\]<br/>
+其中\(R_i\)为组合的超额收益  </p>
+
+<blockquote>
+<p>这里不太明白的是，究竟是盈利月数与总月数的比例，还是盈利的几个月的总盈利除以总月数？</p>
+</blockquote>
+
+<h4 id="toc_8">平均信息系数Avg_rankic</h4>
+
+<p>收益性指标，表示因子与收益率横截面的相关性<br/>
+\[ Avg\_rankic={\sum\limits_{i=1}^{N}{corr(rank(f_i),rank(r_i))} \over N} \]</p>
+
+<h4 id="toc_9">信息系数标准差Std_rankic</h4>
+
+<p>稳定性指标，越小表示出现因子反转的可能性越小 <br/>
+\[ Std\_rankic= {1 \over N} \sqrt{\sum\limits_{i=1}^{N}{(corr(rank(f_i),rank(r_i))-Avg\_rankic)^2}}\]<br/>
+其中，<code>rank</code>函数表示将自变量排序，返回排序后的序位数；<code>corr</code>函数表示求相关系数</p>
+
+<h3 id="toc_10">因子组合方法：均值方差最优</h3>
+
+<blockquote>
+<p>先贴出来，没有看懂</p>
+</blockquote>
+
+<p>设有\(n\)个因子，\(r\)为收益率矩阵，\(w\)为因子的权重矩阵，\(R=r&#39; \times r \)，\(B\)为收益率的协方差矩阵，\(C\)为相关系数的相关矩阵。则有组合因子的收益、方差与因子权重\(w\)的关系为：<br/>
+\[r^2={w^TRw \over w^TBw}\]<br/>
+\[\sigma ^2={w^TCw \over w^TBw}\]<br/>
+均值方差最优的一类优化条件，即在给定收益\(r_0\)的条件下，实现方差最小化：<br/>
+\[\min\limits_w \sigma^2={w^TCw \over w^TBw}\]<br/>
+使满足：<br/>
+\[{w^TRw \over w^TBw}  =  r_0^2 \]<br/>
+\[w^TI  =  1 \]<br/>
+拉格朗日条件：<br/>
+\[L={w^{T}(C-\lambda R)w \over w^TBw}+\lambda r_0^2+\mu(1-w^{T}I)\]</p>
+
+<p>\[ {\partial L \over \partial w^T } =  0 \]<br/>
+\[{\partial L \over \partial \lambda } = 0 \]<br/>
+\[{\partial L \over \partial \mu }  =  0 \]</p>
+
+<blockquote>
+<p>这里的问题在与，\(r\)、\(w\)等到底是矩阵还是向量？向量比较容易理解其形式，矩阵的话，行和列代表什么？</p>
+</blockquote>
+
+                        
+                      </div>
+                  </div>
+                </a>
+                <div class="read-more clearfix">
+                  <div class="more-left left">
+                  
+                    <span class="date">2016/9/6</span>
+                    <span>posted in&nbsp;</span> 
+          				  
+          					    <span class="posted-in"><a href='Quant.html'>Quant</a></span>
+          				   
+                  </div>
+                  <div class="more-right right">
+                  <span class="comments">
+                      
+
+                      
+                        &nbsp;<a  class="ds-thread-count" data-thread-key="14731764792227.html" data-count-type="comments" href="14731764792227.html#ds-thread"></a>
+                       
+                  </span>
+                  </div>
+                </div>
+              </div><!-- article -->
+        
+			<div class="article">
+                <a class="clearlink" href="14731764544256.html">
+                
+                  <h1>SQL的复习</h1>
+                  <div class="a-content">
+                      
+                      <div class="a-content-text">
+                        
+                        	<blockquote>
+<p>这几天复习了一下SQL，简单总结一下吧！</p>
+</blockquote>
+
+<h3 id="toc_0">SQL的分类</h3>
+
+<h4 id="toc_1">DDL（数据定义语言）</h4>
+
+<ul>
+<li><code>SELECT</code></li>
+<li><code>UPDATE</code></li>
+<li><code>DELETE</code></li>
+<li><code>INSERT INTO</code></li>
+</ul>
+
+<h4 id="toc_2">DML（数据操作语言）</h4>
+
+<ul>
+<li><code>CREATE/ALTER DATABASE</code></li>
+<li><code>CREATE/ALTER/DROP TABLE</code></li>
+<li><code>CREATE/DROP INDEX</code></li>
+</ul>
+
+<h3 id="toc_3">基本语法</h3>
+
+<h4 id="toc_4">SELECT</h4>
+
+<pre><code class="language-sql">SELECT (DISTINCT) 列名称 
+FROM 表名称 
+WHERE {列 运算符 值} AND/OR {列 运算符 值}
+ORDER BY 列名称 ASC/DESC, 列名称 ASC/DESC
+</code></pre>
+
+<p><code>DISTINCT</code>：返回不重复的值<br/>
+<code>AND/OR</code>：条件<br/>
+<code>ORDER BY</code>：排序<br/>
+<code>ASC/DESC</code>：升序/降序，默认升序，多个列时，先按靠前的列排序</p>
+
+<h4 id="toc_5">INSERT</h4>
+
+<pre><code class="language-sql">INSERT INTO 表名称 (列1, 列2,...)
+VALUES (值1, 值2,....)
+</code></pre>
+
+<p>不写(列1, 列2,...)时讲填写所有值<br/>
+写(列1, 列2,...)时为赋值的给空值</p>
+
+<h4 id="toc_6">UPDATE</h4>
+
+<pre><code class="language-SQL">UPDATE 表名称 
+SET 列名称 = 新值 
+WHERE 列名称 = 某值
+</code></pre>
+
+<h4 id="toc_7">DELETE</h4>
+
+<pre><code class="language-SQL">DELETE FROM 表名称 
+WHERE 列名称 = 值
+</code></pre>
+
+<h3 id="toc_8">修饰词</h3>
+
+<h4 id="toc_9">TOP</h4>
+
+<p>规定返回的记录条数，不同数据库语法不同，下面是SQL Server的：</p>
+
+<pre><code class="language-SQL">SELECT TOP number|percent 列名称
+FROM 表名称
+</code></pre>
+
+<p>例子：</p>
+
+<pre><code class="language-sql">SELECT TOP 2 * FROM Persons
+SELECT TOP 50 PERCENT * FROM Persons
+</code></pre>
+
+<h4 id="toc_10">LIKE</h4>
+
+<p>用在<code>WHERE</code>中，寻找匹配的模式</p>
+
+<pre><code class="language-SQL">SELECT 列名称
+FROM 表名称
+WHERE 列 LIKE 模式
+</code></pre>
+
+<p>模式用通配符来表示：<br/>
+<code>%</code>：一个或多个字符<br/>
+<code>_</code>：一个字符<br/>
+<code>[字符列表]</code>：字符列表中的一个字符<br/>
+<code>[^字符列表]</code>：不在字符列表中的一个字符，也可以用<code>[!字符列表]</code></p>
+
+<p>例子：<br/>
+<code>Ne%</code>：以Ne开头的串<br/>
+<code>%lond%</code>：包含lond的串<br/>
+<code>_eorge</code>：第一个字符后面是eorge的串<br/>
+<code>[ALN]%</code>：以A或L或N开头的串</p>
+
+<h4 id="toc_11">IN</h4>
+
+<p>用于<code>WHERE</code>中，规定多个值的范围</p>
+
+<pre><code class="language-sql">SELECT 列名称
+FROM 表名称
+WHERE 列 IN (value1,value2,...)
+</code></pre>
+
+<h4 id="toc_12">BETWEEN...AND</h4>
+
+<p>用于<code>WHERE</code>中，规定一段范围</p>
+
+<pre><code class="language-sql">SELECT 列名称
+FROM 表名称
+WHERE 列
+(NOT) BETWEEN value1 AND value2
+</code></pre>
+
+<h4 id="toc_13">AS</h4>
+
+<p>别名</p>
+
+<pre><code class="language-sql">SELECT 列名称
+FROM 表名称
+AS 列的别名
+</code></pre>
+
+<pre><code class="language-sql">SELECT 列名称 AS 列的别名
+FROM 表名称
+</code></pre>
+
+<h4 id="toc_14">JOIN</h4>
+
+<ul>
+<li><code>JOIN</code>/<code>INNER JOIN</code>: 如果表中有至少一个匹配，则返回行（交集）</li>
+<li><code>LEFT JOIN</code>: 即使右表中没有匹配，也从左表返回所有的行</li>
+<li><code>RIGHT JOIN</code>: 即使左表中没有匹配，也从右表返回所有的行</li>
+<li><code>FULL JOIN</code>: 只要其中一个表中存在匹配，就返回行（并集）</li>
+</ul>
+
+<pre><code class="language-sql">SELECT 列名称
+FROM 表名称
+INNER JOIN 表名称
+ON 列名称1=列名称2
+</code></pre>
+
+<h4 id="toc_15">UNION</h4>
+
+<p>合并两个或多个 <code>SELECT</code> 语句的结果集，结果集列必须相同<br/>
+<code>UNION ALL</code>允许重复值</p>
+
+<pre><code class="language-sql">SELECT 列名称1 FROM 表名称1
+UNION (ALL)
+SELECT 列名称2 FROM 表名称2
+</code></pre>
+
+<h4 id="toc_16">SELECT INTO</h4>
+
+<p>把<code>SELECT</code>的结果集插入另一个表</p>
+
+<pre><code class="language-sql">SELECT 列名称
+INTO 新表名称 (IN 外部数据库名称)
+FROM 旧表名称
+</code></pre>
+
+<h3 id="toc_17">数据库操作</h3>
+
+<h4 id="toc_18">CREATE DATABASE</h4>
+
+<pre><code class="language-sql">CREATE DATABASE 数据库名
+</code></pre>
+
+<h4 id="toc_19">CREATE TABLE</h4>
+
+<pre><code class="language-sql">CREATE TABLE 表名称
+(
+列名称1 数据类型 约束,
+列名称2 数据类型 约束,
+列名称3 数据类型 约束,
+....
+)
+</code></pre>
+
+<p><strong>约束</strong>：</p>
+
+<ul>
+<li><code>NOT NULL</code>：不接受空值</li>
+<li><code>UNIQUE</code>：唯一值</li>
+<li><code>PRIMARY KEY</code>：主键，唯一值，每个表只能有一个主键</li>
+<li><code>FOREIGN KEY</code>：外键，指向另一个表中的主键</li>
+<li><code>CHECK</code>：限制值的范围</li>
+<li><code>DEFAULT</code>：默认值</li>
+<li><code>AUTO INCREMENT</code>：自增或自减</li>
+</ul>
+
+<p>例子：</p>
+
+<pre><code class="language-sql">CREATE TABLE Persons
+(
+Id_P int NOT NULL UNIQUE AUTO_INCREMENT,
+LastName varchar(255) NOT NULL,
+FirstName varchar(255),
+Address varchar(255),
+City varchar(255) DEFAULT &#39;Sandnes&#39;
+PRIMARY KEY (Id_P)
+FOREIGN KEY (Id_P) REFERENCES Persons(Id_P)
+CHECK (Id_P&gt;0)
+)
+</code></pre>
+
+<p>有自增的属性在<code>INSERT</code>时可以不用赋值。</p>
+
+<h4 id="toc_20">CREATE INDEX</h4>
+
+<p>创建索引，索引是看不到的，但是可以加快查询的速度。</p>
+
+<pre><code class="language-sql">CREATE (UNIQUE) INDEX 索引名称
+ON 表名称 (列名称)
+</code></pre>
+
+<p><code>UNIQUE</code>用来创建唯一的索引，即两个行不能有相同的索引值</p>
+
+<h4 id="toc_21">ALTER TABLE</h4>
+
+<p>在已经存在的表中修改表结构<br/>
+<strong>添加列</strong>：<br/>
+<code>sql<br/>
+ALTER TABLE 表名称<br/>
+ADD 列名称 数据类型<br/>
+</code></p>
+
+<p><strong>删除列</strong>：<br/>
+<code>sql<br/>
+ALTER TABLE 表名称 <br/>
+DROP COLUMN 列名称<br/>
+</code></p>
+
+<p><strong>修改列</strong>：<br/>
+<code>sql<br/>
+ALTER TABLE 表名称<br/>
+ALTER COLUMN 列名称 数据类型<br/>
+</code></p>
+
+<h4 id="toc_22">VIEW</h4>
+
+<p>VIEW是一个虚拟的表，是基于SQL语句的结果集。</p>
+
+<pre><code class="language-sql">CREATE VIEW VIEW名称 AS
+SELECT 列名称
+FROM 表名称
+WHERE 条件
+</code></pre>
+
+<p>修改VIEW<br/>
+<code>sql<br/>
+CREATE (REPLACE) VIEW VIEW名称 AS<br/>
+SELECT 列名称<br/>
+FROM 表名称<br/>
+WHERE 条件<br/>
+</code></p>
+
+<h3 id="toc_23">重要的函数</h3>
+
+<h4 id="toc_24">GROUP BY</h4>
+
+<pre><code class="language-sql">SELECT 列名称
+FROM 表名称
+GROUP BY 列名称
+</code></pre>
+
+<p>返回的结果会根据<code>GROUP BY</code>的列来分组，其他的列进行合并</p>
+
+<h4 id="toc_25">HAVING</h4>
+
+<p><code>GROUP BY</code>子句不能和<code>WHERE</code>一起使用，因此要用<code>HAVING</code>关键字</p>
+
+<pre><code class="language-sql">SELECT 列名称
+FROM 表名称
+GROUP BY 列名称
+HAVING 条件
+</code></pre>
+
+                        
+                      </div>
+                  </div>
+                </a>
+                <div class="read-more clearfix">
+                  <div class="more-left left">
+                  
+                    <span class="date">2016/9/6</span>
+                    <span>posted in&nbsp;</span> 
+          				  
+          					    <span class="posted-in"><a href='Database.html'>Database</a></span>
+          				   
+                  </div>
+                  <div class="more-right right">
+                  <span class="comments">
+                      
+
+                      
+                        &nbsp;<a  class="ds-thread-count" data-thread-key="14731764544256.html" data-count-type="comments" href="14731764544256.html#ds-thread"></a>
+                       
+                  </span>
+                  </div>
+                </div>
+              </div><!-- article -->
+        
+			<div class="article">
                 <a class="clearlink" href="14731763776619.html">
                 
-                  <h1>假设检验</h1>
+                  <h1>六、假设检验</h1>
                   <div class="a-content">
                       
                       <div class="a-content-text">
@@ -274,7 +726,7 @@
 			<div class="article">
                 <a class="clearlink" href="14731763776520.html">
                 
-                  <h1>数理统计的基本概念</h1>
+                  <h1>五、数理统计的基本概念</h1>
                   <div class="a-content">
                       
                       <div class="a-content-text">
@@ -598,7 +1050,7 @@ Em_2=\frac{1}{n}(n\sigma^2-\sigma^2)=\frac{n-1}{n}\sigma^2<br/>
 			<div class="article">
                 <a class="clearlink" href="14731763776458.html">
                 
-                  <h1>随机变量的数字特征</h1>
+                  <h1>四、随机变量的数字特征</h1>
                   <div class="a-content">
                       
                       <div class="a-content-text">
@@ -878,401 +1330,6 @@ b <br/>
                 </div>
               </div><!-- article -->
         
-			<div class="article">
-                <a class="clearlink" href="14731763776396.html">
-                
-                  <h1>多维随机变量及其分布</h1>
-                  <div class="a-content">
-                      
-                      <div class="a-content-text">
-                        
-                        	<blockquote>
-<p>随机向量及其分布、多元分布、条件分布、随机向量的函数的分布、统计中的重要分布</p>
-</blockquote>
-
-<h2 id="toc_0">随机向量及其分布</h2>
-
-<h3 id="toc_1">定义</h3>
-
-<p>设\(X_1,X_2,...,X_n\)为同一样本空间\(S\)上的随机变量，则称\(X=(X_1,X_2,...,X_n)\)为随机向量，\(n\)为维数。<br/><br/>
-即，\(X\)是一个\(n\)维向量，其中每一个分量都是随机变量，也称为\(n\)维随机变量。</p>
-
-<h3 id="toc_2">随机向量的分布</h3>
-
-<h4 id="toc_3">二维离散型随机向量</h4>
-
-<p>\[P(X=x_i,Y=y_i)=P_{ij}\\ i=1,2,...,m \\ j=1,2,...,n\]<br/>
-\[P_{ij} \geqslant 0\]<br/>
-\[\sum\limits_{i=1}^{\infty}\sum\limits_{j=1}^{\infty}P_{ij}=1\]</p>
-
-<h4 id="toc_4">二维随机联分布函数</h4>
-
-<p>设\((X,Y)\)为二维随机向量，称\[F(x,y)=P(X \leqslant x,Y \leqslant Y)\]为\((x,y)\)的联合分布函数。  </p>
-
-<p><strong>性质</strong>：  </p>
-
-<ol>
-<li>给定\(y\)，\(F(x,y)\)是\(x\)的非减函数；<br/>
-  给定\(x\)，\(F(x,y)\)是\(y\)的非减函数。<br/></li>
-<li><p>\[0 \leqslant F(x,y) \leqslant 1 \]<br/>
-\[\lim\limits_{x \to {-\infty}}F(x,y)=0\]<br/>
-\[\lim\limits_{y \to {-\infty}}F(x,y)=0\]<br/>
-\[\lim\limits_{x \to {+\infty} \atop y \to {+\infty}}F(x,y)=1\]   </p></li>
-<li><p>\[P(a&lt;x \leqslant b,c&lt;y\leqslant d)=F(b,d)-F(a,d)-F(b,c)+F(a,c)\geqslant 0\]  </p></li>
-<li><p>\(F(x,y)\)分别关于\(x,y\)右连续</p></li>
-</ol>
-
-<h4 id="toc_5">连续型随机向量的概率密度函数</h4>
-
-<p><strong>定义</strong>：若对\(F(x,y)\)存在\(f(x,y)\geqslant 0\)，使得对任一\((x,y)\in R^2\)，有\[F(x,y)=\int_{-\infty}^x\int_{-\infty}^yf(u,v)\,dudv\]则称\(F(x,y)\)为连续型联合分布函数，\(f(x,y)\)称作密度函数。<br/><br/>
-由定义可知：<br/><br/>
-\[f(x,y)\geqslant 0, \iint f(x,y)\,dxdy=1\]<br/>
-在\(f(x,y)\)的连续点上，\[\frac{\partial^2F}{\partial x \partial y}=f(x,y)\]</p>
-
-<h3 id="toc_6">重要的二维连续随机分布</h3>
-
-<h4 id="toc_7">二维均匀分布</h4>
-
-<p>设\(G \subset R^2, \left| G \right|\)表示面积<br/><br/>
-\[(x,y) \backsim f(x,y)=\left\{<br/>
-\begin{aligned}<br/>
-\frac{1}{\left| G \right|}&amp;, \quad (x,y) \in G \\<br/>
-0&amp;, \quad 其他<br/>
-\end{aligned}<br/>
-\right.\]</p>
-
-<h4 id="toc_8">二维正态分布</h4>
-
-<p>\[(x,y)\backsim f(x,y)=\frac{1}{2\pi \sigma_1 \sigma_2 \sqrt{1-\rho^2}}e^{-\frac{1}{2(1-\rho^2)}[\frac{(x-\mu_1)^2}{\sigma_1^2}+\frac{(y-\mu_2)^2}{\sigma_2^2}-\frac{2\rho (x-\mu_1)(y-\mu_2)}{\sigma_1 \sigma_2}]}\]</p>
-
-<p>称\((x,y)\)为服从二维联合正太分布的随机变量，<br/><br/>
-记为\[(x,y)\backsim N(\mu_1,\mu_2,\sigma_1^2,\sigma_2^2,\rho)\]</p>
-
-<h3 id="toc_9">边缘分布（边际分布）</h3>
-
-<p>\((X,Y)\backsim F(x,y)\)<br/><br/>
-则\(X\)的分布\(F_1(x)\)和\(Y\)的分布\(F_2(y)\)称为\(F(x,y)\)的边缘分布。<br/><br/>
-\[\begin{aligned}F_1(x)&amp;=P(X\leqslant x)\\&amp;=P(X \leqslant X,Y \leqslant +\infty)\\&amp;=F(x,+\infty)\\&amp;=\lim\limits_{y \to +\infty}F(x,y)\end{aligned}\]<br/>
-同理\[F_2=\lim\limits_{x \to +\infty}F(x,y)\]<br/><br/>
-边缘密度函数：</p>
-
-<p>\[\begin{aligned}f_1(x)&amp;=\frac{\partial F(x,+\infty)}{\partial x}\\&amp;=\frac{\partial}{\partial x}\int_{-\infty}^x\int_{-\infty}^{+\infty}f(x,y)\,dxdy\\&amp;=\int_{-\infty}^{+\infty}f(x,y)\,dy\end{aligned}\]</p>
-
-<p>同理\[f_2(y)=\int_{-\infty}^{+\infty}f(x,y)\,dx\]</p>
-
-<p>离散型：<br/><br/>
-\[\begin{aligned}P(X=x_i)&amp;=P(X=x_i,\bigcup\limits_{j=1}^{\infty}Y=y_j)\\&amp;=\sum\limits_{j=1}^{\infty}P(X=x_i,Y=y_i)\\&amp;=\sum\limits_{j=1}^{\infty}P_{ij}\\&amp;=P_{i\cdot}\end{aligned}\]<br/><br/>
-同理：\[P(Y=y_i)=P_{\cdot j}\]</p>
-
-<h2 id="toc_10">多元分布</h2>
-
-<p>\(X=(X_1,X_2,...,X_n)\)，<br/><br/>
-称\[F(x_1,x_2,...,x_n)=P(X_1\leqslant x_1,X_2\leqslant x_2,...,X_n\leqslant x_n)\]为随机向量\(X=(X_1,X_2,...,X_n)\)的联合分布。  </p>
-
-<p>设\(\vec{x}=(X_1,X_2,...,X_n)\)<br/><br/>
-定义：\[\vec{a}\leqslant\vec{b}\iff a_i \leqslant b_i,i=1,2,...,n\]<br/>
-\[F(\vec{x})=P(X\leqslant \vec{x})\]<br/>
-若\[\exists f(x_1,x_2,...,x_n) \ne 0\]<br/>
-使\[\forall (x_1,x_2,...,x_n)\in R^n\]<br/>
-\[F(x_1,x_2,...,x_n)=\int_{-\infty}^{x_1}\int_{-\infty}^{x_2}\cdot \cdot \cdot \int_{-\infty}^{x_n}f(u_1,u_2,...,u_n)\,du_1du_2...du_n\]<br/><br/>
-则\(F\)称为连续型分布函数，\(f\)称为联合密度函数。<br/><br/>
-\[F(\vec{x})=\int_{-\infty}^{\vec{x}}f(\vec{u})\,d{\vec{u}}\]   </p>
-
-<h2 id="toc_11">条件分布</h2>
-
-<h3 id="toc_12">离散型随机向量</h3>
-
-<p>\[P(X=x_i,Y=y_j)=P_{ij}\]<br/>
-\[\begin{aligned}P(X=x_i|Y=y_j)&amp;=\frac{P(X=x_i,Y=y_j)}{P(Y=y_j)}\\&amp;=\frac{P_{ij}}{P_{\cdot j}}\end{aligned}\]</p>
-
-<h3 id="toc_13">连续型随机向量</h3>
-
-<p>\((X,Y)\backsim f(x,y)\)<br/><br/>
-定义：\[F_{x|y}=P(X\leqslant x|Y=y)\]称为给定\(Y=y\)下随机变量\(X\)的条件分布。<br/><br/>
-\[\begin{aligned}f(x|y)&amp;=\frac{P(X\leqslant x,Y=y)}{P(Y=y)}\\&amp;=\lim\limits_{\epsilon \to 0}\frac{P(X=x,y\leqslant Y \leqslant y+\epsilon)}{P(y\leqslant Y \leqslant y+\epsilon)}\\&amp;=\int_{-\infty}^{x}\frac{f(u,y)}{f_2(y)}\,du\end{aligned}\]</p>
-
-<p>称\(\frac{f(x,y)}{f_2(y)}\)为给定\(Y=y\)下随机变量\(X\)的条件密度，记为\[f_{X|Y}(x|y)\]<br/><br/>
-即：\[f(x,y)=f_{X|Y}(x|y)f_2(y)\]</p>
-
-<h3 id="toc_14">相互独立的随机变量</h3>
-
-<h4 id="toc_15">\(X,Y\)独立</h4>
-
-<p>\(X,Y\)独立是指<code>与随机变量$X$有关的任一事件</code>发生与否与<code>与随机变量$Y$有关的任意事件</code>发生与否无关。<br/><br/>
-\[P\{(X\leqslant x),(Y \leqslant y)\}=P(X\leqslant x)P(Y\leqslant y)\]<br/>
-即：\[F(x,y)=F_1(x)F_2(y)\]<br/>
-若密度函数存在，则\[f(x,y)=f_1(x)f_2(y)\]<br/>
-\(\implies\)若\(X,Y\)独立，则\[f_{X|Y}(x|y)=f_1(x),f_{Y|X}(y|x)=f_2(y)\]<br/>
-\((X,Y)\backsim f(x,y)\)，则\[X,Y独立\iff f(x,y)=g_1(x)g_2(y)\]<br/>
-此时，\(\exists \)常数\(a,b\)使\[ag_1(x)=f_1(x),bg_2(x)=f_2(x),ab=1\]<br/><br/>
-对于\((X,Y)\backsim N(\mu_1,\mu_2,\sigma_1^2,\sigma_2^2,\rho)\)，\[(X,Y)独立\iff \rho=0\]</p>
-
-<h4 id="toc_16">\(X_1,X_2,...,X_n\)相互独立</h4>
-
-<p>\[F(x_1,x_2,...,x_n)=\prod\limits_{i=1}^{n}F_i(x_i)\]或\[f(x_1,x_2,...,x_n)=\prod\limits_{i=1}^{n}f_i(x_i)\]   </p>
-
-<p>性质：</p>
-
-<ol>
-<li>\[y=g(x_1,x_2,...,x_k),z=h(x_{k+1},x_{k+2},...,x_n)\]则\(y\)与\(z\)独立</li>
-<li>若\(X_1,X_2,...,X_n\)相互独立，并且有相同的边缘分布，则称\(X_1,X_2,...,X_n\)为独立同分布，简记为\(iid\)</li>
-</ol>
-
-<h2 id="toc_17">随机向量的函数的分布</h2>
-
-<p>\[(X,Y)\backsim f(x,y)\\Z=g(X,Y)\\ F_Z(z)=P(g(x,y)\leqslant z)=\iint\limits_{g(x,y)\leqslant z} f(x,y)\,dxdy\]</p>
-
-<h2 id="toc_18">统计中的重要分布</h2>
-
-<h3 id="toc_19">\(\Gamma\)函数、\(\beta\)函数</h3>
-
-<h4 id="toc_20">\(\Gamma\)函数</h4>
-
-<p>\[\Gamma(x)=\int_{0}^{\infty}e^{-t}t^{x-1}\,dt, x&gt;0\]<br/>
-性质：  </p>
-
-<ol>
-<li>\[\Gamma(x+1)=x\Gamma(x),\Gamma(1)=1 \\
-\implies \Gamma(n+1)=n!\]</li>
-<li>\[\Gamma(\frac{1}{2})=\sqrt{\pi}\]</li>
-</ol>
-
-<h4 id="toc_21">\(\beta\)函数</h4>
-
-<p>\[B(x,y)=\int_0^1 t^{x-1}(1-t)^{y-1}\,dt,x&gt;0,y&gt;0\]<br/>
-则\[B(x,y)=\frac{\Gamma(x)\Gamma(y)}{\Gamma(x+y)}\]</p>
-
-<h3 id="toc_22">上下侧分位数</h3>
-
-<p>对于随机变量\(X\)的分布函数为\(F(x)\)，\(0&lt;\alpha &lt;1\)  </p>
-
-<ul>
-<li>上侧分位数：<br/>
-\[P(X&gt;\lambda)=1-F(\lambda)=\alpha\]称\(\lambda\)为上侧\(\alpha\)分位数<br/></li>
-<li>下侧分位数：<br/>
-\[P(X&lt;\lambda)=F(\lambda)=\alpha\]称\(\lambda\)为上侧\(\alpha\)分位数<br/></li>
-<li>双侧分位数：<br/>
-\[P(X&lt;\lambda_1)=F(\lambda_1)=0.5\alpha\]
-\[P(X&lt;\lambda_2)=1-F(\lambda_2)=0.5\alpha\]
-称\(\lambda_1,\lambda_2\)为双侧\(\alpha\)分位数</li>
-</ul>
-
-<h3 id="toc_23">\(\chi^2\)分布</h3>
-
-<p><strong>定义</strong>：设\(X_1,X_2,...,X_n\)是独立同分布的随机变量，\(X_i\backsim N(0,1)\)<br/><br/>
-\[\chi ^2=\sum\limits_{i=1}^n x_i^2\]则称\(\chi^2\)服从自由度为\(n\)的\(\chi^2\)分布，记为\(\chi_n^2\)<br/><br/>
-自由度：能够自由变化的自变量的个数。<br/><br/>
-例如：若限制\(\sum\limits_{i=1}^n x_i=1\)，则自由度为\(n-1\)</p>
-
-<h3 id="toc_24">\(t\)分布</h3>
-
-<p>设\(X\backsim N(0,1)\)，\(Y\backsim \chi^2\)，\(X,Y\)相互独立<br/><br/>
-\[t_n=\frac{X}{\sqrt{Y/n}}\]则称\(t\)服从自由度为\(n\)的\(t\)分布，记为\(t_n\)。<br/><br/>
-\[f_n(t)=\frac{\Gamma(\frac{n+1}{2})}{\sqrt{n\pi}\Gamma(\frac{n}{2})}(1+\frac{t^2}{n})^{-\frac{n+1}{2}}\]<br/><br/>
-当\(n \to \infty\)时，\(f_n(t)\)与\(N(0,1)\)近似。<br/><br/>
-若\(X_1,X_2,...,X_n\)是独立同分布，且服从\(N(\mu,\sigma^2)\)，则：<br/><br/>
-\[\frac{\sqrt{n}(\bar x-\mu)}{\sigma}\backsim N(0,1)\]<br/>
-\[\frac{1}{\sigma^2}\sum\limits_{i=1}^{n}(x_i-\bar x)\backsim\chi_{n-1}^2\]<br/><br/>
-二者相互独立。<br/><br/>
-\[\implies \frac{\frac{\sqrt{n}(\bar x-\mu)}{\sigma}}{\sqrt{\frac{1}{\sigma^2}\sum\limits_{i=1}^{\infty}\frac{(x-\bar x)^2}{n-1}}}\backsim t_{n-1}\]  </p>
-
-<h3 id="toc_25">\(F\)分布</h3>
-
-<p>设\(X \backsim \chi_m^2\)，\(Y \backsim \chi_n^2\)<br/><br/>
-且\(X\)与\(Y\)独立，\[F=\frac{X/m}{Y/n}\]<br/>
-则称\(F\)服从自由度为\(m,n\)的\(F\)分布，记为\(F_{m,n}\)<br/><br/>
-\[t_n^2=\frac{X^2}{Y/n}=F_{1,n}\]</p>
-
-<h3 id="toc_26">最大最小分布</h3>
-
-<p>\(X,Y\)独立，\[Z=max(X,Y),W=min(X,Y)\]<br/>
-\[\begin{aligned}F_Z(z)&amp;=P(Z\leqslant z)\\&amp;=P(max(X,Y)\leqslant z)\\&amp;=P(X\leqslant z,Y\leqslant z)\\&amp;=P(X\leqslant z)P(Y\leqslant z)\\&amp;=F_X(z)F_Y(z)\end{aligned}\]<br/>
-因此\[f_Z(z)=f_X(z)F_Y(z)+F_X(z)f_Y(z)\]<br/>
-若\(X,Y\)独立同分布，则\[f_Z(z)=2f(z)F(z)\]</p>
-
-<p>\[\begin{aligned}P(W\leqslant w)&amp;=P(min(X,Y)\leqslant w)\\&amp;=1-P(min(Z,Y)&gt; w)\\&amp;=1-P(X&gt;w,Y&gt;w)\\&amp;=1-P(X&gt;w)P(Y&gt;w)\\&amp;=1-(1-F_x(w))(1-F_y(w))\end{aligned}\]</p>
-
-                        
-                      </div>
-                  </div>
-                </a>
-                <div class="read-more clearfix">
-                  <div class="more-left left">
-                  
-                    <span class="date">2016/9/6</span>
-                    <span>posted in&nbsp;</span> 
-          				  
-          					    <span class="posted-in"><a href='Statistics.html'>Statistics</a></span>
-          				   
-                  </div>
-                  <div class="more-right right">
-                  <span class="comments">
-                      
-
-                      
-                        &nbsp;<a  class="ds-thread-count" data-thread-key="14731763776396.html" data-count-type="comments" href="14731763776396.html#ds-thread"></a>
-                       
-                  </span>
-                  </div>
-                </div>
-              </div><!-- article -->
-        
-			<div class="article">
-                <a class="clearlink" href="14731763776335.html">
-                
-                  <h1>随机变量及其分布</h1>
-                  <div class="a-content">
-                      
-                      <div class="a-content-text">
-                        
-                        	<blockquote>
-<p>随机变量、离散型随机变量、连续型随机变量</p>
-</blockquote>
-
-<h2 id="toc_0">随机变量</h2>
-
-<p><strong>研究</strong>：随机事件中的一串事件所发生的概率，事件之间可能有联系。<br/><br/>
-引入<strong>随机变量</strong>：用一个数或一个区间来表示所关心的事件，这种对应关系叫随机变量。</p>
-
-<p>随机变量研究：</p>
-
-<ol>
-<li>随机变量取哪些值</li>
-<li>随机变量取这些值的概率</li>
-</ol>
-
-<h2 id="toc_1">离散型随机变量</h2>
-
-<p>随机变量\(X\)取有限或可数多个值，<br/><br/>
-\(P(X=x_k)=P_k, \quad k=1,2,...,n\)称为随机变量的分布，<br/><br/>
-\(X\)是随机变量，\(x_k\)是一个实数，没有随机性。</p>
-
-<h3 id="toc_2">离散的均匀分布</h3>
-
-<p>\(P(x=k)=\frac{1}{n},\quad k=1,2,...,n\)</p>
-
-<h3 id="toc_3">二项分布</h3>
-
-<p>在一次试验中事件\(A\)发生的概率为\(p\)，把这一试验独立重复做\(n\)次，将\(x\)记为\(n\)次试验中事件\(A\)发生的次数。<br/><br/>
-\(P（X=k）=P_{n,k}={n \choose k}p^k(1-p)^{n-k}, \quad k=0,1,...,n\)，称随机变量服从二项分布，记为\(X \backsim B(n,p)\)</p>
-
-<p><strong>超几何分布</strong>与<strong>二项分布</strong>：二项分布是有放回的试验；超几何分布是不放回的试验</p>
-
-<h3 id="toc_4">泊松分布</h3>
-
-<p>观测量很大时，无法统计。  </p>
-
-<ul>
-<li>二项分布：\(p\)已知，发生次数\(\lambda\)不确定<br/></li>
-<li>泊松分布：\(\lambda\)已知，\(p\)不确定</li>
-</ul>
-
-<p>\(P(X=k)=e^{-\lambda}\frac{\lambda^k}{k!},\quad k=0,1,2,...,\quad \lambda &gt;0\)<br/><br/>
-\(\lambda\)称为泊松分布的强度  </p>
-
-<ol>
-<li>描述稀有事件发生的概率</li>
-<li>作为二项分布的一种近似（泊松逼近定理）：<br/>
-设\(X\backsim B(n,p)\)<br/>
-当\(n\)很大（\(n\geqslant 30\)），\(np\)较小（\(np\leqslant\) 5）时：<br/>
-\(b_{nk}={n \choose k}p^k(1-p)^{n-k} \backsim e^{-\lambda}\frac{x^k}{k!} \)<br/>
-其中\(\lambda=np\)，当\(p\)很小时，<br/>
-\((1-x) \backsim e^{-x} \implies (1-p)^{n-k} \backsim e^{-p(n-k)} \backsim e^{-pn}=e^{-\lambda}\)
-\(\begin{align}
-{n \choose k}p^k(1-p)^{n-k}&amp; =\frac{n(n-1)...(n-k+1)}{k!}p^k(1-p)^{n-k}\\ &amp; \approx \frac{(np)^k}{k!}e^{-\lambda}=e^{-\lambda}\frac{\lambda ^k}{k!}
-\end{align}\)</li>
-</ol>
-
-<h2 id="toc_5">连续型随机变量</h2>
-
-<p><strong>定义1</strong>：设\(X\)为随机变量，称\(P(X\leqslant x)=F(x)\)为\(X\)的分布函数<br/><br/>
-<strong>定义2</strong>：<br/><br/>
-若分布函数\(F(x)\)满足：存在非负函数\(f(x)\)，且\(\int{f(x)}\,dx=1\)。<br/><br/>
-且\(F(x)=\int_{-\infty}^{x}{f(t)}\,dt\)，则称\(F(x)\)为连续型分布函数，对应的随机变量\(X\)称为连续型随机变量。   </p>
-
-<p><strong>分布函数的性质</strong>：  </p>
-
-<ol>
-<li>\(F(x)\)单调非降 \(\uparrow\) </li>
-<li><p>\(0 \leqslant F(x)\leqslant 1\\    <br/>
-F(-\infty)=\lim\limits_{x \to -\infty}F(x)=0\\<br/>
-F(+\infty)=\lim\limits_{x \to +\infty}F(x)=1\)  </p></li>
-<li><p>\(F(x)\)右连续 </p></li>
-</ol>
-
-<h3 id="toc_6">连续型随机变量的概率密度函数</h3>
-
-<p><strong>定义</strong>：若对于随机变量\(X\)的分布函数\(F(x)\)，存在一个非负函数\(f(x)\)，使得对\(\forall x \in R,F(x)=\int_{-\infty}^{x}f(t)\,dt\)，则称\(X\)为连续型随机变量，\(F(x)\)称为连续型分布函数，\(f(x)\)称为概率密度函数。</p>
-
-<p>由定义：\(f(x) \geqslant 0\)，\(\int f(x)\,dx=1\)。</p>
-
-<ol>
-<li>\(P(a &lt;x\leqslant b)=F(b)-F(a)=\int_a^b f(x)\,dx\)</li>
-<li>\(F(X=a)=\lim\limits_{h \to 0}P(a-h&lt;X\leqslant a)=\lim\limits_{h \to 0}f(x)\,dx=0\)</li>
-<li>当\(\Delta x\)很小时，\(f(x)\Delta x \approx \Delta F(x)=P(x&lt;x\leqslant x+\Delta x)\)</li>
-</ol>
-
-<h3 id="toc_7">几个重要的连续型随机变量的分布</h3>
-
-<h4 id="toc_8">均匀分布：\(U(a,b)\)</h4>
-
-<p>\(f(x)=\left\{<br/>
-\begin{aligned}<br/>
-\frac{1}{b-a}&amp;, \quad a&lt;x&lt;b \\<br/>
-0&amp;, \quad 其他<br/>
-\end{aligned}<br/>
-\right.\)</p>
-
-<p>则随机变量\(X\)称为均匀分布的随机变量。<br/>
-性质：\(\forall 区间(c,d)\subset (a,b),P(c&lt;x&lt;d)=\frac{d-c}{b-a}\)</p>
-
-<h4 id="toc_9">指数分布</h4>
-
-<p><strong>密度函数为</strong>：\(f(x)=\lambda e^{-\lambda x},x&gt;0,\lambda&gt;0\)</p>
-
-<p><strong>性质</strong>：无后效性<br/><br/>
-\(P(x&gt;t+s | x&gt;t)=P(x&gt;s)\)，经常用来描述元件的寿命。<br/><br/>
-另外，若\(\lim\limits_{h \to 0}\frac{F(x&lt;X&lt;x+h)}{h}\to \lambda\)，则\(F\)为指数分布</p>
-
-<h4 id="toc_10">正态分布</h4>
-
-<p>\(X \backsim f(x)=\frac{1}{\sqrt{2\pi}\sigma}e^{-\frac{(x-\mu)^2}{2\sigma^2}}\)<br/>
-,称随机变量\(X\)为服从参数为\(\mu\)，\(\sigma^2\)的正态分布，记为\(X \backsim N(\mu,\sigma^2)\)。<br/><br/>
-当\(\mu =0\)，\(\sigma =1\)时，称为标准正太分布，分布函数\(F(x)\)记为\(\Phi(x)\)，密度函数\(f(x)\)记为\(\varphi(x)\)。 </p>
-
-<p>\(X \backsim N(\mu,\sigma^2)\)，则密度函数\(f(x)=\varphi(\frac{x-\mu}{\sigma})\)，\(P(a&lt;x\leqslant b)=F(b)-F(a)=\Phi(\frac{b-\mu}{\sigma})-\Phi(\frac{a-\mu}{\sigma})\)</p>
-
-<h3 id="toc_11">随机变量的函数分布</h3>
-
-<p>若\(X\)是随机变量，一般来说，\(g(X)\)仍为随机变量。</p>
-
-<p><strong>定理1</strong>：设\(X \backsim f(x)\)，\(g(\cdot)\)是严格的单调增（减）函数。则\(y=g(x)\backsim f_y(h(y))\left| h&#39;(y)\right |\)，其中\(h\)是\(g\)的反函数，\([\alpha,\beta)\)是\(y\)的值域。</p>
-
-                        
-                      </div>
-                  </div>
-                </a>
-                <div class="read-more clearfix">
-                  <div class="more-left left">
-                  
-                    <span class="date">2016/9/6</span>
-                    <span>posted in&nbsp;</span> 
-          				  
-          					    <span class="posted-in"><a href='Statistics.html'>Statistics</a></span>
-          				   
-                  </div>
-                  <div class="more-right right">
-                  <span class="comments">
-                      
-
-                      
-                        &nbsp;<a  class="ds-thread-count" data-thread-key="14731763776335.html" data-count-type="comments" href="14731763776335.html#ds-thread"></a>
-                       
-                  </span>
-                  </div>
-                </div>
-              </div><!-- article -->
-        
               
 
 
@@ -1356,6 +1413,18 @@ F(+\infty)=\lim\limits_{x \to +\infty}F(x)=1\)  </p></li>
 	      
 		      
 			      <li class="post">
+			        <a href="14736944204188.html">Python一些代码记录</a>
+			      </li>
+		     
+		  
+		      
+			      <li class="post">
+			        <a href="14736943212392.html">Datetime in Python and pandas</a>
+			      </li>
+		     
+		  
+		      
+			      <li class="post">
 			        <a href="14731765759434.html">一些基础及Roadmap</a>
 			      </li>
 		     
@@ -1373,16 +1442,8 @@ F(+\infty)=\lim\limits_{x \to +\infty}F(x)=1\)  </p></li>
 		     
 		  
 		      
-			      <li class="post">
-			        <a href="14731764792227.html">多因子选股策略经验分享记录</a>
-			      </li>
-		     
 		  
 		      
-			      <li class="post">
-			        <a href="14731764544256.html">SQL的复习</a>
-			      </li>
-		     
 		  
 		      
 		  

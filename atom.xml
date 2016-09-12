@@ -4,13 +4,70 @@
   <title><![CDATA[非洲小黑脸李某]]></title>
   <link href="lish.space/atom.xml" rel="self"/>
   <link href="lish.space/"/>
-  <updated>2016-09-07T19:53:53+08:00</updated>
+  <updated>2016-09-13T00:11:37+08:00</updated>
   <id>lish.space/</id>
   <author>
     <name><![CDATA[]]></name>
     
   </author>
   <generator uri="http://www.mweb.im/">MWeb</generator>
+  
+  <entry>
+    <title type="html"><![CDATA[Python一些代码记录]]></title>
+    <link href="lish.space/14736944204188.html"/>
+    <updated>2016-09-12T23:33:40+08:00</updated>
+    <id>lish.space/14736944204188.html</id>
+    <content type="html"><![CDATA[
+<blockquote>
+<p>这个坑完全是为了记录Python数据处理中一些需要记一下的代码，随时补充。仔细想想，我的Python写的真是丑啊。</p>
+</blockquote>
+
+<pre><code class="language-py">#把两个长度一样的数组x,y组合成一个(x,y)的数组
+z=zip(x,y)
+</code></pre>
+
+<pre><code class="language-py">#map和reduce真的很有用的两个函数
+isTradeble=map(lambda a,b:np.logical_and(a,b),
+                  isTradeble==1,
+                  [i&gt;0 and np.isnan(i)==False for i in pb])
+                  
+condition=reduce(lambda a,b:np.logical_and(a,b),
+                    [np.isnan(cps)==False,
+                    np.isnan(openEx[-1])==False,
+                    np.isnan(stockListIndex)==0])
+</code></pre>
+
+<pre><code class="language-py">#axis=0就是纵向切片，axis=1是横向切片
+MA3=np.sum(closePrice[-3:],axis=0)/3
+
+#axis=0是竖着拼接，axis=1是横着拼接
+SWIndexQuote=np.append(tmp1,tmp2,axis=1)
+
+</code></pre>
+
+<pre><code class="language-py">#rolling()是一个很有用的函数，意思就是滚动出来一个窗口的意思
+MA3=cum_close.rolling(3).mean()
+</code></pre>
+
+<pre><code class="language-py">#method有很多种方法，ffill的意思是向前填充，也就是遇到空置，填充它前面的值
+pd.replace(np.nan,method=&#39;ffill&#39;,inplace=True)
+</code></pre>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Datetime in Python and pandas]]></title>
+    <link href="lish.space/14736943212392.html"/>
+    <updated>2016-09-12T23:32:01+08:00</updated>
+    <id>lish.space/14736943212392.html</id>
+    <content type="html"><![CDATA[
+<blockquote>
+<p>这几天由于工作所需，处理了一下Python的时间相关的对象和函数，做个小笔记。</p>
+</blockquote>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[一些基础及Roadmap]]></title>
@@ -45,7 +102,15 @@
 <li>有关于该规则的数据</li>
 </ol>
 
-<p><strong>未知的有待学习的模式</strong>\(\iff\)目标函数(target function)\(\Longrightarrow X \to Y\)  </p>
+<p><strong>未知的有待学习的模式</strong>:<br/>
+目标函数(target function)\(\Longrightarrow X \to Y\)<br/>
+<strong>数据</strong>:<br/>
+训练样本\(\Longrightarrow D:\{(x_1,y_1),...,(x_n,y_n)\}\)<br/>
+<strong>假设</strong>:<br/>
+技能\(\Longrightarrow g:x\to y\)</p>
+
+<p>\(\{(x_n,y_n)\}\  in \ f \to ML\to g\)<br/>
+\(f\)是真实的那个函数，\(g\)是我们通过学习所得到的“可能”的函数，目标是让\(g\)尽可能接近\(f\)。</p>
 
 ]]></content>
   </entry>
@@ -60,7 +125,7 @@
 <p>最近写东西的时候发现没有一个很好的资源来查\(\LaTeX{}\)的数学公式里面的一些字符。有的可能比较完整但是查起来很麻烦，于是决定自己写一个，以后再写的时候也可以自己查着用。</p>
 </blockquote>
 
-<p>在MarkDown里面的\(\LaTeX{}\)公式根据不同的编辑器有的是不一样的，基本就是\(\$\)这个符号的个数的问题。比如说，在<strong>Mou</strong>里面，行内的的是\(\$\$\$equation\$\$\$\)这样的形式，而分段的是\(\$\$equation\$\$\)这样的。而在<strong>MacDown</strong>里面，行内是\(\$equation\$\)，段落是\(\$\$equation\$\$\)。总的来说，基本是几个\(\$\)的区别。</p>
+<p>在MarkDown里面的\(\LaTeX{}\)公式根据不同的编辑器有的是不一样的，基本就是<code>$</code>这个符号的个数的问题。比如说，在<strong>Mou</strong>里面，行内的的是<code>$$$equation$$$</code>这样的形式，而分段的是<code>$$equation$$</code>这样的。而在<strong>MacDown</strong>里面，行内是<code>$equation$</code>，段落是<code>$$equation$$</code>。总的来说，基本是几个<code>$</code>的区别。</p>
 
 <p>对于要显示编号的的公式，我还没有<del>搞懂</del>🤔🤔🤔🤔</p>
 
@@ -579,7 +644,7 @@ HAVING 条件
   </entry>
   
   <entry>
-    <title type="html"><![CDATA[假设检验]]></title>
+    <title type="html"><![CDATA[六、假设检验]]></title>
     <link href="lish.space/14731763776619.html"/>
     <updated>2016-09-06T23:39:37+08:00</updated>
     <id>lish.space/14731763776619.html</id>
@@ -714,7 +779,7 @@ HAVING 条件
   </entry>
   
   <entry>
-    <title type="html"><![CDATA[数理统计的基本概念]]></title>
+    <title type="html"><![CDATA[五、数理统计的基本概念]]></title>
     <link href="lish.space/14731763776520.html"/>
     <updated>2016-09-06T23:39:37+08:00</updated>
     <id>lish.space/14731763776520.html</id>
@@ -1014,7 +1079,7 @@ Em_2=\frac{1}{n}(n\sigma^2-\sigma^2)=\frac{n-1}{n}\sigma^2<br/>
   </entry>
   
   <entry>
-    <title type="html"><![CDATA[随机变量的数字特征]]></title>
+    <title type="html"><![CDATA[四、随机变量的数字特征]]></title>
     <link href="lish.space/14731763776458.html"/>
     <updated>2016-09-06T23:39:37+08:00</updated>
     <id>lish.space/14731763776458.html</id>
@@ -1273,7 +1338,7 @@ b <br/>
   </entry>
   
   <entry>
-    <title type="html"><![CDATA[多维随机变量及其分布]]></title>
+    <title type="html"><![CDATA[三、多维随机变量及其分布]]></title>
     <link href="lish.space/14731763776396.html"/>
     <updated>2016-09-06T23:39:37+08:00</updated>
     <id>lish.space/14731763776396.html</id>
@@ -1488,7 +1553,7 @@ b <br/>
   </entry>
   
   <entry>
-    <title type="html"><![CDATA[随机变量及其分布]]></title>
+    <title type="html"><![CDATA[二、随机变量及其分布]]></title>
     <link href="lish.space/14731763776335.html"/>
     <updated>2016-09-06T23:39:37+08:00</updated>
     <id>lish.space/14731763776335.html</id>
@@ -1620,7 +1685,7 @@ F(+\infty)=\lim\limits_{x \to +\infty}F(x)=1\)  </p></li>
   </entry>
   
   <entry>
-    <title type="html"><![CDATA[随机事件和概率]]></title>
+    <title type="html"><![CDATA[一、随机事件和概率]]></title>
     <link href="lish.space/14731763776257.html"/>
     <updated>2016-09-06T23:39:37+08:00</updated>
     <id>lish.space/14731763776257.html</id>
@@ -1863,7 +1928,11 @@ P(A)&amp; = P(A \cap S)=P(A \cap (\sum\limits_{i=1}^n B_i))\\<br/>
 <p>开博不易，且开且珍惜--孔子</p>
 </blockquote>
 
-<h2 id="toc_0">2016-06-14</h2>
+<h2 id="toc_0">2016-09-12</h2>
+
+<p>很久没有更新了，狠狠心趁着打折，花50大洋买了MWeb，真的是非常好的编辑器，网站也随之迁移到了这上面。</p>
+
+<h2 id="toc_1">2016-06-14</h2>
 
 <blockquote>
 <p>结束了这学期的课程，研究生阶段的课基本算是结束了。如果说收获的话，本科是平时不读书，考前预习一下，期末去考试；研究生是平时不读书，考前也不预习，直接就去考试了。。。</p>
@@ -1905,7 +1974,7 @@ P(A)&amp; = P(A \cap S)=P(A \cap (\sum\limits_{i=1}^n B_i))\\<br/>
 
 <span id="more"></span><!-- more -->
 
-<h2 id="toc_1">2016-04-29</h2>
+<h2 id="toc_2">2016-04-29</h2>
 
 <p><strong>又是！</strong>非常久的时间没有更新！说一下这段时间做的事情吧。</p>
 
@@ -1953,14 +2022,14 @@ P(A)&amp; = P(A \cap S)=P(A \cap (\sum\limits_{i=1}^n B_i))\\<br/>
 <li>MarkDown其实有一点非常不好，就是很难处理想要缩进的内容，比如上面的表格，我是打了两个<code>Tab</code>的，个人感觉这个语法有点让人费解。比如有时候想要<em>首行缩进</em>，顺便一提，<em>首行缩进</em>一般是在输入法上切换成全角，然后打两个空格😄😄😄</li>
 </ul>
 
-<h2 id="toc_2">2016-03-31</h2>
+<h2 id="toc_3">2016-03-31</h2>
 
 <p>很久没有更新了，这一周忙着准备中金基金量化开发的实习，本以为实习是一些量化策略方面的工作，面试了才发现原来是相对比较偏系统的开发，做一些<strong>Python</strong>的<strong>Message Queue</strong>之类的东西。这是题外话了。<br/>
 之前修改本地文件的时候一直用的<code>sudo</code>来做，也没有怎么管文件的权限，因为没有用<code>hexo new</code>这个命令。<br/>
 今天试了一下这个命令，发现<code>sudo hexo new</code>出来的文件因为一些权限的问题用我的MarkDown编辑器（暂时在用<strong>MWeb</strong>）没法处理，于是把权限改成了<code>777</code>哈哈哈。EZ~<br/>
 <strong>MWeb</strong>虽然文库的功能很不错，但是拿来编辑一个文本还是不大方便，特别是权限出错之后会莫名其妙地卡死，还是换回<strong>Mou</strong>吧？</p>
 
-<h2 id="toc_3">2016-03-24</h2>
+<h2 id="toc_4">2016-03-24</h2>
 
 <p><strong>jekyll</strong>很麻烦，我又没学过Web开发，你在逗我？<br/>
 今天改用了<strong>Hexo</strong>，用了一个叫<strong>NeXT</strong>的主题。<br/>
@@ -1993,14 +2062,14 @@ hexo generate -deploy
 
 <p>尽管如此，似乎<strong>shell</strong>仍然认不出来，<strong>Python</strong>倒是可以了。</p>
 
-<h2 id="toc_4">2016-03-23</h2>
+<h2 id="toc_5">2016-03-23</h2>
 
 <p>人往往从想法到实现是很难的一步，所以我常常想着要好好学习却从来没有，所以现在都说产学研啊产学研。<br/>
 一开始我以为用<strong>MWeb</strong>直接生成的页面可以直接拿来用了，<strong>MWeb</strong>的页面很好看，但是中看不中用，<code>pull</code>上来卵用没有。<br/>
 于是研究了一下<strong>jekyll</strong>,一切就绪！看起来是一个好的开始！<br/>
 哦，凌晨的时候上GoDaddy注册了一个域名：<a href="http://Lish.space">LiSH.space</a>，花了十几块钱的样子。注册之后发现域名提供商被伟大的<strong>GFW</strong>墙掉了，很关键<del>雪崩</del>。用<strong>DNSPod</strong>做一下三方的解析却不知为什么一直搞不定。随缘吧。</p>
 
-<h2 id="toc_5">2016-03-22</h2>
+<h2 id="toc_6">2016-03-22</h2>
 
 <p>很早就有了开博的想法，来记录一下自己的学习及所想。但是一直以来都没有找到好的博客系统。<br/>
 比如<strong>WordPress</strong>体量太大，<strong>新浪博客</strong>啊，<strong>CSDN</strong>之流自由度太低，还时不时来个广告，是可忍孰不可忍。<br/>

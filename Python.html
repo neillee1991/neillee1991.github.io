@@ -113,6 +113,111 @@
 		<div class="markdown-body home-categories">
 		
 			<div class="article">
+                <a class="clearlink" href="14736944204188.html">
+                
+                  <h1>Python一些代码记录</h1>
+                  <div class="a-content">
+                      
+                      <div class="a-content-text">
+                        
+                        	<blockquote>
+<p>这个坑完全是为了记录Python数据处理中一些需要记一下的代码，随时补充。仔细想想，我的Python写的真是丑啊。</p>
+</blockquote>
+
+<pre><code class="language-py">#把两个长度一样的数组x,y组合成一个(x,y)的数组
+z=zip(x,y)
+</code></pre>
+
+<pre><code class="language-py">#map和reduce真的很有用的两个函数
+isTradeble=map(lambda a,b:np.logical_and(a,b),
+                  isTradeble==1,
+                  [i&gt;0 and np.isnan(i)==False for i in pb])
+                  
+condition=reduce(lambda a,b:np.logical_and(a,b),
+                    [np.isnan(cps)==False,
+                    np.isnan(openEx[-1])==False,
+                    np.isnan(stockListIndex)==0])
+</code></pre>
+
+<pre><code class="language-py">#axis=0就是纵向切片，axis=1是横向切片
+MA3=np.sum(closePrice[-3:],axis=0)/3
+
+#axis=0是竖着拼接，axis=1是横着拼接
+SWIndexQuote=np.append(tmp1,tmp2,axis=1)
+
+</code></pre>
+
+<pre><code class="language-py">#rolling()是一个很有用的函数，意思就是滚动出来一个窗口的意思
+MA3=cum_close.rolling(3).mean()
+</code></pre>
+
+<pre><code class="language-py">#method有很多种方法，ffill的意思是向前填充，也就是遇到空置，填充它前面的值
+pd.replace(np.nan,method=&#39;ffill&#39;,inplace=True)
+</code></pre>
+
+                        
+                      </div>
+                  </div>
+                </a>
+                <div class="read-more clearfix">
+                  <div class="more-left left">
+                  
+                    <span class="date">2016/9/12</span>
+                    <span>posted in&nbsp;</span> 
+          				  
+          					    <span class="posted-in"><a href='Python.html'>Python</a></span>
+          				   
+                  </div>
+                  <div class="more-right right">
+                  <span class="comments">
+                      
+
+                      
+                        &nbsp;<a  class="ds-thread-count" data-thread-key="14736944204188.html" data-count-type="comments" href="14736944204188.html#ds-thread"></a>
+                       
+                  </span>
+                  </div>
+                </div>
+              </div><!-- article -->
+        
+			<div class="article">
+                <a class="clearlink" href="14736943212392.html">
+                
+                  <h1>Datetime in Python and pandas</h1>
+                  <div class="a-content">
+                      
+                      <div class="a-content-text">
+                        
+                        	<blockquote>
+<p>这几天由于工作所需，处理了一下Python的时间相关的对象和函数，做个小笔记。</p>
+</blockquote>
+
+                        
+                      </div>
+                  </div>
+                </a>
+                <div class="read-more clearfix">
+                  <div class="more-left left">
+                  
+                    <span class="date">2016/9/12</span>
+                    <span>posted in&nbsp;</span> 
+          				  
+          					    <span class="posted-in"><a href='Python.html'>Python</a></span>
+          				   
+                  </div>
+                  <div class="more-right right">
+                  <span class="comments">
+                      
+
+                      
+                        &nbsp;<a  class="ds-thread-count" data-thread-key="14736943212392.html" data-count-type="comments" href="14736943212392.html#ds-thread"></a>
+                       
+                  </span>
+                  </div>
+                </div>
+              </div><!-- article -->
+        
+			<div class="article">
                 <a class="clearlink" href="14731765015123.html">
                 
                   <h1>记一次毫无意义的爬虫经历</h1>
@@ -301,6 +406,18 @@ openAddress(url3)
 	      
 		      
 			      <li class="post">
+			        <a href="14736944204188.html">Python一些代码记录</a>
+			      </li>
+		     
+		  
+		      
+			      <li class="post">
+			        <a href="14736943212392.html">Datetime in Python and pandas</a>
+			      </li>
+		     
+		  
+		      
+			      <li class="post">
 			        <a href="14731765759434.html">一些基础及Roadmap</a>
 			      </li>
 		     
@@ -318,16 +435,8 @@ openAddress(url3)
 		     
 		  
 		      
-			      <li class="post">
-			        <a href="14731764792227.html">多因子选股策略经验分享记录</a>
-			      </li>
-		     
 		  
 		      
-			      <li class="post">
-			        <a href="14731764544256.html">SQL的复习</a>
-			      </li>
-		     
 		  
 		      
 		  
