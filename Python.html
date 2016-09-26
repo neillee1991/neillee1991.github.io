@@ -155,6 +155,34 @@ MA3=cum_close.rolling(3).mean()
 pd.replace(np.nan,method=&#39;ffill&#39;,inplace=True)
 </code></pre>
 
+<pre><code class="language-py">#numpy中切片操作传出来的是view而不是副本，需要副本的话要用copy()
+&gt;&gt;&gt; a=np.array([1,2,3,4])
+&gt;&gt;&gt; b=a[:2]
+&gt;&gt;&gt; a
+array([1, 2, 3, 4])
+&gt;&gt;&gt; b
+array([1, 2])
+&gt;&gt;&gt; b[0]=3
+&gt;&gt;&gt; b
+array([3, 2])
+&gt;&gt;&gt; a
+array([3, 2, 3, 4])
+</code></pre>
+
+<pre><code class="language-py">#and这个操作符虽然可以用来做True和False的比较，但是用的时候需要小心
+&gt;&gt;&gt; &#39;a&#39; and &#39;b&#39;
+&#39;b&#39;
+#也就是说如果两个一样，返回的是同一个值；
+#如果不一样，返回的是最右边第一个不一样的值（其实就是最右边的值啦）
+#所以当使用list做and操作的时候要格外小心
+&gt;&gt;&gt; [False,False] and [True,True]
+[True, True]
+#对于np.array可以直接用&amp;来操作
+&gt;&gt;&gt; np.array([False,False])&amp;np.array([True,True])
+array([False, False], dtype=bool)
+#所以对于矩阵，可以直接用reduce做下来。
+</code></pre>
+
                         
                       </div>
                   </div>
