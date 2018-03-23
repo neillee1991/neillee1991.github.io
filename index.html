@@ -4,13 +4,13 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>
-    
-  非洲小黑脸李某
+  
+  
   
   </title>
   
   
-  <link href="atom.xml" rel="alternate" title="非洲小黑脸李某" type="application/atom+xml">
+  <link href="atom.xml" rel="alternate" title="" type="application/atom+xml">
     <link rel="stylesheet" href="asset/css/foundation.min.css" />
     <link rel="stylesheet" href="asset/css/docs.css" />
     <script src="asset/js/vendor/modernizr.js"></script>
@@ -20,7 +20,7 @@
   <script>hljs.initHighlightingOnLoad();</script>
 <script type="text/javascript">
   function before_search(){
-    var searchVal = 'site:lish.space ' + document.getElementById('search_input').value;
+    var searchVal = 'site: ' + document.getElementById('search_input').value;
     document.getElementById('search_q').value = searchVal;
     return true;
   }
@@ -62,7 +62,7 @@
 
         <nav class="tab-bar show-for-small">
   <a href="javascript:void(0)" class="left-off-canvas-toggle menu-icon">
-    <span> &nbsp; 非洲小黑脸李某</span>
+    <span> &nbsp; </span>
   </a>
 </nav>
 
@@ -75,22 +75,6 @@
 
     <li><label>Categories</label></li>
 
-        
-            <li><a href="DM/ML/RS.html">DM/ML/RS</a></li>
-        
-            <li><a href="Latex.html">Latex</a></li>
-        
-            <li><a href="Python.html">Python</a></li>
-        
-            <li><a href="Quant.html">Quant</a></li>
-        
-            <li><a href="Database.html">Database</a></li>
-        
-            <li><a href="Statistics.html">Statistics</a></li>
-        
-            <li><a href="Travel.html">Travel</a></li>
-        
-            <li><a href="BLABLABLA.html">BLABLABLA</a></li>
          
 
       </ul>
@@ -113,76 +97,14 @@
 		<div class="markdown-body home-categories">
 		
 			<div class="article">
-                <a class="clearlink" href="14736944204188.html">
+                <a class="clearlink" href="15217981383450.html">
                 
-                  <h1>Python一些代码记录</h1>
+                  <h1>test</h1>
                   <div class="a-content">
                       
                       <div class="a-content-text">
                         
-                        	<blockquote>
-<p>这个坑完全是为了记录Python数据处理中一些需要记一下的代码，随时补充。仔细想想，我的Python写的真是丑啊。</p>
-</blockquote>
-
-<pre><code class="language-py">#把两个长度一样的数组x,y组合成一个(x,y)的数组
-z=zip(x,y)
-</code></pre>
-
-<pre><code class="language-py">#map和reduce真的很有用的两个函数
-isTradeble=map(lambda a,b:np.logical_and(a,b),
-                  isTradeble==1,
-                  [i&gt;0 and np.isnan(i)==False for i in pb])
-                  
-condition=reduce(lambda a,b:np.logical_and(a,b),
-                    [np.isnan(cps)==False,
-                    np.isnan(openEx[-1])==False,
-                    np.isnan(stockListIndex)==0])
-</code></pre>
-
-<pre><code class="language-py">#axis=0就是纵向切片，axis=1是横向切片
-MA3=np.sum(closePrice[-3:],axis=0)/3
-
-#axis=0是竖着拼接，axis=1是横着拼接
-SWIndexQuote=np.append(tmp1,tmp2,axis=1)
-
-</code></pre>
-
-<pre><code class="language-py">#rolling()是一个很有用的函数，意思就是滚动出来一个窗口的意思
-MA3=cum_close.rolling(3).mean()
-</code></pre>
-
-<pre><code class="language-py">#method有很多种方法，ffill的意思是向前填充，也就是遇到空置，填充它前面的值
-pd.replace(np.nan,method=&#39;ffill&#39;,inplace=True)
-</code></pre>
-
-<pre><code class="language-py">#numpy中切片操作传出来的是view而不是副本，需要副本的话要用copy()
-&gt;&gt;&gt; a=np.array([1,2,3,4])
-&gt;&gt;&gt; b=a[:2]
-&gt;&gt;&gt; a
-array([1, 2, 3, 4])
-&gt;&gt;&gt; b
-array([1, 2])
-&gt;&gt;&gt; b[0]=3
-&gt;&gt;&gt; b
-array([3, 2])
-&gt;&gt;&gt; a
-array([3, 2, 3, 4])
-</code></pre>
-
-<pre><code class="language-py">#and这个操作符虽然可以用来做True和False的比较，但是用的时候需要小心
-&gt;&gt;&gt; &#39;a&#39; and &#39;b&#39;
-&#39;b&#39;
-#也就是说如果两个一样，返回的是同一个值；
-#如果不一样，返回的是最右边第一个不一样的值（其实就是最右边的值啦）
-#所以当使用list做and操作的时候要格外小心
-&gt;&gt;&gt; [False,False] and [True,True]
-[True, True]
-#对于np.array可以直接用&amp;来操作
-&gt;&gt;&gt; np.array([False,False])&amp;np.array([True,True])
-array([False, False], dtype=bool)
-#所以对于矩阵，可以直接用reduce做下来。
-</code></pre>
-
+                        	
                         
                       </div>
                   </div>
@@ -190,297 +112,14 @@ array([False, False], dtype=bool)
                 <div class="read-more clearfix">
                   <div class="more-left left">
                   
-                    <span class="date">2016/9/12</span>
-                    <span>posted in&nbsp;</span> 
-          				  
-          					    <span class="posted-in"><a href='Python.html'>Python</a></span>
+                    <span class="date">2018/3/23</span>
+                    
           				   
                   </div>
                   <div class="more-right right">
                   <span class="comments">
                       
 
-                      
-                        &nbsp;<a  class="ds-thread-count" data-thread-key="14736944204188.html" data-count-type="comments" href="14736944204188.html#ds-thread"></a>
-                       
-                  </span>
-                  </div>
-                </div>
-              </div><!-- article -->
-        
-			<div class="article">
-                <a class="clearlink" href="14736943212392.html">
-                
-                  <h1>Datetime in Python and pandas</h1>
-                  <div class="a-content">
-                      
-                      <div class="a-content-text">
-                        
-                        	<blockquote>
-<p>这几天由于工作所需，处理了一下Python的时间相关的对象和函数，做个小笔记。</p>
-</blockquote>
-
-                        
-                      </div>
-                  </div>
-                </a>
-                <div class="read-more clearfix">
-                  <div class="more-left left">
-                  
-                    <span class="date">2016/9/12</span>
-                    <span>posted in&nbsp;</span> 
-          				  
-          					    <span class="posted-in"><a href='Python.html'>Python</a></span>
-          				   
-                  </div>
-                  <div class="more-right right">
-                  <span class="comments">
-                      
-
-                      
-                        &nbsp;<a  class="ds-thread-count" data-thread-key="14736943212392.html" data-count-type="comments" href="14736943212392.html#ds-thread"></a>
-                       
-                  </span>
-                  </div>
-                </div>
-              </div><!-- article -->
-        
-			<div class="article">
-                <a class="clearlink" href="14731765759434.html">
-                
-                  <h1>一些基础及Roadmap</h1>
-                  <div class="a-content">
-                      
-                      <div class="a-content-text">
-                        
-                        	<blockquote>
-<p>林轩田的及其学习视频的一些笔记，结合李航的<strong>《统计学习方法》</strong>，先把之前做笔记的总结一下，以后再慢慢随着进度更新，会很慢哦~</p>
-</blockquote>
-
-<h2 id="toc_0">Roadmap</h2>
-
-<ol>
-<li>机器什么时候学习？</li>
-<li>机器为什么可以学习？</li>
-<li>机器如何学习？</li>
-<li>机器如何学的更好？</li>
-</ol>
-
-<h3 id="toc_1">人和机器的学习</h3>
-
-<p><strong>人</strong>：观察\(\to\)学习\(\to\)技能(observations\(\to\)learning\(\to\)skill)<br/><br/>
-<strong>机器</strong>：数据\(\to\)学习\(\to\)技能\(\iff\)性能改进<br/><br/>
-(data\(\to\)learning\(\to\)skill\(\iff\) improved performance measure)</p>
-
-<h3 id="toc_2">机器学习的要素</h3>
-
-<ol>
-<li>存在某种有待学习的规则模式(underlying pattern)</li>
-<li>该规则模式不容易定义</li>
-<li>有关于该规则的数据</li>
-</ol>
-
-<p><strong>未知的有待学习的模式</strong>:<br/>
-目标函数(target function)\(\Longrightarrow X \to Y\)<br/>
-<strong>数据</strong>:<br/>
-训练样本\(\Longrightarrow D:\{(x_1,y_1),...,(x_n,y_n)\}\)<br/>
-<strong>假设</strong>:<br/>
-技能\(\Longrightarrow g:x\to y\)</p>
-
-<p>\(\{(x_n,y_n)\}\  in \ f \to ML\to g\)<br/>
-\(f\)是真实的那个函数，\(g\)是我们通过学习所得到的“可能”的函数，目标是让\(g\)尽可能接近\(f\)。</p>
-
-                        
-                      </div>
-                  </div>
-                </a>
-                <div class="read-more clearfix">
-                  <div class="more-left left">
-                  
-                    <span class="date">2016/9/6</span>
-                    <span>posted in&nbsp;</span> 
-          				  
-          					    <span class="posted-in"><a href='DM/ML/RS.html'>DM/ML/RS</a></span>
-          				   
-                  </div>
-                  <div class="more-right right">
-                  <span class="comments">
-                      
-
-                      
-                        &nbsp;<a  class="ds-thread-count" data-thread-key="14731765759434.html" data-count-type="comments" href="14731765759434.html#ds-thread"></a>
-                       
-                  </span>
-                  </div>
-                </div>
-              </div><!-- article -->
-        
-			<div class="article">
-                <a class="clearlink" href="14731765310285.html">
-                
-                  <h1>LaTeX和MarkDown中的数学公式</h1>
-                  <div class="a-content">
-                      
-                      <div class="a-content-text">
-                        
-                        	<blockquote>
-<p>最近写东西的时候发现没有一个很好的资源来查\(\LaTeX{}\)的数学公式里面的一些字符。有的可能比较完整但是查起来很麻烦，于是决定自己写一个，以后再写的时候也可以自己查着用。</p>
-</blockquote>
-
-<p>在MarkDown里面的\(\LaTeX{}\)公式根据不同的编辑器有的是不一样的，基本就是<code>$</code>这个符号的个数的问题。比如说，在<strong>Mou</strong>里面，行内的的是<code>$$$equation$$$</code>这样的形式，而分段的是<code>$$equation$$</code>这样的。而在<strong>MacDown</strong>里面，行内是<code>$equation$</code>，段落是<code>$$equation$$</code>。总的来说，基本是几个<code>$</code>的区别。</p>
-
-<p>对于要显示编号的的公式，我还没有<del>搞懂</del>🤔🤔🤔🤔</p>
-
-<h1 id="toc_0">基本的用法</h1>
-
-<ul>
-<li>指数、下标：<code>$$X_{a}^{b}$$</code> \[X_a^b\]</li>
-<li>根号：<code>$$\sqrt{X}$$</code> \[\sqrt{X}\]</li>
-<li>公式上方/下方的水平线：<code>$$\overline{a+b}+\underline{a+b}$$</code>  \[\overline{a+b}+\underline{a+b}\] </li>
-<li>公式上方/下方的大括号：<code>$$\overbrace{a+b+\cdots+z}^{26}+\underbrace{A+B+\cdots+Z}_{26}$$</code> \[\overbrace{a+b+\cdots+z}^{26}+\underbrace{A+B+\cdots+Z}_{26}\]</li>
-<li>向量箭头：<code>$$\vec{a}+\vec{ABC}+\overrightarrow{ABC}$$</code>\[\vec{a}+\vec{ABC}+\overrightarrow{ABC}\]</li>
-<li>分数：<code>$$\frac{A}{B}$$</code> \[\frac{A}{B}\]</li>
-<li><p>积分、求和、求积：<code>$$\sum_{i=1}^{n}{X_i}+\int_{0}^{1}{x}+\prod_{i=1}^{n}{X_i}$$</code>这里不同的IDE似乎显示的结果会有不同，比如<strong>MacDown</strong>上面可以显示正常的公式，传到<strong>Hexo</strong>之后没法显示，这里还不知道什么原因。这里积分里面的<code>\,</code>不加的话，\(dx\)和\(x\)的距离会近一点<br/>
-所以下面这个公式是这样的：</p>
-
-<pre><code>$$\int_{0}^{1}{x}\,dx$$
-$$\sum_{i=1}^{n}{X_i}$$
-$$\prod_{i=1}^{n}{X_i}$$
-</code></pre>
-
-<p>\[\int_{0}^{1}{x}\,dx\]</p>
-
-<p>\[\sum_{i=1}^{n}{X_i}\]</p>
-
-<p>\[\prod_{i=1}^{n}{X_i}\]</p></li>
-<li><p>先写这么多吧~~~</p></li>
-</ul>
-
-                        
-                      </div>
-                  </div>
-                </a>
-                <div class="read-more clearfix">
-                  <div class="more-left left">
-                  
-                    <span class="date">2016/9/6</span>
-                    <span>posted in&nbsp;</span> 
-          				  
-          					    <span class="posted-in"><a href='Latex.html'>Latex</a></span>
-          				   
-                  </div>
-                  <div class="more-right right">
-                  <span class="comments">
-                      
-
-                      
-                        &nbsp;<a  class="ds-thread-count" data-thread-key="14731765310285.html" data-count-type="comments" href="14731765310285.html#ds-thread"></a>
-                       
-                  </span>
-                  </div>
-                </div>
-              </div><!-- article -->
-        
-			<div class="article">
-                <a class="clearlink" href="14731765015123.html">
-                
-                  <h1>记一次毫无意义的爬虫经历</h1>
-                  <div class="a-content">
-                      
-                      <div class="a-content-text">
-                        
-                        	<blockquote>
-<p>前段时间觉得MAC的桌面背景看的有点腻了，于是想要去搞几张BG，搜了一下DOTA的主题，发现了这个比较不错的系列。</p>
-</blockquote>
-
-<p><img src="http://pre15.deviantart.net/06b3/th/pre/f/2014/237/0/3/dota_2___rubick_by_sheron1030-d7wlwxt.jpg" alt="RUBICK GRAND MAGUS"/></p>
-
-<p>作者是<a href="http://sheron1030.deviantart.com/gallery/">SHERON1030</a>，网站上还有很多别的可以拿来做背景的图，很不错。<br/>
-但是他的图库一张纸下载起来很麻烦，而我也没有找到什么打包的途径，于是考虑写个爬虫来爬。<br/>
-本来之前从来没有写过爬虫，况且<strong>Python</strong>也是刚刚学了几天，那就边写边学吧！</p>
-
-<pre><code class="language-python">import urllib2
-import re
-
-def downImage(address):
-    path =&#39;/Users/LiSheng/PycharmProjects/untitled&#39;
-    url = address
-    p=re.compile(&#39;dota_2[\S]*&#39;)
-    n=address.split(&#39;/&#39;)[2].split(&#39;.&#39;)[0]
-    nameString=p.findall(url)
-    name =&#39;/Users/LiSheng/PycharmProjects/untitled/&#39;+n+&#39;_&#39;+nameString[0]
-    print name
-    user_agent = &#39;Mozilla/4.0 (compatible; MSIE 5.5; Windows NT)&#39;
-    headers = {&#39;User-Agent&#39;: user_agent}
-    req = urllib2.Request(url, headers)
-    conn=urllib2.urlopen(url)
-    f = open(name,&#39;wb+&#39;)
-    f.write(conn.read())
-    f.close()
-    print(nameString[0]+&#39; download finish!&#39;)
-    
-imageList=[]
-
-def addImage(address):
-    file=open(&#39;/Users/LiSheng/PycharmProjects/untitled/imageAddress.txt&#39;,&#39;a&#39;)
-    file.write(address+&#39;\n&#39;)
-    imageList.append(address)
-
-def openAddress(address):
-    response=urllib2.urlopen(address)
-    frontPage=response.read()
-    unicodePage=frontPage.decode(&#39;utf-8&#39;)
-    pattern =re.compile(r&#39;\&quot;http://[\S]*.deviantart.com/art/Dota-2-[\S]*\&quot;&#39;)
-    urls=pattern.findall(unicodePage)
-
-    for url in urls:
-        url=url[1:url.__len__()-1]
-        newResponse=urllib2.urlopen(url)
-        newPage=newResponse.read()
-        newUnicodePage=newPage.decode(&#39;utf-8&#39;)
-        pattern =re.compile(r&#39;&lt;img collect_rid=&quot;[\S]*&quot; src=&quot;[\S]*.jpg&quot;&#39;)
-        imageURL=pattern.findall(newUnicodePage)
-        for i in imageURL:
-            x=i.split()
-            xsrc=x[2][5:x[2].__len__()-1]
-            #downImage(xsrc)
-            print(xsrc)
-            addImage(xsrc)
-
-url2=&#39;http://sheron1030.deviantart.com/gallery/?offset=24&#39;
-url3=&#39;http://sheron1030.deviantart.com/gallery/?offset=48&#39;
-
-openAddress(&#39;http://sheron1030.deviantart.com/gallery/&#39;)
-openAddress(url2)
-openAddress(url3)
-</code></pre>
-
-<p>仅以此纪念我第一次好好写的<strong>Python</strong>代码与爬虫。最后不得不说，由于学校网络爆炸，跑起来之后BOOM SHAKALAKA，运行了几次，没有以此可以顺利爬完的，pity。</p>
-
-<p>尽管任务没有完成，但是非常高兴地复习了一下正则表达式。</p>
-
-<p><del>你问我为什么把这么丑的代码贴上来？</del><br/>
-<del>那是为了让博客显得不呢么空啊兄弟啊！</del></p>
-
-                        
-                      </div>
-                  </div>
-                </a>
-                <div class="read-more clearfix">
-                  <div class="more-left left">
-                  
-                    <span class="date">2016/9/6</span>
-                    <span>posted in&nbsp;</span> 
-          				  
-          					    <span class="posted-in"><a href='Python.html'>Python</a></span>
-          				   
-                  </div>
-                  <div class="more-right right">
-                  <span class="comments">
-                      
-
-                      
-                        &nbsp;<a  class="ds-thread-count" data-thread-key="14731765015123.html" data-count-type="comments" href="14731765015123.html#ds-thread"></a>
                        
                   </span>
                   </div>
@@ -498,7 +137,7 @@ openAddress(url3)
 			  </div>
 			  <div class="large-6 columns">
 			<p class="text-right" style="padding-top:25px;">
-			 <a href="all_1.html">&raquo; Next Page</a> 
+			
 			</p>
 			  </div>
 			</div>
@@ -510,20 +149,20 @@ openAddress(url3)
     <div id="sidebar" class="sidebar">
           <div id="site-info" class="site-info">
             
-                <h1>非洲小黑脸李某</h1>
-                <div class="site-des">"Now the king is dead! Long live the king!"</div>
+                <h1></h1>
+                <div class="site-des"></div>
                 <div class="social">
 
 
 
-<a target="_blank" class="linkedin" href="http://www.linkedin.com/in/%E6%99%9F-%E6%9D%8E-172616105?trk=hp-identity-name" title="LinkedIn">LinkedIn</a>
 
 
 
-<a target="_blank" class="weibo" href="http://weibo.com/1778049394/" title="weibo">Weibo</a>
 
-<a target="_blank" class="github" target="_blank" href="https://github.com/neillee1991" title="GitHub">GitHub</a>
-<a target="_blank" class="email" href="mailto:Lisheng1991@pku.edu.cn" title="Email">Email</a>
+
+
+
+
   <a target="_blank" class="rss" href="atom.xml" title="RSS">RSS</a>
                 
               	 </div>
@@ -538,22 +177,6 @@ openAddress(url3)
                 <div class="side-content">
 
       	<p class="cat-list">
-        
-            <a href="DM/ML/RS.html"><strong>DM/ML/RS</strong></a>
-        
-            <a href="Latex.html"><strong>Latex</strong></a>
-        
-            <a href="Python.html"><strong>Python</strong></a>
-        
-            <a href="Quant.html"><strong>Quant</strong></a>
-        
-            <a href="Database.html"><strong>Database</strong></a>
-        
-            <a href="Statistics.html"><strong>Statistics</strong></a>
-        
-            <a href="Travel.html"><strong>Travel</strong></a>
-        
-            <a href="BLABLABLA.html"><strong>BLABLABLA</strong></a>
          
         </p>
 
@@ -570,53 +193,9 @@ openAddress(url3)
 	      
 		      
 			      <li class="post">
-			        <a href="14736944204188.html">Python一些代码记录</a>
+			        <a href="15217981383450.html">test</a>
 			      </li>
 		     
-		  
-		      
-			      <li class="post">
-			        <a href="14736943212392.html">Datetime in Python and pandas</a>
-			      </li>
-		     
-		  
-		      
-			      <li class="post">
-			        <a href="14731765759434.html">一些基础及Roadmap</a>
-			      </li>
-		     
-		  
-		      
-			      <li class="post">
-			        <a href="14731765310285.html">LaTeX和MarkDown中的数学公式</a>
-			      </li>
-		     
-		  
-		      
-			      <li class="post">
-			        <a href="14731765015123.html">记一次毫无意义的爬虫经历</a>
-			      </li>
-		     
-		  
-		      
-		  
-		      
-		  
-		      
-		  
-		      
-		  
-		      
-		  
-		      
-		  
-		      
-		  
-		      
-		  
-		      
-		  
-		      
 		   
 		  		</ul>
                 </div>
@@ -640,19 +219,6 @@ Theme used <a target="_blank" href="http://github.com">GitHub CSS</a>.</p>
     </div>
 
   
-
-
-<script type="text/javascript">
-var duoshuoQuery = {short_name:'LiSH'};
-  (function() {
-    var ds = document.createElement('script');
-    ds.type = 'text/javascript';ds.async = true;
-    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
-    ds.charset = 'UTF-8';
-    (document.getElementsByTagName('head')[0] 
-     || document.getElementsByTagName('body')[0]).appendChild(ds);
-  })();
-  </script>
     
 
     <script src="asset/js/foundation.min.js"></script>
@@ -672,8 +238,8 @@ var duoshuoQuery = {short_name:'LiSH'};
      
     </script>
 
-    <script src="asset/chart/all-min.js"></script><script type="text/javascript">$(function(){    var mwebii=0;    var mwebChartEleId = 'mweb-chart-ele-';    $('pre>code').each(function(){        mwebii++;        var eleiid = mwebChartEleId+mwebii;        if($(this).hasClass('language-sequence')){            var ele = $(this).addClass('nohighlight').parent();            $('<div id="'+eleiid+'"></div>').insertAfter(ele);            ele.hide();            var diagram = Diagram.parse($(this).text());            diagram.drawSVG(eleiid,{theme: 'simple'});        }else if($(this).hasClass('language-flow')){            var ele = $(this).addClass('nohighlight').parent();            $('<div id="'+eleiid+'"></div>').insertAfter(ele);            ele.hide();            var diagram = flowchart.parse($(this).text());            diagram.drawSVG(eleiid);        }    });});</script>
-<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><script type="text/x-mathjax-config">MathJax.Hub.Config({TeX: { equationNumbers: { autoNumber: "AMS" } }});</script>
+    
+
 
 
   </body>
