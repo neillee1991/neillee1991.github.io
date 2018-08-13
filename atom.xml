@@ -4,13 +4,77 @@
   <title><![CDATA[think more]]></title>
   <link href="neillee1991.github.io/atom.xml" rel="self"/>
   <link href="neillee1991.github.io/"/>
-  <updated>2018-04-17T14:14:16+08:00</updated>
+  <updated>2018-08-13T23:17:34+08:00</updated>
   <id>neillee1991.github.io/</id>
   <author>
     <name><![CDATA[]]></name>
     
   </author>
   <generator uri="http://www.mweb.im/">MWeb</generator>
+  
+  <entry>
+    <title type="html"><![CDATA[THE VERY BASIC]]></title>
+    <link href="neillee1991.github.io/15341698542806.html"/>
+    <updated>2018-08-13T22:17:34+08:00</updated>
+    <id>neillee1991.github.io/15341698542806.html</id>
+    <content type="html"><![CDATA[
+<blockquote>
+<p>这里用来记录一些Python中最基础的东西</p>
+</blockquote>
+
+<h5 id="toc_0">中文编码</h5>
+
+<p>Python中默认的编码格式是ASCII格式，所以打印汉字时要在文件开头声明编码。</p>
+
+<pre><code class="language-python"># -*- coding: UTF-8 -*- 
+或者
+#coding=utf-8
+</code></pre>
+
+<h5 id="toc_1">import的搜索路径</h5>
+
+<ol>
+<li>当前目录</li>
+<li>PYTHONPATH下的每个目录</li>
+<li>默认路径，UNIX下，一般为/usr/local/lib/python/</li>
+</ol>
+
+<h5 id="toc_2">namespace</h5>
+
+<p>Python假设任何在函数内赋值的变量都是局部的，因此给函数内的全局变量赋值，必须使用global语句</p>
+
+<h5 id="toc_3">reload()函数</h5>
+
+<p>当一个模块被导入到一个脚本，模块顶层部分的代码只会被执行一次。</p>
+
+<p>因此，如果你想重新执行模块里顶层部分的代码，可以用 reload() 函数。该函数会重新导入之前导入过的模块，这样就允许在不退出解释器的情况下重新加载已更改的Python模块。</p>
+
+<h5 id="toc_4">包的结构</h5>
+
+<p>包中必须存在 <strong>__init__.py</strong> 文件, 该文件的内容可以为空。<strong>__init__.py</strong> 用于标识当前文件夹是一个包。</p>
+
+<h5 id="toc_5">IO</h5>
+
+<p>raw_input([prompt]) 函数从标准输入读取一个行，并返回一个字符串（去掉结尾的换行符）</p>
+
+<pre><code class="language-python">str = raw_input(&quot;请输入：&quot;)
+print &quot;你输入的内容是: &quot;, str
+------------------------------
+&gt;&gt;请输入：Hello Python！
+&gt;&gt;你输入的内容是:  Hello Python！
+</code></pre>
+
+<p>input([prompt]) 和 raw_input([prompt]) 基本类似，但是 input 可以接收一个Python表达式作为输入，并将运算结果返回。</p>
+
+<pre><code class="language-python">str = input(&quot;请输入：&quot;)
+print &quot;你输入的内容是: &quot;, str
+------------------------------
+&gt;&gt;请输入：[x*5 for x in range(2,10,2)]
+&gt;&gt;你输入的内容是:  [10, 20, 30, 40]
+</code></pre>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[一些思考]]></title>

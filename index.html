@@ -79,6 +79,8 @@
             <li><a href="quant.html">Quant</a></li>
         
             <li><a href="other.html">其他</a></li>
+        
+            <li><a href="Relearning%20Python.html">Relearning Python</a></li>
          
 
       </ul>
@@ -100,6 +102,92 @@
 	<div class="large-8 medium-8 columns">
 		<div class="markdown-body home-categories">
 		
+			<div class="article">
+                <a class="clearlink" href="15341698542806.html">
+                
+                  <h1>THE VERY BASIC</h1>
+                  <div class="a-content">
+                      
+                      <div class="a-content-text">
+                        
+                        	<blockquote>
+<p>这里用来记录一些Python中最基础的东西</p>
+</blockquote>
+
+<h5 id="toc_0">中文编码</h5>
+
+<p>Python中默认的编码格式是ASCII格式，所以打印汉字时要在文件开头声明编码。</p>
+
+<pre><code class="language-python"># -*- coding: UTF-8 -*- 
+或者
+#coding=utf-8
+</code></pre>
+
+<h5 id="toc_1">import的搜索路径</h5>
+
+<ol>
+<li>当前目录</li>
+<li>PYTHONPATH下的每个目录</li>
+<li>默认路径，UNIX下，一般为/usr/local/lib/python/</li>
+</ol>
+
+<h5 id="toc_2">namespace</h5>
+
+<p>Python假设任何在函数内赋值的变量都是局部的，因此给函数内的全局变量赋值，必须使用global语句</p>
+
+<h5 id="toc_3">reload()函数</h5>
+
+<p>当一个模块被导入到一个脚本，模块顶层部分的代码只会被执行一次。</p>
+
+<p>因此，如果你想重新执行模块里顶层部分的代码，可以用 reload() 函数。该函数会重新导入之前导入过的模块，这样就允许在不退出解释器的情况下重新加载已更改的Python模块。</p>
+
+<h5 id="toc_4">包的结构</h5>
+
+<p>包中必须存在 <strong>__init__.py</strong> 文件, 该文件的内容可以为空。<strong>__init__.py</strong> 用于标识当前文件夹是一个包。</p>
+
+<h5 id="toc_5">IO</h5>
+
+<p>raw_input([prompt]) 函数从标准输入读取一个行，并返回一个字符串（去掉结尾的换行符）</p>
+
+<pre><code class="language-python">str = raw_input(&quot;请输入：&quot;)
+print &quot;你输入的内容是: &quot;, str
+------------------------------
+&gt;&gt;请输入：Hello Python！
+&gt;&gt;你输入的内容是:  Hello Python！
+</code></pre>
+
+<p>input([prompt]) 和 raw_input([prompt]) 基本类似，但是 input 可以接收一个Python表达式作为输入，并将运算结果返回。</p>
+
+<pre><code class="language-python">str = input(&quot;请输入：&quot;)
+print &quot;你输入的内容是: &quot;, str
+------------------------------
+&gt;&gt;请输入：[x*5 for x in range(2,10,2)]
+&gt;&gt;你输入的内容是:  [10, 20, 30, 40]
+</code></pre>
+
+                        
+                      </div>
+                  </div>
+                </a>
+                <div class="read-more clearfix">
+                  <div class="more-left left">
+                  
+                    <span class="date">2018/8/13</span>
+                    <span>posted in&nbsp;</span> 
+          				  
+          					    <span class="posted-in"><a href='Relearning%20Python.html'>Relearning Python</a></span>
+          				   
+                  </div>
+                  <div class="more-right right">
+                  <span class="comments">
+                      
+
+                       
+                  </span>
+                  </div>
+                </div>
+              </div><!-- article -->
+        
 			<div class="article">
                 <a class="clearlink" href="15239450451854.html">
                 
@@ -231,6 +319,8 @@
             <a href="quant.html"><strong>Quant</strong></a>
         
             <a href="other.html"><strong>其他</strong></a>
+        
+            <a href="Relearning%20Python.html"><strong>Relearning Python</strong></a>
          
         </p>
 
@@ -245,6 +335,12 @@
                 <div class="side-content">
                 <ul class="posts-list">
 	      
+		      
+			      <li class="post">
+			        <a href="15341698542806.html">THE VERY BASIC</a>
+			      </li>
+		     
+		  
 		      
 			      <li class="post">
 			        <a href="15239450451854.html">一些思考</a>
