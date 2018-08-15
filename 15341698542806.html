@@ -141,26 +141,26 @@
 <ol>
 <li>当前目录</li>
 <li>PYTHONPATH下的每个目录</li>
-<li>默认路径，UNIX下，一般为/usr/local/lib/python/</li>
+<li>默认路径，UNIX下，一般为<code>/usr/local/lib/python/</code></li>
 </ol>
 
 <h5 id="toc_2">namespace</h5>
 
-<p>Python假设任何在函数内赋值的变量都是局部的，因此给函数内的全局变量赋值，必须使用global语句</p>
+<p>Python假设任何在函数内赋值的变量都是局部的，因此给函数内的全局变量赋值，必须使用<code>global</code>语句</p>
 
 <h5 id="toc_3">reload()函数</h5>
 
 <p>当一个模块被导入到一个脚本，模块顶层部分的代码只会被执行一次。</p>
 
-<p>因此，如果你想重新执行模块里顶层部分的代码，可以用 reload() 函数。该函数会重新导入之前导入过的模块，这样就允许在不退出解释器的情况下重新加载已更改的Python模块。</p>
+<p>因此，如果你想重新执行模块里顶层部分的代码，可以用 <code>reload()</code>函数。该函数会重新导入之前导入过的模块，这样就允许在不退出解释器的情况下重新加载已更改的Python模块。</p>
 
 <h5 id="toc_4">包的结构</h5>
 
-<p>包中必须存在 <strong>__init__.py</strong> 文件, 该文件的内容可以为空。<strong>__init__.py</strong> 用于标识当前文件夹是一个包。</p>
+<p>包中必须存在 <code>__init__.py</code> 文件, 该文件的内容可以为空。<code>__init__.py</code> 用于标识当前文件夹是一个包。</p>
 
 <h5 id="toc_5">IO</h5>
 
-<p>raw_input([prompt]) 函数从标准输入读取一个行，并返回一个字符串（去掉结尾的换行符）</p>
+<p><code>raw_input([prompt])</code> 函数从标准输入读取一个行，并返回一个字符串（去掉结尾的换行符）</p>
 
 <pre><code class="language-python">str = raw_input(&quot;请输入：&quot;)
 print &quot;你输入的内容是: &quot;, str
@@ -169,13 +169,130 @@ print &quot;你输入的内容是: &quot;, str
 &gt;&gt;你输入的内容是:  Hello Python！
 </code></pre>
 
-<p>input([prompt]) 和 raw_input([prompt]) 基本类似，但是 input 可以接收一个Python表达式作为输入，并将运算结果返回。</p>
+<p><code>input([prompt])</code>和 <code>raw_input([prompt])</code> 基本类似，但是 input 可以接收一个Python表达式作为输入，并将运算结果返回。</p>
 
 <pre><code class="language-python">str = input(&quot;请输入：&quot;)
 print &quot;你输入的内容是: &quot;, str
 ------------------------------
 &gt;&gt;请输入：[x*5 for x in range(2,10,2)]
 &gt;&gt;你输入的内容是:  [10, 20, 30, 40]
+</code></pre>
+
+<h5 id="toc_6">私有方法、属性</h5>
+
+<ul>
+<li><code>__private_attrs</code>：两个下划线开头，声明该属性为私有</li>
+<li><code>__private_method</code>：两个下划线开头，声明该方法为私有方法</li>
+</ul>
+
+<p>以使用 <code>object._className__attrName</code>访问私有属性，不能这样访问函数。</p>
+
+<pre><code class="language-python">class Runoob:
+    __site = &quot;www.runoob.com&quot;
+
+runoob = Runoob()
+print runoob._Runoob__site
+-------------
+&gt;&gt;www.runoob.com
+</code></pre>
+
+<h5 id="toc_7">下划线</h5>
+
+<ul>
+<li><code>__NAME__</code>:：定义的是特殊方法，一般是系统定义名字 ，类似 <code>__init__()</code> 之类的。</li>
+<li><code>_NAME</code>：protected </li>
+<li><code>__NAME</code>：private</li>
+</ul>
+
+<h5 id="toc_8">SQL</h5>
+
+<pre><code class="language-python">import MySQLdb
+
+# 打开数据库连接
+db = MySQLdb.connect(&quot;localhost&quot;, &quot;testuser&quot;, &quot;test123&quot;, &quot;TESTDB&quot;, charset=&#39;utf8&#39; )
+
+# 使用cursor()方法获取操作游标 
+cursor = db.cursor()
+
+# 使用execute方法执行SQL语句
+cursor.execute(&quot;SELECT VERSION()&quot;)
+
+# 使用 fetchone() 方法获取一条数据
+data = cursor.fetchone()
+
+sql = &quot;SELECT * FROM EMPLOYEE \
+       WHERE INCOME &gt; &#39;%d&#39;&quot; % (1000)
+try:
+   # 执行SQL语句
+   cursor.execute(sql)
+   # 获取所有记录列表
+   results = cursor.fetchall()
+   for row in results:
+      fname = row[0]
+      lname = row[1]
+      age = row[2]
+      sex = row[3]
+      income = row[4]
+      # 打印结果
+      print &quot;fname=%s,lname=%s,age=%d,sex=%s,income=%d&quot; % \
+             (fname, lname, age, sex, income )
+except:
+   print &quot;Error: unable to fecth data&quot;
+
+#提交修改
+db.commit()
+
+#回滚
+db.rollback()
+
+# 关闭数据库连接
+db.close()
+</code></pre>
+
+<h5 id="toc_9">多线程</h5>
+
+<h6 id="toc_10">thread模块</h6>
+
+<p>级别较低</p>
+
+<pre><code class="language-python">import thread
+ 
+# 为线程定义一个函数
+def func(a, b):
+   ...
+ 
+# 创建两个线程
+try:
+   thread.start_new_thread( func, (&quot;a&quot;, 1, ) )
+   thread.start_new_thread( func, (&quot;b&quot;, 2, ) )
+except:
+   print &quot;Error: unable to start thread&quot;
+</code></pre>
+
+<h6 id="toc_11">threading</h6>
+
+<p>直接从<code>threading.Thread</code>继承，然后重写<code>__init__</code>方法和<code>run</code>方法。</p>
+
+<pre><code class="language-python"> 
+import threading
+import time
+ 
+exitFlag = 0
+ 
+class myThread (threading.Thread):   
+    def __init__(self):
+        threading.Thread.__init__(self)
+        
+    def run(self):                  
+        ...
+ 
+# 创建新线程
+thread1 = myThread()
+thread2 = myThread()
+ 
+# 开启线程
+thread1.start()
+thread2.start()
 </code></pre>
 
 
@@ -186,6 +303,9 @@ print &quot;你输入的内容是: &quot;, str
       <div class="row">
         <div class="large-6 columns">
         <p class="text-left" style="padding:15px 0px;">
+      
+          <a href="15343369063361.html" 
+          title="Previous Post: ">&laquo; </a>
       
         </p>
         </div>
@@ -266,6 +386,12 @@ print &quot;你输入的内容是: &quot;, str
                 <div class="side-content">
                 <ul class="posts-list">
 	      
+		      
+			      <li class="post">
+			        <a href="15343369063361.html"></a>
+			      </li>
+		     
+		  
 		      
 			      <li class="post">
 			        <a href="15341698542806.html">THE VERY BASIC</a>
