@@ -4,7 +4,7 @@
   <title><![CDATA[think more]]></title>
   <link href="neillee1991.github.io/atom.xml" rel="self"/>
   <link href="neillee1991.github.io/"/>
-  <updated>2018-08-15T20:43:37+08:00</updated>
+  <updated>2019-09-21T00:34:27+08:00</updated>
   <id>neillee1991.github.io/</id>
   <author>
     <name><![CDATA[]]></name>
@@ -13,11 +13,169 @@
   <generator uri="http://www.mweb.im/">MWeb</generator>
   
   <entry>
-    <title type="html"><![CDATA[]]></title>
-    <link href="neillee1991.github.io/15343369063361.html"/>
-    <updated>2018-08-15T20:41:46+08:00</updated>
-    <id>neillee1991.github.io/15343369063361.html</id>
+    <title type="html"><![CDATA[DAY 1]]></title>
+    <link href="neillee1991.github.io/15689943745662.html"/>
+    <updated>2019-09-20T23:46:14+08:00</updated>
+    <id>neillee1991.github.io/15689943745662.html</id>
     <content type="html"><![CDATA[
+<h4 id="toc_0">变量</h4>
+
+<ul>
+<li>Julia允许重新定义内置常量和函数的值，前提是<strong>该常量或函数没有被引用过</strong>。</li>
+<li>命名规范
+
+<ul>
+<li>变量的名字采用小写。</li>
+<li>用下划线（<code>_</code>）分隔名字中的单词，但是不鼓励使用下划线， 除非在不使用下划线时名字会非常难读。</li>
+<li>类型（Type）和模块（Module）的名字使用大写字母开头，并且用大写字母 而不是用下划线分隔单词。</li>
+<li>函数（Function）和宏（Macro）的名字使用小写，不使用下划线。</li>
+<li>会对输入参数进行更改的函数要使用<code>!</code>结尾。这些函数有时叫做 “mutating” 或 “in-place” 函数，因为它们在被调用后，不仅仅会返回一些值 还会更改输入参数的内容。
+#### 数值类型</li>
+</ul></li>
+<li>字面量和原始数值类型
+
+<ul>
+<li>字面量（numeric literal）：整数和浮点数在代码中作为立即数（<code>1.0</code>，<code>1</code>的显示表示）时称作数值的字面量。</li>
+<li>原始数值类型（numeric primitive）：数值的内置表示（内存中二进制表示）。</li>
+</ul></li>
+<li>无符号整数
+
+<ul>
+<li><code>0b</code>/<code>0o</code>/<code>0x</code>前缀，以2/8/16进制输入输出。</li>
+<li>当字面量不是开头全是<code>0</code>时，它们二进制数据项的位数会是最少需要的位数。</li>
+<li>当开头都是<code>0</code>时，位数取决于一个字面量需要的最少位数，这里的字面量指的是一个有着同样长度但开头都为<code>1</code>的数。</li>
+<li>无符号数前加<code>-</code>号，产生补码数。</li>
+</ul></li>
+<li>可以用下划线作为数字的分隔符。</li>
+</ul>
+
+<pre><code class="language-julia">julia&gt; 10_000, 0.000_000_005, 0xdead_beef, 0b1011_0010
+(10000, 5.0e-9, 0xdeadbeef, 0xb2)
+</code></pre>
+
+<ul>
+<li><p>特殊值：<code>Inf</code>/<code>-Inf</code>/<code>NaN</code></p></li>
+<li><p>除<code>0</code></p>
+
+<ul>
+<li>整数类型除<code>0</code>报错。</li>
+<li>浮点数类型除<code>0</code>同数学。<br/></li>
+</ul></li>
+<li><p>字面量系数：变量直接跟在一个数值字面量后，暗指乘法。<code>2x^2 - 3x + 1</code>等价于<code>2*x^2-3*x+1</code>，优先级同一元操作符。<code>2^3x---&gt;2^(3x)</code>，<code>2x^3---&gt;2*(x^3)</code>。</p>
+
+<ul>
+<li>也可以作用于括号：<code>2(x-1)</code>或者<code>(x-1)x</code>，但是<code>(x-1)(x-1)</code>或者<code>x(x-1)</code>不行。</li>
+</ul></li>
+</ul>
+
+<h4 id="toc_1">运算符</h4>
+
+<ul>
+<li><code>Dot</code>操作：每个二元运算符都有一个<code>Dot</code>运算符对应，<code>.^</code>与<code>^</code>对应，将<code>^</code>广播到数组上。
+
+<ul>
+<li>将点运算符用于数值字面量可能会导致歧义。例如，<code>1.+x</code>到底是表示<code>1. + x</code>还是 <code>1 .+ x？</code>这会令人疑惑。因此不允许使用这种语法，遇到这种情况时，必须明确地用空格消除歧义。</li>
+</ul></li>
+</ul>
+
+<pre><code class="language-julia">julia&gt; [1,2,3] .^ 3
+3-element Array{Int64,1}:
+  1
+  8
+ 27
+
+#三者等价
+a .^ b
+(^).(a,b)
+@. a^b
+</code></pre>
+
+<ul>
+<li>特殊数值比较
+
+<ul>
+<li><code>+0</code>&lt;=<code>-0</code></li>
+<li><code>Inf</code>=<code>Inf</code>，<code>Inf</code>大于除了<code>NaN</code>的所有数</li>
+<li><code>NaN</code>不等于、不小于且不大于任何数值，包括它自己（用<code>==</code>时）</li>
+<li><code>isequal(NaN, NaN)</code>可以返回<code>true</code></li>
+</ul></li>
+</ul>
+
+<pre><code class="language-julia">julia&gt; isequal([1 NaN], [1 NaN])
+true
+
+julia&gt; isequal(NaN, NaN32)
+true
+
+julia&gt; -0.0 == 0.0
+true
+
+julia&gt; isequal(-0.0, 0.0)
+false
+</code></pre>
+
+<ul>
+<li>链式比较</li>
+</ul>
+
+<pre><code class="language-julia">julia&gt; 1 &lt; 2 &lt; 3 != 5
+true
+</code></pre>
+
+<p>注意链式比较的执行顺序：</p>
+
+<pre><code class="language-julia">julia&gt; v(x) = (println(x); x)
+v (generic function with 1 method)
+
+julia&gt; v(1) &lt; v(2) &lt;= v(3)
+2
+1
+3
+true
+
+julia&gt; v(1) &gt; v(2) &lt;= v(3)
+2
+1
+false
+</code></pre>
+
+<h4 id="toc_2">数值转换</h4>
+
+<ul>
+<li><p>Julia 支持三种数值转换，它们在处理不精确转换上有所不同。</p>
+
+<ul>
+<li><p><code>T(x)</code>和<code>convert(T,x)</code>都会把<code>x</code>转换为<code>T</code>类型。</p>
+
+<ul>
+<li>如果<code>T</code>是浮点类型，转换的结果就是最近的可表示值，可能会是正负无穷大。</li>
+<li>如果<code>T</code>为整数类型，当<code>x</code>不为<code>T</code>类型时，会触发<code>InexactError</code></li>
+</ul></li>
+<li><p><code>x % T</code> 将整数<code>x</code>转换为整型<code>T</code>，与<code>x</code>模<code>2^n</code>的结果一致，其中<code>n</code>是<code>T</code>的位数。换句话说，如果用二进制表示是被砍掉一部分的。</p></li>
+<li><p>舍入函数 接收一个<code>T</code>类型的可选参数。比如，<code>round(Int,x)</code>是<code>Int(round(x))</code> 的简写版。</p></li>
+</ul></li>
+</ul>
+
+<h4 id="toc_3">复数和有理数</h4>
+
+<ul>
+<li>全局常量<code>im</code>被绑定到复数\(i\)</li>
+<li>数学函数通常应用于实数就返回实数值，应用于复数就返回复数值。</li>
+</ul>
+
+<pre><code class="language-julia">julia&gt; sqrt(-1)
+ERROR: DomainError with -1.0:
+sqrt will only return a complex result if called with a complex argument. Try sqrt(Complex(x)).
+Stacktrace:
+[...]
+
+julia&gt; sqrt(-1 + 0im)
+0.0 + 1.0im
+</code></pre>
+
+<ul>
+<li>用变量构建复数时，建议用<code>complex</code>函数：<code>complex(a, b)=a+b*im</code></li>
+</ul>
 
 ]]></content>
   </entry>
